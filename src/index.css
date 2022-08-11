@@ -1,0 +1,85 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/*----------------Home Components----------------------*/
+
+.AdbarLeft{
+  clip-path: polygon(0 0,70% 0%,100% 100%, 0% 100%);
+  width: 305px;
+  display: relative;
+}
+
+.AdbarRight{
+  clip-path: polygon(0 0,69.5% 0%,100% 100%, 0% 100%);
+  width: 300px;
+  display: absolute;
+  z-index: 20;
+}
+
+
+/*--------------DailyDealsItem Components----------------*/
+
+.Itemprogress{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 10px;
+}
+.Itemprogress span {
+  color: #FF2164;
+}
+
+.Progressbar{
+  width: 100%;
+  height: 4%;
+  background-color: #FF2164;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+.DTC1{
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.OfferEnds{
+  color: #8E8E8E;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.Counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: #E4E4E4;
+  height: 68%;
+  width: 100%;
+}
+
+/* Main Slider */
+
+.slideItem{
+  background-color: #fff;
+  /* width: 100%;
+  height: 100%; */
+  border-radius: 5px;
+}
