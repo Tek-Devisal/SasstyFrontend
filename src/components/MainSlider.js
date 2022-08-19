@@ -22,7 +22,7 @@ const MainSlider = () => {
             modules={[ Autoplay, Pagination, Navigation]}
             loop={true}
             autoplay={{
-                delay: 1500,
+                delay: 5000,
                 disableOnInteraction: false,
             }}
             // breakpoints={{

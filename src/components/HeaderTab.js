@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Link } from "react-router-dom";
 
 const Accordion = ({title, content}) => {
 
@@ -19,7 +20,7 @@ const Accordion = ({title, content}) => {
                 <Espansion><p>{isActive? <KeyboardArrowUpIcon />:<KeyboardArrowDownIcon/>}</p></Espansion>
             </AccordionTitle>
             {isActive && <AccordionContent key={title}>
-                <p>{content}</p>
+            <Link to="/product-list">{content.map(element => <p key={element}>{element}</p>)}</Link>
             </AccordionContent>}
         </AccordionContainer>
     </div>
@@ -68,12 +69,34 @@ const AccordionContent = styled.div`
     margin-top: 0.2vh;
     /* border: 1px solid white; */
 
-    > p {
+    > a {
+        color: #FF2164;
+        padding: 10px;
+        padding-left: 50px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        cursor: pointer;
+        white-space: nowrap;
+        /* margin-top: 25px; */
+        text-decoration: none;
+        font-family: 'Noto Sans', sans-serif;
+
+        /* &:hover {
+            color: #333;
+            text-decoration: underline;
+        } */
+    }
+
+    /* > p {
         color: #333;
         padding: 10px;
-        padding-left: 30px;
-        font-size: 19px;
-    }
+        padding-left: 50px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 0.4;
+        cursor: pointer;
+    } */
 `
 const Title = styled.div`
     display: flex;
@@ -81,7 +104,7 @@ const Title = styled.div`
     padding-left: 30px;
 
     > p {
-        font-size: 18px;
+        font-size: 17px;
         color: #333;
     }
 `

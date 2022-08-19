@@ -1,170 +1,281 @@
-// import 'bootstrap/dist/css/bootstrap.css'
-import { useState } from 'react'
-import styled from "styled-components"
-// import navtrans from '../styles/navtrans.js'
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
 import NavbarTwo from './NavbarTwo';
+// import {LocationOnOutlinedIcon } from '@mui/icons-material';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
+import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 
 const Navbar = () => {
-    
-    const [isOpen, setIsOpen] = useState(false)
-    
-
   return (
-      
     <>
-        <NavbarContainer className='navbar'>
-            {/* <NavLogo>
-                <img priority={true} className='NavbarImage' src="/hatchlogo.png" width="270px" height="60px" alt='Logo' />
-            </NavLogo> */}
-                {/* <Burger /> */}
-            <NavLinks>
-                <Link to="/">Terms of use</Link>
-                <Link to="/about">Sell on Sassty</Link>
-                <Link to="/projects">Referral</Link>
-                <Link to="/media">SasstyPLUS</Link>
-                <Link to="/partnerships">Track your order</Link>
-                <Link to="/team">Help</Link>
-            </NavLinks>
-            {/* <Burger /> */}
-            <OpenLinksButton onClick={()=> {setIsOpen(!isOpen)}}>
-                {isOpen ? <>&#10005;</> : <>&#8801;</>}
-                
-            </OpenLinksButton>
-            {isOpen && (
-                <NavbarHumburgerContainer>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/projects">Projects</Link>
-                    <Link to="/media">Media</Link>
-                    <Link to="/partnerships">Partnerships</Link>
-                    <Link to="/team">Our Team</Link>
-                </NavbarHumburgerContainer>
-            )}
-        </NavbarContainer>
-        <NavbarTwo />
+    <NavbarContainer>
+        <LogoContainer>
+            <img src="/Images/logo.png" alt="logo" />
+        </LogoContainer>
+        <DeliveryLocationContainer>
+            <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} />
+            <p><span>Deliver to</span><br/> Ghana</p>
+        </DeliveryLocationContainer>
+        <SearchBarContainer>
+            <FormContainer>
+                <Form>
+                    <CustomSearch>
+                        <p>All</p>
+                        <ArrowDropDownIcon style={{color: "black", marginTop: "2px"}} />
+                    </CustomSearch>
+                    <FormInput type="email" />
+                    <FormButton>
+                        <SearchSharpIcon style={{color: "#333"}}/>
+                    </FormButton>
+                </Form>
+            </FormContainer>
+        </SearchBarContainer>
+        <FlagContainer>
+            <img style={{height: "17px", width: "25px"}} src="/Images/ghflag.png" alt="flag" />
+            <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
+        </FlagContainer>
+        <SignInContainer>
+            <p>Hello, Sign in<br/><span>Account & List</span></p>
+            <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
+        </SignInContainer>
+        <ReturnNordersContainer>
+            <p>Return <br/><span>& Orders</span></p>
+        </ReturnNordersContainer>
+        <CartContainer>
+            <AddShoppingCartSharpIcon style={{color: "white", fontSize: "40px"}} />
+        </CartContainer>
+    </NavbarContainer>
+    <NavbarTwo />
     </>
   )
-};
+}
 
-export default Navbar;
+export default Navbar
 
 const NavbarContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* bottom border shadow */
-    /* box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75); */
-    position: relative; /* Make it stick/fixed */
-    top: 0; /* Stay on top */
-    z-index: 3; /* Stay on top */
-    width: 100%; /* Full width */
-    transition: top 0.3s;
-    /* overflow: hidden; */
-    background-color: #FF2164;
-    height: 70px;
-    /* width: 218.5vh; */
-    /* border: 1px solid black; */
-
-    /* @media only screen and (min-device-width : 0px) and (max-device-width :768px){
-        display: none;
-    } */
-    
-`
-const NavLogo = styled.div`
-    justify-content: center;
     align-items: center;
-    margin-left: 10px;
-    padding-top: 10px;
-     /* border: 1px solid black; */
-
-    @media (max-width: 768px) {
-        > img {
-            width: 230px;
-            height: 50px;
-        }
-    }
-
-    `
-const NavLinks = styled.div`
+    top: 0;
+    left: 0;
+    height: 54px;
+    width: auto;
+    position: relative;
+    background-color: #FF2164;
+    padding-right: 10px;
+    padding-left: 10px;
+`
+const LogoContainer = styled.div`
+    flex: 0.083;
+    /* border: 1px solid white; */
     display: flex;
     flex-direction: row;
-    margin-right: 60px;
-    justify-content: space-between;
-    height: 50px;
-    /* width: 700px; */
-    /* border: 1px solid #ccc; */
-    margin-top: 15px;
-    /* padding-bottom: 20px; */
-    padding-top: 10px;
-    /* box-sizing: border-box; */
+    justify-content: center;
+    align-items: center;
+    height: 80%;
 
-    @media only screen and (min-device-width : 0px) and (max-device-width :768px){
-        display: none;
+    > img {
+        height: 26px;
+        width: 90px;
     }
+`
+const DeliveryLocationContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 0.074;
+    height: 80%;
+    /* border: 1px solid white; */
+    padding: 5px 5px 20px 5px;
+    
 
-    > a {
-        margin-left: 20px;
-        white-space: nowrap;
-        /* margin-top: 25px; */
-        text-decoration: none;
+    > p {
+        line-height: 12px;
+        font-size: 14px;
+        font-weight: bold;
         color: #fff;
-        font-size: 20px;
-        font-weight: 600;
-        /* font-family: 'Noto Sans', sans-serif; */
+        margin-left: 2px;
+        margin-bottom: 2px;
+        font-family: Arial, sans-serif;
 
-        &:hover {
+        > span {
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 500;
+            
+        }
+    }
+`
+const SearchBarContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0.562;
+    /* border: 1px solid white; */
+    height: 80%;
+    /* width: auto; */
+
+`
+const FlagContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0.05;
+    height: 80%;
+    /* border: 1px solid white; */
+`
+const SignInContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0.093;
+    height: 80%;
+    /* border: 1px solid white; */
+
+    > p {
+        line-height: 12px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #fff;
+        margin-left: 2px;
+        margin-bottom: 2px;
+        /* font-family: Arial, sans-serif; */
+
+        > span {
+            font-size: 12px;
             color: #fff;
-            /* font-size: 20px; */
-            border-bottom: 5px solid #66a3a3;
+            font-weight: bold;
         }
 
     }
-
 `
-const NavbarHumburgerContainer = styled.div`
-/* @media only screen and (min-device-width : 0px) and (max-device-width :768px){ */
-        display: flex;
-        height: auto;
-        width: 300px;
-        top: 0;
-        right: 0;
-        flex-direction: column;
-        position: fixed;
-        justify-content: space-around;
-        align-items: center;
-        margin-right: 0px;
-        margin-top: 0px;
-        padding-top: 50px;
-        background-color: #333;
-        /* color: #fff; */
-        opacity: 0.95;
-        overflow: scroll !important;
+const ReturnNordersContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0.073;
+    height: 80%;
+    /* border: 1px solid white; */
 
-        
-        /* transform: translate(-0%, -0%); */
+    > p {
+        line-height: 12px;
+        font-size: 11px;
+        color: #fff;
+        margin-left: 2px;
+        margin-bottom: 2px;
+        /* font-family: Arial, sans-serif; */
 
-        > a {
-            text-decoration: none;
-            white-space: nowrap;
+        > span {
+            font-size: 13px;
             color: #fff;
-            padding-bottom: 3rem;
+            font-weight: bold;
         }
-        
-    /* } */
-`
 
-const OpenLinksButton = styled.div`
-    width: 70px;
-    height: 50px;
-    background: none;
+    }
+`
+const CartContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0.063;
+    height: 80%;
+    /* border: 1px solid white; */
+`
+export const FormContainer = styled.div`
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid white; */
+    width: auto;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+    padding-block-end: 0em;
+    padding-block-start: 0em;
+`
+export const Form = styled.form`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid white; */
+    width: 100%;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+    padding-block-end: 0em;
+    padding-block-start: 0em;
+    
+
+`
+export const FormInput = styled.input`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    height: 33px;
+    width: 555px;
+    /* border left redius */
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid #ccc;
+    outline: none;
     border: none;
-    color: #fff;
-    font-size: 45px;
-    cursor: pointer;
-    z-index: 10;
+    font-size: 1.2rem;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding-left: 10px;
+    /* opacity: 0.8 */
+    /* border: 1px solid white; */
 
-    @media (min-width: 768px) {
-        display: none;
+`
+export const FormButton = styled.button`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 35px;
+    width: 50px;
+    background-color: #EFB05E;
+    color: white;
+    font-size: 1.7rem;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    /* font-weight: 50; */
+`
+const CustomSearch = styled.button`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 35px;
+    width: 50px;
+    border: none;
+    outline: none;
+    background-color: #DADADA;
+    
+    border-radius: 3px 0px 0px 3px;
+    
+    cursor: pointer;
+
+    > p {
+        font-size: 0.7rem;
+        padding-left: 5px;
+        color: #333;
     }
+
 `
