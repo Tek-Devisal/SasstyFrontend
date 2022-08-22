@@ -78,7 +78,7 @@ const LogoContainer = styled.div`
     height: 95%;
 
     > img {
-        height: 26px;
+        height: 100%;
         width: 90px;
     }
 `
