@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
     <NavbarContainer>
         <LogoContainer>
-            <img src="/Images/logo.png" alt="logo" />
+            <img src="/Images/logo.pngi" alt="logo" />
         </LogoContainer>
         <DeliveryLocationContainer>
             <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} />
@@ -27,7 +27,7 @@ const Navbar = () => {
                     </CustomSearch>
                     <FormInput type="email" />
                     <FormButton>
-                        <SearchSharpIcon style={{color: "#333"}}/>
+                        <SearchSharpIcon style={{color: "#fff"}}/>
                     </FormButton>
                 </Form>
             </FormContainer>
@@ -244,9 +244,9 @@ export const FormButton = styled.button`
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 35px;
+    height: 34px;
     width: 50px;
-    background-color: #EFB05E;
+    background-color: #A71642;
     color: white;
     font-size: 1.7rem;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -262,7 +262,7 @@ const CustomSearch = styled.button`
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 35px;
+    height: 34px;
     width: 50px;
     border: none;
     outline: none;
