@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
     <NavbarContainer>
         <LogoContainer>
-            <img src="/Images/logo.pngi" alt="logo" />
+            <img src="/Images/sasstylogo.jpeg" alt="logo" />
         </LogoContainer>
         <DeliveryLocationContainer>
             <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} />
