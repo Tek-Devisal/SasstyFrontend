@@ -75,11 +75,11 @@ const LogoContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 95%;
+    height: 90%;
 
     > img {
         height: 100%;
-        width: 90px;
+        width: 100px;
     }
 `
 const DeliveryLocationContainer = styled.div`
