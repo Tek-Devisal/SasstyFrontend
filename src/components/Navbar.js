@@ -75,7 +75,7 @@ const LogoContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 95%;
 
     > img {
         height: 26px;
