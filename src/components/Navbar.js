@@ -90,7 +90,7 @@ const DeliveryLocationContainer = styled.div`
     flex: 0.074;
     height: 80%;
     /* border: 1px solid white; */
-    padding: 5px 5px 20px 5px;
+    padding: 10px 5px 20px 5px;
     
 
     > p {
