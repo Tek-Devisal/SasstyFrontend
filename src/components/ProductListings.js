@@ -38,11 +38,12 @@ const ComponentWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     width: 180px;
-    height: 50%;
+    height: 320px;
     margin-right: 25px;
     margin-bottom: 15px;
     /* background-color: #c4bdbd; */
     border-radius: 10px;
+    cursor: pointer;
 `
 const ProductImage = styled.div`
     display: flex;
@@ -53,8 +54,8 @@ const ProductImage = styled.div`
     /* border-radius: 10px 10px 0px 0px; */
 
     > img {
-        height: 100%;
-        width: 100%;
+        height: 200px;
+        width: 200px;
         background-size: cover;
     }
 `

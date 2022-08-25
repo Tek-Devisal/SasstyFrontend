@@ -6,13 +6,14 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
     <NavbarContainer>
         <LogoContainer>
-            <img src="/Images/sasstylogo.jpeg" alt="logo" />
+            <Link to="/"><img src="/Images/sasstylogo.jpeg" alt="logo" /></Link>
         </LogoContainer>
         <DeliveryLocationContainer>
             <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} />
@@ -77,7 +78,7 @@ const LogoContainer = styled.div`
     align-items: center;
     height: 85%;
 
-    > img {
+    > a img {
         height: 100%;
         width: 100px;
     }

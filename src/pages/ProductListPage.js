@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import HeaderTab from '../components/HeaderTab';
 import ProductListings from '../components/ProductListings';
+import Footer from '../components/Footer';
 
 
 const ProductList = () => {
@@ -47,8 +48,27 @@ const ProductList = () => {
                 <ProductListings />
                 <ProductListings />
                 <ProductListings />
+                <SortPanel>
+                    <p>Sort</p>
+                    <Panel>
+                        <p>Popular</p>
+                        <p>|</p>
+                        <p>Newest</p>
+                        <p>|</p>
+                        <p>Most Reviews</p>
+                        <p>|</p>
+                        <p>Price</p>
+                    </Panel>
+                </SortPanel>
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                
             </MainContent>
         </PageWrapper>
+        <Footer />
     </>
   )
 }
@@ -105,4 +125,37 @@ const AccordionWrapper = styled.div`
     ::-webkit-scrollbar {
         display: none;
     }
+`
+const SortPanel = styled.div`
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+`
+const Panel = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 32px;
+    width: 450px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    margin-left: 15px;
+    opacity: 0.3;
+    cursor: pointer;
+
+    >p{
+        margin-block-end: 3px;
+    }
+
+    p:active, p:hover, p::selection{
+        color: red;
+        opacity: 1;
+    }
+
 `
