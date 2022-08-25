@@ -284,6 +284,7 @@ const PageHeader = styled.div`
 const GridCategory = styled.div`
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
     /* justify-content: center; */
     /* align-items: center; */
     width: 100%;

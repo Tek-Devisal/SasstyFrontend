@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import HeaderTab from '../components/HeaderTab';
+import ProductListings from '../components/ProductListings';
 
 
 const ProductList = () => {
@@ -36,7 +37,16 @@ const ProductList = () => {
                 
             </LeftSidebar>
             <MainContent>
-
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
+                <ProductListings />
             </MainContent>
         </PageWrapper>
     </>
@@ -47,7 +57,7 @@ export default ProductList
 
 const PageWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     /* justify-content: center; */
     /* align-items: center; */
     background-color: #FDFDFD;
@@ -62,22 +72,26 @@ const LeftSidebar = styled.div`
     flex-direction: column;
     height: auto;
     background-color: #FDFDFD;
-    width: 25%;
+    width: 20%;
     
 
 `
 const MainContent = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* border: 1px solid red; */
     /* flex: 0.75; */
-    width: 75%;
+    width: 80%;
     /* justify-content: center; */
-    align-items: center;
+    /* align-items: center; */
+    padding-left: 20px;
+    flex-wrap: wrap;
     background-color: #FDFDFD;
 `
 const AccordionWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
     /* justify-content: center; */
     /* align-items: center; */
     /* width: 100%; */
@@ -85,6 +99,7 @@ const AccordionWrapper = styled.div`
     background-color: #B7B7BA;
     width: 100%;
     /* gap: 2px; */
+    z-index: 1;
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
