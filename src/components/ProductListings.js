@@ -26,7 +26,6 @@ const ProductListings = () => {
                 </Button>
             </ProductDetails>
         </ComponentWrapper>
-        
     </>
   )
 }

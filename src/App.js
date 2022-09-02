@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './pages/Home';
 import ProductListing from './pages/ProductListPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/product-list" element={<ProductListing />} />
+          <Route path="/product-details" element={<ProductDetailPage />} />
         </Routes>
       </div>
     </Router>

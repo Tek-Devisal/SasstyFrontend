@@ -522,7 +522,7 @@ const Adbar = styled.div`
 
     }
  `
- const TrendingItemsHead = styled.div`
+ export const TrendingItemsHead = styled.div`
     display: flex;
     height: 50px;
     width: 98%;

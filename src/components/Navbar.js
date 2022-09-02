@@ -34,7 +34,8 @@ const Navbar = () => {
             </FormContainer>
         </SearchBarContainer>
         <FlagContainer>
-            <img style={{height: "17px", width: "25px"}} src="/Images/ghflag.png" alt="flag" />
+            {/* <img style={{height: "17px", width: "25px"}} src="/Images/ghflag.png" alt="flag" /> */}
+            <p>Track</p>
             <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
         </FlagContainer>
         <SignInContainer>
@@ -92,6 +93,7 @@ const DeliveryLocationContainer = styled.div`
     height: 80%;
     /* border: 1px solid white; */
     padding: 2px 5px 7px 5px;
+    cursor: pointer;
     
 
     > p {
@@ -129,7 +131,17 @@ const FlagContainer = styled.div`
     align-items: center;
     flex: 0.05;
     height: 80%;
+    cursor: pointer;
     /* border: 1px solid white; */
+
+    p{
+        line-height: 12px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #fff;
+        /* margin-left: 2px; */
+        /* margin-bottom: 2px; */
+    }
 `
 const SignInContainer = styled.div`
     display: flex;
@@ -138,6 +150,7 @@ const SignInContainer = styled.div`
     align-items: center;
     flex: 0.093;
     height: 80%;
+    cursor: pointer;
     /* border: 1px solid white; */
 
     > p {
@@ -164,6 +177,7 @@ const ReturnNordersContainer = styled.div`
     align-items: center;
     flex: 0.073;
     height: 80%;
+    cursor: pointer;
     /* border: 1px solid white; */
 
     > p {
@@ -189,6 +203,7 @@ const CartContainer = styled.div`
     align-items: center;
     flex: 0.063;
     height: 80%;
+    cursor: pointer;
     /* border: 1px solid white; */
 `
 export const FormContainer = styled.div`

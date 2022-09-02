@@ -5,6 +5,8 @@ import HeaderTab from '../components/HeaderTab';
 import ProductListings from '../components/ProductListings';
 import Footer from '../components/Footer';
 
+import { Link } from "react-router-dom";
+
 
 const ProductList = () => {
 
@@ -38,7 +40,7 @@ const ProductList = () => {
                 
             </LeftSidebar>
             <MainContent>
-                <ProductListings />
+                <Link to="/product-details"><ProductListings /></Link>
                 <ProductListings />
                 <ProductListings />
                 <ProductListings />
@@ -107,6 +109,11 @@ const MainContent = styled.div`
     padding-left: 20px;
     flex-wrap: wrap;
     background-color: #FDFDFD;
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
 `
 const AccordionWrapper = styled.div`
     display: flex;
