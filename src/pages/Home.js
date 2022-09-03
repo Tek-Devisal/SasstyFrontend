@@ -29,6 +29,7 @@ import {
 
 // Material UI Icons
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import TopRankings from '../components/TopRankings';
 
 
 
@@ -79,6 +80,7 @@ const Home = () => {
 
                 </GridSlideMiddle> */}
                 <GridSlideButton>
+                    <TopRankings />
                 </GridSlideButton>
             </GridMiddle>
             <GridLast>
@@ -324,7 +326,7 @@ const GridLast = styled.div`
 
 
 const GridSlideUp = styled.div`
-    background-color: #B7B7BA;
+    background-color: #F7F7F7;
     /* flex: 0.7; */
     height: 70%;
     border-radius: 10px;
@@ -341,12 +343,12 @@ const GridSlideMiddle = styled.div`
 `
 
 const GridSlideButton = styled.div`
-    background-color: #B7B7BA;
+    background-color: #F7F7F7;
     display: flex;
     flex-direction: row;
     /* flex: 0.3; */
     height: 30%;
-    gap: 10px;
+    /* gap: 10px; */
     border-radius: 10px;
 `
 const PageBody = styled.div`
