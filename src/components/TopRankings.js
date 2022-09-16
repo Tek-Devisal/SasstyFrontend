@@ -60,6 +60,7 @@ const SectionOne = styled.div`
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
+    cursor: pointer;
     /* margin-top: 20px; */
     /* border: 1px solid red; */
 `
@@ -74,6 +75,7 @@ const SectionTwo = styled.div`
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
+    cursor: pointer;
 `
 const ProductAndPrice = styled.div`
     display: flex;

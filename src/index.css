@@ -83,3 +83,19 @@ code {
   height: 100%; */
   border-radius: 5px;
 }
+
+/* Detailed Page Product counter */
+.item-counter{
+  display: flex;
+  /* text-transform: ; */
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #333;
+  height: 30px;
+  width: 120px;
+  border: 1px solid #E4E4E4;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin: 0 auto; */
+
+}
