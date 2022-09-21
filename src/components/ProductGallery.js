@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
+import ReactImageZoom from 'react-image-zoom';
+
 
 const ProductGallery = () => {
 
@@ -10,16 +12,20 @@ const ProductGallery = () => {
       setSelectedImg(index);
     };
 
+    const props = {width: 400, height: 250, zoomWidth: 500, img: "1.jpg"};
 
   return (
     <div>
         <Container>
             {image.map((image, index) => (
-                <ImageContainerSmall id={index} onClick={() => handleClick(index)}>
+                <ImageContainerSmall selectedImg id={index} onClick={() => handleClick(index)}>
                     <img src={image} width="100%" height="100%" alt="Product Item" />
                 </ImageContainerSmall>
             ))}
-            <ImageContainerMain><img style={{objectFit: 'cover', width: "100%", height:"100%"}}  src={image[selectedImg]} alt="Product" /></ImageContainerMain>
+            <ImageContainerMain>
+                {/* <ReactImageZoom width="400px" height="250" zoomWidth="500" img={image[selectedImg]} /> */}
+                <img style={{objectFit: 'cover', width: "100%", height:"100%"}}  src={image[selectedImg]} alt="Product" />
+                </ImageContainerMain>
         </Container>
     </div>
   )
@@ -42,6 +48,8 @@ const ImageContainerSmall = styled.div`
   grid-column: 1 / 2;
   background-color: #f2f2f2;
   width: 5rem;
+  /* background color prop */
+  /* border: ${props => props.selectedImg ? "1px solid red" : "1px solid blue"}; */
 `;
 
 const ImageContainerMain = styled.div`
