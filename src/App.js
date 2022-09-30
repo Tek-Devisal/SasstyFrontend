@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import ProductListing from './pages/ProductListPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import SellOnSassty from './pages/SellOnSassty';
+import Cart from './pages/Cart';
 import {MegaMenuProvider } from "./ContextAPI/MegaMenuContext"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/product-list" element={<ProductListing />} />
           <Route path="/product-details" element={<ProductDetailPage />} />
           <Route path="/sell" element={<SellOnSassty/>} />
+          <Route path="/cart" element={<Cart/>} />
         </Routes>
       </div>
     </Router>

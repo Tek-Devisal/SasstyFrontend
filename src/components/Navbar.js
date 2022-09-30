@@ -46,7 +46,7 @@ const Navbar = () => {
             <p>Return <br/><span>& Orders</span></p>
         </ReturnNordersContainer>
         <CartContainer>
-            <AddShoppingCartSharpIcon style={{color: "white", fontSize: "40px"}} />
+            <Link to="/cart"><AddShoppingCartSharpIcon style={{color: "white", fontSize: "40px"}} /></Link>
         </CartContainer>
     </NavbarContainer>
     <NavbarTwo />

@@ -10,8 +10,9 @@ const TheMegaMenu = ({title, content}) => {
     <div>
         <MegaMenu>
             <TheMenu openMenu = {openMenu}>
-                {/* <p>{title}</p> */}
-                {content.map(element => <p key={title}>{element}</p>)}
+                <p>{title}</p>
+                {/* {content.map(element => <p key={title}>{element}</p>)} */}
+                {/* <p>{content}</p> */}
             </TheMenu>
       </MegaMenu>
     </div>
