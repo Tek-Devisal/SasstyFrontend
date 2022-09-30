@@ -1,28 +1,35 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import styled from 'styled-components';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from "react-router-dom";
+import MegaMenuChoiceContext from "../ContextAPI/MegaMenuContext"
+
 
 const Accordion = ({title, content}) => {
 
     const [isActive, setIsActive] = useState(false)
+    const { openMenu, setOpenMenu } = useContext(MegaMenuChoiceContext);
 
     
-
   return (
     <div>
          <AccordionContainer>
             <AccordionTitle  onClick={()=>{setIsActive(!isActive)}}>
                 <Title>
-                    <p>{title}</p>
+                    <p 
+                        onMouseEnter={()=>{setOpenMenu(true)}}
+                        onMouseLeave={()=>{setOpenMenu(false)}}
+                        >
+                        {title}</p>
                 </Title>
                 <Espansion><p>{isActive? <KeyboardArrowUpIcon />:<KeyboardArrowDownIcon/>}</p></Espansion>
             </AccordionTitle>
             {isActive && <AccordionContent key={title}>
-            <Link to="/product-list">{content.map(element => <p key={element}>{element}</p>)}</Link>
+            <Link to="/product-list">{content.map(element => <p key={title}>{element}</p>)}</Link>
             </AccordionContent>}
         </AccordionContainer>
+        
     </div>
   )
 }
@@ -125,3 +132,9 @@ const Espansion = styled.div`
         font-size: 2.5rem;
     }
 `
+// const MegaMenu = styled.div`
+//     display: relative;
+//     width: 500px;
+//     height: 500px;
+//     border: 1px solid red;
+// `
