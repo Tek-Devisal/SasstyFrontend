@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
+import { Link } from "react-router-dom";
 
 const NavbarTwo = () => {
   return (
     <NavbarContainer>
         <NavContent>
             <MenuSharpIcon style={{color: "#fff"}}/>
-            <p>All</p>
-            <p>Today's Deal</p>
-            <p>Customer Service</p>
-            <p>Registry</p>
-            <p>Gift Cards</p>
-            <p>Sell</p>
+            <a>All</a>
+            <a>Today's Deal</a>
+            <a>Customer Service</a>
+            <a>Registry</a>
+            <a>Gift Cards</a>
+            <Link to="/sell"><a>Sell</a></Link>
         </NavContent>
     </NavbarContainer>
   )
@@ -39,11 +40,12 @@ const NavContent = styled.div`
     height: 100%;
     background-color: #A71642;
 
-    > p {
+    > a {
         color: #fff;
         font-size: 13px;
         font-weight: 400;
         margin-left: 10px;
         font-family: Arial, sans-serif;
+        text-decoration: none;
     }
 `
