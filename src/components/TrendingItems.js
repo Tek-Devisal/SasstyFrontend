@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
+import { BASE_URL } from '../pages/Home';
 
-const TrendingItems = () => {
+const TrendingItems = ({items}) => {
+    console.log("Image Link", items.img_1)
   return (
     <ComponentWrapper>
          <ProductImage>
-                <img src='/Images/watch.png' alt='Product Item'/>
+                
+                <img src={`${BASE_URL}${items.img_1}`} alt='Product Item'/>
             </ProductImage>
             <ProductDetails>
-                <p>north edge aqua</p>
+                <p>{items.name}</p>
         </ProductDetails>
     </ComponentWrapper>
   )
@@ -35,7 +38,7 @@ const ProductImage = styled.div`
     /* border-radius: 10px 10px 0px 0px; */
 
     > img {
-        height: 70%;
+        height:80%;
         width: 100%;
         background-size: cover;
     }

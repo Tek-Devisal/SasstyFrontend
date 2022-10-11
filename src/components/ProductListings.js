@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { BASE_URL } from '../pages/Home';
 
 import { 
     Button,
@@ -10,17 +11,18 @@ import {
 } from '@mui/material';
 
 
-const ProductListings = () => {
+const ProductListings = ({items}) => {
+    console.log("Product name: ",items)
   return (
     <>
         <ComponentWrapper>
             <ProductImage>
-                <img src='/Images/shirt.png' alt='Product Item'/>
+                <img src={`${BASE_URL}${items?.img_1}`} alt='Product Item'/>
             </ProductImage>
             <ProductDetails>
-                <p style={{fontSize: "14px", color: '#F93C00'}}>$120.00 <br/><span>$130.00</span> 8% off</p>
-                <p>Black Shirt</p>
-                <p>Any other descriptions</p>
+                <p style={{fontSize: "14px", color: '#F93C00'}}>GH¢{items?.prize} <br/><span>GH¢{items?.prize}</span> 8% off</p>
+                <p>{items?.name}</p>
+                <p>{items?.description}</p>
                 <Button style={{marginTop: "5px", width: "100px", height: "30px", borderRadius: "5px", backgroundColor: "#FF7A00", fontSize:"13px", textTransform: "capitalize"}} variant="contained" size="small">
                     Shop now
                 </Button>
@@ -53,7 +55,7 @@ const ProductImage = styled.div`
     /* border-radius: 10px 10px 0px 0px; */
 
     > img {
-        height: 200px;
+        height: 250px;
         width: 200px;
         background-size: cover;
     }

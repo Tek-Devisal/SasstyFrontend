@@ -1,31 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 // import { ComponentWrapper } from './ThirdSidebarCom';
+import axios from 'axios';
+import { BASE_URL } from '../pages/Home';
 
-const TopRatedSidebar = () => {
+const TopRatedSidebar = ({items}) => {
+
+
   return (
     <>
         <ComponentWrapper>
-            <div style={{width: "90%", paddingLeft: "30px", borderBottom: "1px solid #B1B1B1"}}>
-                <p style={{fontSize: "20px", fontWeight: 'bold', marginBottom: '10px'}}>Top Rated</p>
-            </div>
             <Item>
-                <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/>
-                <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>$131.40</span><br/>Otam Remi Aperi</p>
+                {/* <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/> */}
+                <img src={`${BASE_URL}${items.img_1}`} alt=''/>
+                <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>GH¢{items.prize}</span><br/>{items.name}</p>
             </Item>
-            <Item>
-                <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/>
-                <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>$131.40</span><br/>Otam Remi Aperi</p>
-            </Item>
-            <Item>
-                <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/>
-                <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>$131.40</span><br/>Otam Remi Aperi</p>
-            </Item>
-            <Item>
-                <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/>
-                <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>$131.40</span><br/>Otam Remi Aperi</p>
-            </Item>
+            
         </ComponentWrapper>
     </>
   )
@@ -37,7 +28,7 @@ export const ComponentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 0px;
     height: 463px;
     background-color: #fff;
     /* border-radius: 15px; */
@@ -47,9 +38,15 @@ export const ComponentWrapper = styled.div`
 `
 const Item = styled.div`
     display: flex;
-    padding: 20px;
+    padding: 15px;
     align-items: center;
     /* justify-content: space-around; */
     width: 90%;
     border-bottom: 1px solid #B1B1B1;
+
+    >img {
+        margin-right: 20px;
+        height: 100%;
+        width: 30%;
+    }
 `

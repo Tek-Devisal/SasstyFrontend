@@ -21,7 +21,7 @@ const TopRankings = () => {
         <SectionOne>
             <div>Top Rankings </div>
             <OneWraper>
-            {LeftProduct.map(({image, price})=>(<ProductAndPrice>
+            {LeftProduct.map(({image, price})=>(<ProductAndPrice key={price}>
                 <img src={image}/>
                 <p>{price}</p>
             </ProductAndPrice>))}
@@ -30,7 +30,7 @@ const TopRankings = () => {
         <SectionTwo>
             <div>Clearance</div>
             <OneWraper>
-            {RightProduct.map(({image, price})=>(<ProductAndPrice>
+            {RightProduct.map(({image, price})=>(<ProductAndPrice key={price}>
                 <img src={image}/>
                 <p>{price}</p>
             </ProductAndPrice>))}

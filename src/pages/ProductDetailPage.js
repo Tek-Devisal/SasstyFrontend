@@ -18,12 +18,17 @@ import {
     Button
 } from '@mui/material';
 import ProductGallery from '../components/ProductGallery';
+import { useFetch } from '../components/FetchAPI/useFetch';
+import { BASE_URL } from './Home';
 
 
 const ProductDetailPage = () => {
 
     const [itemNum, setItemNum] = React.useState(1);
 
+
+    const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchProductForSpecificSubCategory/${localStorage.getItem("Sub-category id")}`);
+    // console.log("This is detailed data: ",data[0].prize)
     const addItem = () => {
         setItemNum(itemNum + 1);
         
@@ -45,14 +50,14 @@ const ProductDetailPage = () => {
     <>
         <Navbar />
         <PageWrapper>
-            <MainContent>
+            {data?.map((data)=><MainContent key={data.id}>
                 <ImageSection>
                     <ProductGallery />
                 </ImageSection>
                 <ProductSection>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus, nec ullamcorper amet fringilla pellentesque. Urna porttitor est vitae pulvinar augue maecenas. About product</p>
-                    <p>Gh₵120.00</p>
-                    <p><span>GH₵150.00</span> 8% off</p>
+                    <p>{data.description}</p>
+                    <p>GH₵{data.prize-(data.discount/100)*(data.prize)}</p>
+                    <p><span>GH₵{data.prize}</span> {data.discount}% off</p>
 
                     <FormControl style={{marginBottom: 20}}  sx={{ m: 1, minWidth: 120, maxWidth: 200}}>
                         <InputLabel id="demo-simple-select-autowidth-label">Material</InputLabel>
@@ -88,7 +93,7 @@ const ProductDetailPage = () => {
                 </WelcomRowTwo>
                 <p>Customer Service Policy</p>
                 </ProductSection>
-            </MainContent>
+            </MainContent>)}
             <TrendingItemsHead>
                 <div style={{height: "104%", width: "200px", backgroundColor: "#01032C"}}>
                     <p>TRENDIND ITEMS</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import LatestProdSidebar from '../components/LatestProdSidebar';
@@ -18,6 +18,9 @@ import MainSlider from '../components/MainSlider';
 import HeaderTab from '../components/HeaderTab';
 // import accordion from '../components/accordionData';
 
+// import axios
+import axios from 'axios';
+
 // Material UI Components
 import { 
     Button,
@@ -32,45 +35,127 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import TopRankings from '../components/TopRankings';
 import TheMegaMenu from '../components/TheMegaMenu';
 
+// export const BASE_URL = "https://sassty-web.herokuapp.com"
+export const BASE_URL = "http://127.0.0.1:8000"
+
 
 
 // import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Home = () => {
 
+    // List of useStates
     const [value, setValue] = useState('one');
+    const [categories, setCategories] = useState([])
+    const [dailyitems, setDailyitems] = useState([])
+    const [randomproducts, setRandomproducts] = useState()
+    const [topRatedProducts, setTopRatedProducts] = useState()
+    const [trendingProducts, setTrendingProducts] = useState()
+    
 
+
+    // List of funcions
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const accordionData = [
-        {mykey: 0, title: "Watches", content: ["Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer", "Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer"]},
-        {mykey: 1, title: "Home Appliance", content: ["Rice Cooker", "Microwave", "Refrigerator", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier"]},
-        {mykey: 2, title: "Mobile Phones", content: ["Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola", "Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola"]},
-        {mykey: 3, title: "Kitchen", content: ["Fridge", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender"]},
-        {mykey: 4, title: "Tables and Chairs", content: ["Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs"]},
-        {mykey: 5, title: "Books and Pens", content: ["Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens"]},
-        {mykey: 6, title: "Furniture", content: ["Sofa", "Egonomic Chair", ]},
-        {mykey: 7, title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
-        {mykey: 8, title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
-        {mykey: 9, title: "Automobiles", content: ["Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike"]},
-        {mykey: 10, title: "Health and Beauty", content: ["Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care"]},
-        {mykey: 11, title: "Books", content: ["Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction"]},
-        {mykey: 12, title: "Fashion", content: ["Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts"]},
-        {mykey: 13, title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
-        {mykey: 14, title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
 
-      ]
+    const fetchDailyProducts = async () => {
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const items = await axios.get(BASE_URL+"/products/v1/fetchDailyProducts/");
+          setDailyitems(items.data)
+          console.log(items.data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      
+    //   Fetch All categories
+      const fetchCategories = async () => {
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const data = await axios.get(`${BASE_URL}/products/v1/fetchCategories/`);
+          setCategories(data.data)
+          console.log("Main Categories ",data.data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      const fetchRandomProducts = async () => {
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const randomitemsdata = await axios.get(`${BASE_URL}/products/v1/fetchRandomProducts/${5}`);
+          setRandomproducts(randomitemsdata.data)
+          console.log("Random Products ",randomitemsdata.data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+
+      const fetchTrendingItems = async () => {
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const trendingitemsdata = await axios.get(`${BASE_URL}/products/v1/trendingItems/${10}`);
+          setTrendingProducts(trendingitemsdata.data)
+          console.log("Trending Products ",trendingitemsdata.data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      const fetchTopRatedProducts = async () => {
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const toprateditemsdata = await axios.get(`${BASE_URL}/products/v1/topRatedProducts/${4}`);
+          setTopRatedProducts(toprateditemsdata.data)
+          console.log("Top Rated Products ",toprateditemsdata.data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+  
+  
+
+      useEffect(() => {
+        fetchCategories()
+        fetchDailyProducts()
+        fetchRandomProducts()
+        fetchTrendingItems()
+        fetchTopRatedProducts()
+      }, [])
+      
+
+    // const accordionData = [
+    //     {mykey: 0, title: "Watches", content: ["Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer", "Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer"]},
+    //     {mykey: 1, title: "Home Appliance", content: ["Rice Cooker", "Microwave", "Refrigerator", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier"]},
+    //     {mykey: 2, title: "Mobile Phones", content: ["Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola", "Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola"]},
+    //     {mykey: 3, title: "Kitchen", content: ["Fridge", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender"]},
+    //     {mykey: 4, title: "Tables and Chairs", content: ["Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs"]},
+    //     {mykey: 5, title: "Books and Pens", content: ["Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens"]},
+    //     {mykey: 6, title: "Furniture", content: ["Sofa", "Egonomic Chair", ]},
+    //     {mykey: 7, title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
+    //     {mykey: 8, title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
+    //     {mykey: 9, title: "Automobiles", content: ["Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike"]},
+    //     {mykey: 10, title: "Health and Beauty", content: ["Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care"]},
+    //     {mykey: 11, title: "Books", content: ["Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction"]},
+    //     {mykey: 12, title: "Fashion", content: ["Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts"]},
+    //     {mykey: 13, title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
+    //     {mykey: 14, title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
+
+    //   ]
 
   return (
     <>
       <Navbar />
-      {accordionData.map(({mykey, title, content})=>(<TheMegaMenu title={title} content={content} key={mykey}/>))}
+      <TheMegaMenu />
       <PageWrapper>
         <PageHeader>
             <GridCategory>
-                {accordionData.map(({mykey, title, content})=>(<HeaderTab title={title} content={content} key={mykey}/>))}
+                {categories?.map(({name, id})=>(<HeaderTab title={name} categoryId={id} key={id}/>))}
                 {/* <HeaderTab /> */}
                 
             </GridCategory>
@@ -125,7 +210,11 @@ const Home = () => {
                 <AdBoard2>
                     <img src="/Images/ad9.png" alt='Ad' />
                 </AdBoard2>
-                <TopRatedSidebar />
+                <div style={{width: "90%", paddingLeft: "30px", borderBottom: "1px solid #B1B1B1", marginTop: "30px"}}>
+                    <p style={{fontSize: "20px", fontWeight: 'bold', marginBottom: '10px'}}>Top Rated</p>
+                </div>
+                {topRatedProducts?.map(toprateditem=> (<TopRatedSidebar key={toprateditem.id} items={toprateditem}/>))}
+                {/* <TopRatedSidebar /> */}
                 <AdBoard3>
                     <img src="/Images/ad10.png" alt='Ad' />
                 </AdBoard3>
@@ -142,17 +231,17 @@ const Home = () => {
                     </div>
                </DailyDeals>
                <MainRowOne>
+                    {dailyitems?.map(item => <DailyDealsItems key={item.name} items={item} />)}
+                    {/* <DailyDealsItems />
                     <DailyDealsItems />
-                    <DailyDealsItems />
-                    <DailyDealsItems />
-                    <DailyDealsItems />
+                    <DailyDealsItems /> */}
                </MainRowOne>
                <MainRowTwo>
+                    {randomproducts?.map(randomitem => <ProductsRowTwo key={randomitem.id} items={randomitem} />)}
+                    {/* <ProductsRowTwo />
                     <ProductsRowTwo />
                     <ProductsRowTwo />
-                    <ProductsRowTwo />
-                    <ProductsRowTwo />
-                    <ProductsRowTwo />
+                    <ProductsRowTwo /> */}
                </MainRowTwo>
                <Adbar2>
                     <img src="/Images/banner.png" alt='Ad' />
@@ -175,6 +264,8 @@ const Home = () => {
                     </Tabs>
                </TrendingItemsHead>
                <MainRowThree>
+                    {trendingProducts?.map(trendingitems => <TrendingItems key={trendingitems.id} items={trendingitems} />)}
+                    {/* <TrendingItems />
                     <TrendingItems />
                     <TrendingItems />
                     <TrendingItems />
@@ -182,9 +273,7 @@ const Home = () => {
                     <TrendingItems />
                     <TrendingItems />
                     <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
+                    <TrendingItems /> */}
                </MainRowThree>
                <MainRowFour>
                     <LeftAd>

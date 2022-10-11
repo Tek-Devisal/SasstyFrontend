@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const ProductsRowTwo = () => {
+const ProductsRowTwo = ({items}) => {
   return (
     <>
         <ComponentWrapper>
@@ -9,8 +9,8 @@ const ProductsRowTwo = () => {
                 <img src='/Images/eyeset.png' alt='Product Item'/>
             </ProductImage>
             <ProductDetails>
-                <p>An tium</p>
-                <p style={{fontSize: "14px", fontWeight: "bold"}}>$120.00</p>
+                <p>{items.name}</p>
+                <p style={{fontSize: "14px", fontWeight: "bold"}}>GH¢{items.prize}</p>
             </ProductDetails>
         </ComponentWrapper>
         

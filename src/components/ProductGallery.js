@@ -1,18 +1,18 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import ReactImageZoom from 'react-image-zoom';
+// import ReactImageZoom from 'react-image-zoom';
 
 
 const ProductGallery = () => {
 
     const [image] = useState(["Images/sl1.jpg", "Images/sl2.jpg", "Images/sl3.jpg", "Images/sl4.jpg"]);
     const [selectedImg, setSelectedImg] = useState(0);
-  
+
     const handleClick = index => {
       setSelectedImg(index);
     };
 
-    const props = {width: 400, height: 250, zoomWidth: 500, img: "1.jpg"};
+    // const props = {width: 400, height: 250, zoomWidth: 500, img: "1.jpg"};
 
   return (
     <div>
@@ -62,8 +62,47 @@ const ImageContainerMain = styled.div`
   grid-template-rows: repeat(1, 1fr);
 `;
 
-const Span = styled.div`
-  font-style: italic;
-  font-size: 12px;
-  letter-spacing: 0.3px;
-`;
+// const Span = styled.div`
+//   font-style: italic;
+//   font-size: 12px;
+//   letter-spacing: 0.3px;
+// `;
+
+
+// import AliceCarousel from 'react-alice-carousel';
+// import 'react-alice-carousel/lib/alice-carousel.css';
+
+// const ProductGallery = () => {
+  
+//   const handleDragStart = (e) => e.preventDefault();
+
+//   const responsive = {
+//     0: { items: 1 },
+//     568: { items: 2 },
+//     1024: { items: 3 },
+//   };
+  
+//   const items = [
+//     <img src="/Images/sl1.jpg" onDragStart={handleDragStart} role="presentation" />,
+//     <img src="/Images/sl2.jpg" onDragStart={handleDragStart} role="presentation" />,
+//     <img src="/Images/sl3.jpg" onDragStart={handleDragStart} role="presentation" />,
+//   ];
+
+//   return (
+//     <div>
+//       <ImageContainer>
+//         <AliceCarousel mouseTracking items={items} />
+//       </ImageContainer>
+//     </div>
+//   )
+// }
+
+// export default ProductGallery
+
+// const ImageContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   height: 300px;
+//   width: 600px;
+//   /* border: 1px solid red; */
+// `

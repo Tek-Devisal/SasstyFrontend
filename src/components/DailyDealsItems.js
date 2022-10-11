@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 
-const DailyDealsItems = () => {
+const DailyDealsItems = ({items}) => {
 
 // const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 //     height: 10,
@@ -27,8 +27,8 @@ const DailyDealsItems = () => {
                 <img src="/Images/laptop.png" alt='Item' />
             </ProductImage>
             <ProductDetails>
-                <h5 style={{fontSize: "24px"}}>Beatea Vitae Dicta</h5>
-                <h2 style={{color: "#FF2164"}}>$120.00 <span style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>$130.00</span></h2>
+                <h5 style={{fontSize: "24px"}}>{items.name}</h5>
+                <h2 style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <span style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</span></h2>
                 <div className='Itemprogress'>
                     <p>Available: <span>21</span></p>
                     <p>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></p>

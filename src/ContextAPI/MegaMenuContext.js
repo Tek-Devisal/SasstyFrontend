@@ -7,9 +7,13 @@ export function MegaMenuProvider ({children}) {
     // const [friendId, setFriendId] = useState(null)
     // const [friendName, setFriendName] = useState(null)
     const [openMenu, setOpenMenu] = useState(false)
+    const [subcategorydata, setSubcategorydata] = useState()
+    const [subcategoryid, setSubcategoryid] = useState()
+
+    const newId = subcategoryid
 
     return(
-        <MegaMenuStateContext.Provider value={{openMenu, setOpenMenu}}>
+        <MegaMenuStateContext.Provider value={{newId, subcategoryid, setSubcategoryid, subcategorydata, setSubcategorydata, openMenu, setOpenMenu}}>
             {children}
         </MegaMenuStateContext.Provider>
     );

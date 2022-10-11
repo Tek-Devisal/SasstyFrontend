@@ -1,32 +1,54 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import styled from 'styled-components';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from "react-router-dom";
 import MegaMenuChoiceContext from "../ContextAPI/MegaMenuContext"
+import { BASE_URL } from '../pages/Home';
 
+import axios from 'axios';
 
-const Accordion = ({title, content}) => {
+const Accordion = ({title, categoryId}) => {
 
     const [isActive, setIsActive] = useState(false)
-    const { openMenu, setOpenMenu } = useContext(MegaMenuChoiceContext);
+    const { openMenu, setOpenMenu, subcategorydata, setSubcategorydata } = useContext(MegaMenuChoiceContext);
+    const [categoryid, setCategoryid] = useState(1)
+    
+    const assignCategoryId = () => { 
+        // categoryid is coming from the global state while categoryId is coming from the prop
+        // console.log("category id: ", categoryid)
+        // setCategoryid(categoryId)
+        setCategoryid(categoryId)
+     }
 
+     const fetchSubCategories = async () => {
+        // assignCategoryId()
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const data = await axios.get(`${BASE_URL}/products/v1/fetchSubCategory/${categoryid}`);
+          setSubcategorydata(data.data)
+          // console.log(data.data)
+          console.log("category id:", categoryid)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    
     
   return (
     <div>
          <AccordionContainer>
-            <AccordionTitle  onClick={()=>{setIsActive(!isActive)}}>
+            <AccordionTitle
+                onMouseEnter={()=>{assignCategoryId(); setOpenMenu(true); fetchSubCategories()}}
+                onMouseLeave={()=>{setOpenMenu(false)}}  
+                onClick={()=>{setIsActive(!isActive)}}>
                 <Title>
-                    <p 
-                        onMouseEnter={()=>{setOpenMenu(true)}}
-                        onMouseLeave={()=>{setOpenMenu(false)}}
-                        >
-                        {title}</p>
+                    <p>{title}</p>
                 </Title>
                 <Espansion><p>{isActive? <KeyboardArrowUpIcon />:<KeyboardArrowDownIcon/>}</p></Espansion>
             </AccordionTitle>
             {isActive && <AccordionContent key={title}>
-            <Link to="/product-list">{content.map(element => <p key={title}>{element}</p>)}</Link>
+            <Link to="/product-list">{subcategorydata.map(element => <p key={title}>{element.name}</p>)}</Link>
             </AccordionContent>}
         </AccordionContainer>
         
