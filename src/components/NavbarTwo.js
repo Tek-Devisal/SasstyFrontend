@@ -13,7 +13,7 @@ const NavbarTwo = () => {
             <a>Customer Service</a>
             <a>Registry</a>
             <a>Gift Cards</a>
-            <Link to="/sell"><a>Sell</a></Link>
+            <Link to="/listings"><a>Sell</a></Link>
         </NavContent>
     </NavbarContainer>
   )
