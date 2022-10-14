@@ -24,7 +24,7 @@ const ComponentWrapper = styled.div`
     flex-direction: column;
     /* justify-content: space-between; */
     width: 180px;
-    height: 300px;
+    height: 380px;
     margin-top: 20px;
     /* background-color: #c4bdbd; */
     /* border-radius: 10px; */

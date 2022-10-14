@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
+import { Grid, Typography } from '@mui/material'
 import { Link } from "react-router-dom";
 
 const NavbarTwo = () => {
   return (
+    <Grid container>
     <NavbarContainer>
         <NavContent>
             <MenuSharpIcon style={{color: "#fff"}}/>
@@ -13,9 +15,10 @@ const NavbarTwo = () => {
             <a>Customer Service</a>
             <a>Registry</a>
             <a>Gift Cards</a>
-            <Link to="/listings"><a>Sell</a></Link>
+            <Link to="/listings"><a>Sell On Sassty</a></Link>
         </NavContent>
     </NavbarContainer>
+    </Grid>
   )
 }
 

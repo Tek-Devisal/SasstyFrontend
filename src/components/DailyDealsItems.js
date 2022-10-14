@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-// import { styled } from '@mui/material/styles';
+import { Typography, Box, Avatar, Container, Grid } from '@mui/material';
 
 // import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
@@ -8,57 +8,46 @@ import styled from 'styled-components';
 
 const DailyDealsItems = ({items}) => {
 
-// const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-//     height: 10,
-//     borderRadius: 5,
-//     [`&.${linearProgressClasses.colorPrimary}`]: {
-//         backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-//     },
-//     [`& .${linearProgressClasses.bar}`]: {
-//         borderRadius: 5,
-//         backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
-//     },
-//     }));
 
   return (
-    <>
+        // <Grid container laptop={1024} tablet={640} mobile={0} desktop={1280} >
         <ComponentWrapper>
             <ProductImage>
                 <img src="/Images/laptop.png" alt='Item' />
             </ProductImage>
             <ProductDetails>
-                <h5 style={{fontSize: "24px"}}>{items.name}</h5>
-                <h2 style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <span style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</span></h2>
+                <Typography variant='h4' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}}>{items.name}</Typography>
+                <Typography variant='h5' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}} style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <Typography variant='span' style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</Typography></Typography>
                 <div className='Itemprogress'>
-                    <p>Available: <span>21</span></p>
-                    <p>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></p>
+                    <Typography >Available: <Typography variant='span'>21</Typography></Typography>
+                    <Typography>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></Typography>
                 </div>
-                <div className='Progressbar'></div>
+                <Box className='Progressbar'></Box>
                 {/* <BorderLinearProgress variant="determinate" value={50} /> */}
-                <p className='DTC1'>Hurry up!</p>
-                <p className='OfferEnds'>Offer ends in: </p>
+                <Typography className='DTC1'>Hurry up!</Typography>
+                <Typography className='OfferEnds'>Offer ends in: </Typography>
+
                 <Counter>
-                    <div>
-                        <div className='Counter'>95</div>
-                        <p>DAYS</p>
-                    </div>
-                    <div>
-                        <div className='Counter'>63</div>
-                        <p>HOURS</p>
-                    </div>
-                    <div>
-                        <div className='Counter'>24</div>
-                        <p>MINS</p>
-                    </div>
-                    <div>
-                        <div className='Counter'>10</div>
-                        <p>SEC</p>
-                    </div>
+                    <Box>
+                        <Avatar>95</Avatar>
+                        <Typography >DAYS</Typography>
+                    </Box>
+                    <Box>
+                        <Avatar>63</Avatar>
+                        <Typography>HOURS</Typography>
+                    </Box>
+                    <Box>
+                        <Avatar>24</Avatar>
+                        <Typography>MINS</Typography>
+                    </Box>
+                    <Box>
+                        <Avatar >10</Avatar>
+                        <Typography>SEC</Typography>
+                    </Box>
                 </Counter>
             </ProductDetails>
 
         </ComponentWrapper>
-    </>
   )
 }
 
@@ -70,7 +59,7 @@ const ComponentWrapper = styled.div`
     justify-content: space-between;
     /* width: 220px; */
     width: 23%;
-    height: 100%;
+    height: 80%;
     /* background-color: #c4bdbd; */
     /* border: 1px solid #C4BDBD; */
     /* margin-right: 20px; */
@@ -83,7 +72,7 @@ const ProductImage = styled.div`
 
     > img {
         height: 90%;
-        width: 100%;
+        width: 90%;
         background-size: cover;
     }
 `
@@ -117,6 +106,7 @@ const Counter = styled.div`
         
         > p{
             color: #8E8E8E;
+            font-size: 12px;
         }
     }
 `

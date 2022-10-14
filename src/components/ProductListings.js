@@ -55,7 +55,7 @@ const ProductImage = styled.div`
     /* border-radius: 10px 10px 0px 0px; */
 
     > img {
-        height: 250px;
+        height: 180px;
         width: 200px;
         background-size: cover;
     }

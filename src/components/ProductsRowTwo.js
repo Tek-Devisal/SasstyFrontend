@@ -26,8 +26,9 @@ const ComponentWrapper = styled.div`
     justify-content: space-between;
     /* width: 180px; */
     width: 19%;
-    height: 100%;
+    height: 80%;
     /* background-color: #c4bdbd; */
+    margin-top: 70px;
     border-radius: 10px;
 `
 const ProductImage = styled.div`

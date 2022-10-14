@@ -6,24 +6,25 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+import {Grid, Box, Typography} from '@mui/material'
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <>
+    <Grid container>
     <NavbarContainer>
         <LogoContainer>
             <Link to="/"><img src="/Images/sasstylogo.jpeg" alt="logo" /></Link>
         </LogoContainer>
         <DeliveryLocationContainer>
             <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} />
-            <p><span>Deliver to</span><br/> Ghana</p>
+            <Typography><span>Deliver to</span><br/> Ghana</Typography>
         </DeliveryLocationContainer>
         <SearchBarContainer>
             <FormContainer>
                 <Form>
                     <CustomSearch>
-                        <p>All</p>
+                        <Typography>All</Typography>
                         <ArrowDropDownIcon style={{color: "black", marginTop: "2px"}} />
                     </CustomSearch>
                     <FormInput type="email" />
@@ -35,22 +36,24 @@ const Navbar = () => {
         </SearchBarContainer>
         <FlagContainer>
             {/* <img style={{height: "17px", width: "25px"}} src="/Images/ghflag.png" alt="flag" /> */}
-            <p>Track</p>
+            {/* <Link to="/listings"><a>Sell On Sassty</a></Link> */}
+            {/* <Typography>Sell on Sassty</Typography> */}
+            <Typography>Track</Typography>
             <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
         </FlagContainer>
         <SignInContainer>
-            <p>Hello, Sign in<br/><span>Account & List</span></p>
+            <Typography>Hello, Sign in<br/><span>Account & List</span></Typography>
             <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
         </SignInContainer>
         <ReturnNordersContainer>
-            <p>Return <br/><span>& Orders</span></p>
+            <Typography>Return <br/><span>& Orders</span></Typography>
         </ReturnNordersContainer>
         <CartContainer>
             <Link to="/cart"><AddShoppingCartSharpIcon style={{color: "white", fontSize: "40px"}} /></Link>
         </CartContainer>
     </NavbarContainer>
-    <NavbarTwo />
-    </>
+    {/* <NavbarTwo /> */}
+    </Grid>
   )
 }
 
@@ -64,7 +67,7 @@ const NavbarContainer = styled.div`
     top: 0;
     left: 0;
     height: 54px;
-    width: auto;
+    width: 100%;
     position: relative;
     background-color: #FF2164;
     padding-right: 10px;
@@ -278,7 +281,7 @@ const CustomSearch = styled.button`
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 34px;
+    height: 33px;
     width: 50px;
     border: none;
     outline: none;

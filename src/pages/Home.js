@@ -28,6 +28,9 @@ import {
     Tabs,
     Tab,
     Box,
+    Grid,
+    Container,
+    Typography
 } from '@mui/material';
 
 // Material UI Icons
@@ -129,24 +132,6 @@ const Home = () => {
       }, [])
       
 
-    // const accordionData = [
-    //     {mykey: 0, title: "Watches", content: ["Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer", "Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer"]},
-    //     {mykey: 1, title: "Home Appliance", content: ["Rice Cooker", "Microwave", "Refrigerator", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier"]},
-    //     {mykey: 2, title: "Mobile Phones", content: ["Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola", "Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola"]},
-    //     {mykey: 3, title: "Kitchen", content: ["Fridge", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender"]},
-    //     {mykey: 4, title: "Tables and Chairs", content: ["Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs"]},
-    //     {mykey: 5, title: "Books and Pens", content: ["Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens"]},
-    //     {mykey: 6, title: "Furniture", content: ["Sofa", "Egonomic Chair", ]},
-    //     {mykey: 7, title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
-    //     {mykey: 8, title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
-    //     {mykey: 9, title: "Automobiles", content: ["Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike"]},
-    //     {mykey: 10, title: "Health and Beauty", content: ["Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care"]},
-    //     {mykey: 11, title: "Books", content: ["Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction"]},
-    //     {mykey: 12, title: "Fashion", content: ["Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts"]},
-    //     {mykey: 13, title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
-    //     {mykey: 14, title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
-
-    //   ]
 
   return (
     <>
@@ -195,6 +180,7 @@ const Home = () => {
             
              */}
         </PageHeader>
+        <Grid container>
         <PageBody>
             <LeftSidebar>
                 <AdBoard>
@@ -220,32 +206,40 @@ const Home = () => {
                 </AdBoard3>
             </LeftSidebar>
             <MainWindow>
-               <Adbar>
-                    <div className='AdbarLeft' style={{height: "100%", backgroundColor: "#FFF"}}>
-                        <div className='AdbarRight' style={{height: "100%", backgroundColor: "#F93C00"}}></div>
-                    </div>
-               </Adbar>
+                <Grid container>
+                <Adbar>
+                        <div className='AdbarLeft' style={{height: "100%", backgroundColor: "#FFF"}}>
+                            <div className='AdbarRight' style={{height: "100%", backgroundColor: "#F93C00"}}></div>
+                        </div>
+                </Adbar>
+               </Grid>
                <DailyDeals>
                     <div style={{height: "103%", width: "200px", borderBottom: "2px solid #F93C00"}}>
                         <p>DAILY DEALS</p>
                     </div>
                </DailyDeals>
-               <MainRowOne>
-                    {dailyitems?.map(item => <DailyDealsItems key={item.name} items={item} />)}
-                    {/* <DailyDealsItems />
-                    <DailyDealsItems />
-                    <DailyDealsItems /> */}
-               </MainRowOne>
-               <MainRowTwo>
-                    {randomproducts?.map(randomitem => <ProductsRowTwo key={randomitem.id} items={randomitem} />)}
-                    {/* <ProductsRowTwo />
-                    <ProductsRowTwo />
-                    <ProductsRowTwo />
-                    <ProductsRowTwo /> */}
-               </MainRowTwo>
-               <Adbar2>
-                    <img src="/Images/banner.png" alt='Ad' />
-               </Adbar2>
+               <Grid container  >
+                <MainRowOne>
+                        {dailyitems?.map(item => <DailyDealsItems key={item.name} items={item} />)}
+                        {/* <DailyDealsItems />
+                        <DailyDealsItems />
+                        <DailyDealsItems /> */}
+                </MainRowOne>
+               </Grid>
+               {/* <Container container style={{marginTop: 70}}> */}
+                    <MainRowTwo>
+                            {randomproducts?.map(randomitem => <ProductsRowTwo key={randomitem.id} items={randomitem} />)}
+                            {/* <ProductsRowTwo />
+                            <ProductsRowTwo />
+                            <ProductsRowTwo />
+                            <ProductsRowTwo /> */}
+                    </MainRowTwo>
+               {/* </Container> */}
+               {/* <Grid container> */}
+                    <Adbar2>
+                            <img src="/Images/banner.png" alt='Ad' />
+                    </Adbar2>
+               {/* </Grid> */}
                <TrendingItemsHead>
                     <div style={{height: "100%", width: "200px", backgroundColor: "#01032C"}}>
                         <p>TRENDIND ITEMS</p>
@@ -258,23 +252,17 @@ const Home = () => {
                         // indicatorColor="secondary"
                         aria-label="secondary tabs example"
                         >
-                        <Tab value="one" label="Item One" />
+                        <Tab value="one" label="Item One" >Heyey</Tab>
                         <Tab value="two" label="Item Two" />
                         <Tab value="three" label="Item Three" />
                     </Tabs>
                </TrendingItemsHead>
+               <Container maxWidth="lg">
                <MainRowThree>
                     {trendingProducts?.map(trendingitems => <TrendingItems key={trendingitems.id} items={trendingitems} />)}
-                    {/* <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems />
-                    <TrendingItems /> */}
+                    {/* <TrendingItems />*/}
                </MainRowThree>
+               </Container>
                <MainRowFour>
                     <LeftAd>
                         <img src="/Images/ad2.png" alt='Ad' />
@@ -300,6 +288,7 @@ const Home = () => {
             </MainWindow>
             
         </PageBody>
+        </Grid>
         <PageBottom>
             <TrendingItemsHead>
                 <div style={{height: "104%", width: "200px", backgroundColor: "#01032C"}}>
@@ -602,6 +591,7 @@ const Adbar = styled.div`
     display: flex;
     height: 4%;
     width: 98%;
+    /* height: 120px; */
     /* transform: skew(20deg); */
     background-color: #E0E1E3;
     margin-top: 60px;
