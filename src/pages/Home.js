@@ -65,23 +65,15 @@ const Home = () => {
 
 
     const fetchDailyProducts = async () => {
-        // try {
-        // //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
-        // //   const items = await axios.get(BASE_URL+"/products/v1/fetchDailyProducts/");
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const items = await axios.get(BASE_URL+"/products/v1/fetchDailyProducts/");
         //   const items = await axios.get("https://sassty-web.herokuapp.com/products/v1/fetchDailyProducts/");
-        //   setDailyitems(items.data)
-        //   console.log(items.data)
-        // } catch (error) {
-        //   console.log(error)
-        // }
-
-        fetch("https://sassty-web.herokuapp.com/products/v1/fetchDailyProducts/")
-          .then(response => {
-            return response.json()
-          })
-            .then(data => {
-            console.log("Then try ",data)
-        })
+          setDailyitems(items.data)
+          console.log(items.data)
+        } catch (error) {
+          console.log(error)
+        }
       }
 
       
