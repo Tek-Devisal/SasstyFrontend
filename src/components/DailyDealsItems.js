@@ -22,8 +22,7 @@ const DailyDealsItems = ({items}) => {
                     <Typography >Available: <Typography variant='span'>21</Typography></Typography>
                     <Typography>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></Typography>
                 </div>
-                <Box className='Progressbar'></Box>
-                {/* <BorderLinearProgress variant="determinate" value={50} /> */}
+                {/* <Box className='Progressbar'></Box>
                 <Typography className='DTC1'>Hurry up!</Typography>
                 <Typography className='OfferEnds'>Offer ends in: </Typography>
 
@@ -44,7 +43,7 @@ const DailyDealsItems = ({items}) => {
                         <Avatar >10</Avatar>
                         <Typography>SEC</Typography>
                     </Box>
-                </Counter>
+                </Counter> */}
             </ProductDetails>
 
         </ComponentWrapper>

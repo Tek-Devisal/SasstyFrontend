@@ -61,6 +61,7 @@ const TheMenu = styled.div`
     box-shadow: rgba(50, 50, 93, 0.1) 0px 2px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 3px -1px;/* border: 2px solid red; */
     margin-top: 10px;
     z-index: 5;
+    border-radius: 10px;
 `
 const Subsubcatogories = styled.div`
     display: flex;
@@ -70,7 +71,8 @@ const Subsubcatogories = styled.div`
     height: 100%;
 
     > a {
-        color: #FF2164;
+        color: #000;
+        opacity: 0.5;
         padding: 5px;
         padding-left: 50px;
         font-size: 15px;

@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavbarTwo from './NavbarTwo';
+import Badge from '@mui/material/Badge';
 // import {LocationOnOutlinedIcon } from '@mui/icons-material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import {Grid, Box, Typography} from '@mui/material'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
+import CartIcon from './CartIcon';
+
 
 const Navbar = () => {
   return (
@@ -49,7 +53,9 @@ const Navbar = () => {
             <Typography>Return <br/><span>& Orders</span></Typography>
         </ReturnNordersContainer>
         <CartContainer>
-            <Link to="/cart"><AddShoppingCartSharpIcon style={{color: "white", fontSize: "40px"}} /></Link>
+            <Link to="/cart">
+                <CartIcon />
+            </Link>
         </CartContainer>
     </NavbarContainer>
     {/* <NavbarTwo /> */}

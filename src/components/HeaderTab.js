@@ -45,7 +45,7 @@ const Accordion = ({title, categoryId}) => {
                 <Title>
                     <p>{title}</p>
                 </Title>
-                <Espansion><p>{isActive? <KeyboardArrowUpIcon />:<KeyboardArrowDownIcon/>}</p></Espansion>
+                {/* <Espansion><p>{isActive? <KeyboardArrowUpIcon />:<KeyboardArrowDownIcon/>}</p></Espansion> */}
             </AccordionTitle>
             {isActive && <AccordionContent key={title}>
             <Link to="/product-list">{subcategorydata.map(element => <p key={title}>{element.name}</p>)}</Link>
@@ -64,7 +64,7 @@ const AccordionContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    border: 1px solid #E0E0E0;
+    /* border: 1px solid #E0E0E0; */
     /* height: 12vh; */
     /* background-color: black; */
     /* margin-bottom: 1.5vh; */
@@ -76,7 +76,7 @@ const AccordionTitle = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: 35px;
     width: 100%;
     background-color: #F7F7F7;
     cursor: pointer;
@@ -130,10 +130,10 @@ const AccordionContent = styled.div`
 const Title = styled.div`
     display: flex;
     /* border: 1px solid yellow; */
-    padding-left: 30px;
+    padding-left: 40px;
 
     > p {
-        font-size: 17px;
+        font-size: 14px;
         color: #333;
     }
 `

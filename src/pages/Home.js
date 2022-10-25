@@ -30,7 +30,8 @@ import {
     Box,
     Grid,
     Container,
-    Typography
+    Typography,
+    
 } from '@mui/material';
 
 // Material UI Icons
@@ -64,14 +65,23 @@ const Home = () => {
 
 
     const fetchDailyProducts = async () => {
-        try {
-        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
-          const items = await axios.get(BASE_URL+"/products/v1/fetchDailyProducts/");
-          setDailyitems(items.data)
-          console.log(items.data)
-        } catch (error) {
-          console.log(error)
-        }
+        // try {
+        // //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+        // //   const items = await axios.get(BASE_URL+"/products/v1/fetchDailyProducts/");
+        //   const items = await axios.get("https://sassty-web.herokuapp.com/products/v1/fetchDailyProducts/");
+        //   setDailyitems(items.data)
+        //   console.log(items.data)
+        // } catch (error) {
+        //   console.log(error)
+        // }
+
+        fetch("https://sassty-web.herokuapp.com/products/v1/fetchDailyProducts/")
+          .then(response => {
+            return response.json()
+          })
+            .then(data => {
+            console.log("Then try ",data)
+        })
       }
 
       
@@ -180,7 +190,7 @@ const Home = () => {
             
              */}
         </PageHeader>
-        <Grid container>
+        <Grid sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}  container>
         <PageBody>
             <LeftSidebar>
                 <AdBoard>
@@ -347,20 +357,22 @@ const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     background-color: #FDFDFD;
     height: auto;
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    /* border: 1px solid green; */
 `
 const PageHeader = styled.div`
     display: flex;
-    width: 100%;
+    width: 90%;
     flex-direction: row;
     gap: 15px;
     height: 500px;
     margin-top: 10px;
+    background-color: #F7F7F7;
     /* border: 1px solid gray; */
 `
 const GridCategory = styled.div`
@@ -369,7 +381,7 @@ const GridCategory = styled.div`
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
     /* justify-content: center; */
     /* align-items: center; */
-    width: 100%;
+    /* width: 50%; */
 
     background-color: #B7B7BA;
     width: 25%;
@@ -434,6 +446,8 @@ const GridSlideButton = styled.div`
 const PageBody = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
     height: auto;
     /* background-color: blue; */
     margin-top: 40px;
