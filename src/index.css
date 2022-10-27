@@ -99,3 +99,84 @@ code {
   /* margin: 0 auto; */
 
 }
+
+.login_container{
+  height: calc(100vh - 3.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon{
+  width: 0.8rem;
+  font-size: 11px;
+}
+input{
+  font-size: 14px;
+  text-indent: 0.25rem;
+}
+
+input:focus{
+  outline: none;
+}
+
+input::placeholder{
+  font-size: 10px;
+ margin-bottom: 1rem;
+}
+
+.form_control{
+  border: 1px solid #f4f4f4;
+  padding: 0 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 1.8rem;
+  width: 100%;
+}
+
+/* .form_control:hover{
+  outline: 1px solid #FF2164;
+  transition: 0.4s all;
+} */
+
+.btn_signin{
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF2164;
+  color: #fff;
+
+  height: 1.5rem;
+  border-radius: 3px;
+  border: none;
+}
+
+.login_text{
+  font-size: 0.8rem;
+}
+
+.small_text{
+  font-size: 8px;
+}
+
+.small_text:hover{
+  color: #FF2164;
+}
+
+.signup{
+  text-decoration: none;
+}
+
+@media (max-width: 996px) {
+  .login_container{
+    height: 100%;
+    margin: 5rem 0;
+  }
+  .form_container{
+    width: 80%;
+    height: 100%;
+  }
+}
