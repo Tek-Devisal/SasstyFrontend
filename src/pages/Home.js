@@ -132,18 +132,18 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <Navbar />
+    <div>
+      {/* <Navbar /> */}
       <TheMegaMenu />
       <PageWrapper>
-        <PageHeader>
-          <GridCategory>
+        <PageHeader className="page_wrapper">
+          <GridCategory className="d-md-block d-none">
             {categories?.map(({ name, id }) => (
               <HeaderTab title={name} categoryId={id} key={id} />
             ))}
             {/* <HeaderTab /> */}
           </GridCategory>
-          <GridMiddle>
+          <GridMiddle className="bg-warning">
             <GridSlideUp>
               <MainSlider />
             </GridSlideUp>
@@ -154,7 +154,7 @@ const Home = () => {
               <TopRankings />
             </GridSlideButton>
           </GridMiddle>
-          <GridLast>
+          <GridLast className="d-md-block d-none">
             <WelcomRowOne>
               <p>Welcome to Sassty</p>
             </WelcomRowOne>
@@ -457,7 +457,7 @@ const Home = () => {
         </PageBottom>
       </PageWrapper>
       <Footer />
-    </>
+    </div>
   );
 };
 
@@ -468,7 +468,7 @@ const PageWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fdfdfd;
+  background-color: #fff;
   height: auto;
   width: 100%;
   padding-left: 20px;
@@ -488,12 +488,12 @@ const PageHeader = styled.div`
 const GridCategory = styled.div`
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
   /* justify-content: center; */
   /* align-items: center; */
   /* width: 50%; */
 
-  background-color: #b7b7ba;
+  background-color: #fff;
   width: 25%;
   /* gap: 2px; */
   overflow-y: scroll;
@@ -917,3 +917,5 @@ const WelcomRowThree = styled.div`
     /* border: 1px solid red; */
   }
 `;
+
+// STYLES
