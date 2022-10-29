@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import { ThemeProvider } from "@mui/material";
 import AppReviews from "./components/AppReviews";
 
@@ -11,8 +12,10 @@ import { MegaMenuProvider } from "./ContextAPI/MegaMenuContext";
 import Listings from "./pages/Listings";
 import theme from "./theme";
 import Testing from "./pages/Testing";
+import Register from "./pages/Register";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login } from "@mui/icons-material";
 
 function App() {
   // return (
@@ -32,6 +35,7 @@ function App() {
               <Route path="/sell" element={<SellOnSassty />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/listings" element={<Listings />} />
+              <Route exact path="/login" element={<Register />} />
               <Route exact path="/" element={<Home />} />
             </Routes>
           </div>
