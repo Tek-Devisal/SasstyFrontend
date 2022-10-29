@@ -39,8 +39,8 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import TopRankings from '../components/TopRankings';
 import TheMegaMenu from '../components/TheMegaMenu';
 
-// export const BASE_URL = "https://sassty-web.herokuapp.com"
-export const BASE_URL = "http://127.0.0.1:8000"
+export const BASE_URL = "https://sassty-web.herokuapp.com"
+// export const BASE_URL = "http://127.0.0.1:8000"
 
 
 

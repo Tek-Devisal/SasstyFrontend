@@ -25,10 +25,12 @@ import { BASE_URL } from './Home';
 const ProductDetailPage = () => {
 
     const [itemNum, setItemNum] = React.useState(1);
+    const linkId = localStorage.getItem("hey")
 
-
-    const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchProductForSpecificSubCategory/${localStorage.getItem("Sub-category id")}`);
-    // console.log("This is detailed data: ",data[0].prize)
+    const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchProductForSpecificSubCategory/${linkId}`);
+    // console.log("This is detailed data: ",data)
+    console.log("Try",linkId)
+    
     const addItem = () => {
         setItemNum(itemNum + 1);
         
@@ -50,7 +52,7 @@ const ProductDetailPage = () => {
     <>
         <Navbar />
         <PageWrapper>
-            {data?.map((data)=><MainContent key={data.id}>
+            {data && <MainContent key={data.id}>
                 <ImageSection>
                     <ProductGallery />
                 </ImageSection>
@@ -93,7 +95,7 @@ const ProductDetailPage = () => {
                 </WelcomRowTwo>
                 <p>Customer Service Policy</p>
                 </ProductSection>
-            </MainContent>)}
+            </MainContent>}
             <TrendingItemsHead>
                 <div style={{height: "104%", width: "200px", backgroundColor: "#01032C"}}>
                     <p>TRENDIND ITEMS</p>

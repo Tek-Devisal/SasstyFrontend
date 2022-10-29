@@ -43,6 +43,9 @@ const ProductList = () => {
 
     console.log("sub category id", subcategoryid)
 
+    const getSubId = (id) => { 
+        localStorage.setItem("hey", id)
+     }
 
           //   Fetch All categories
     const fetchCategories = async () => {
@@ -83,7 +86,7 @@ const ProductList = () => {
                 
             </LeftSidebar>
             <MainContent>
-                {specificProduct?.map(subcategoryitem => (<Link to="/product-details" key={subcategoryitem.id}><ProductListings items={subcategoryitem}/></Link>))}
+                {specificProduct?.map(subcategoryitem => (<Link onClick={()=>{getSubId(subcategoryitem.id)}} to="/product-details" key={subcategoryitem.id}><ProductListings items={subcategoryitem}/></Link>))}
                 {/* <ProductListings /> */}
                 <SortPanel>
                     <p>Sort</p>
