@@ -95,6 +95,7 @@ const AccordionTitle = styled.div`
   width: 100%;
   background-color: #f7f7f7;
   cursor: pointer;
+
   /* margin-left: -20px;
     margin-right: -20px; */
   /* margin-bottom: 10vh; */
@@ -145,12 +146,31 @@ const AccordionContent = styled.div`
 const Title = styled.div`
   display: flex;
   /* border: 1px solid yellow; */
+  width: 100%;
+  height: 100%;
+  /* justify-content: center; */
+  align-items: center;
   padding-left: 40px;
 
   > p {
     font-size: 14px;
     color: #333;
+    /* border: 1px solid red; */
+    margin-block-start: 15px;
+
+    &:hover{
+    color: #FF2164;
+    font-weight: bold;
+    }
+    
   }
+
+  &:hover{
+    font-weight: bold;
+    background-color: #F1F0F0;
+  }
+
+  
 `;
 const Espansion = styled.div`
   /* display: flex; */

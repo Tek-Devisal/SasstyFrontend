@@ -35,21 +35,11 @@ import {
 } from "@mui/material";
 
 // Material UI Icons
-<<<<<<< HEAD
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import TopRankings from '../components/TopRankings';
 import TheMegaMenu from '../components/TheMegaMenu';
 
 export const BASE_URL = "https://sassty-web.herokuapp.com"
-// export const BASE_URL = "http://127.0.0.1:8000"
-
-=======
-import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
-import TopRankings from "../components/TopRankings";
-import TheMegaMenu from "../components/TheMegaMenu";
->>>>>>> b95b6d5153a5143cafd28f28c7930c33d6040723
-
-export const BASE_URL = "https://sassty-web.herokuapp.com";
 // export const BASE_URL = "http://127.0.0.1:8000"
 
 // import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -143,17 +133,17 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <TheMegaMenu />
       <PageWrapper>
-        <PageHeader className="page_wrapper">
-          <GridCategory className="d-md-block d-none">
+        <PageHeader >
+          <GridCategory >
             {categories?.map(({ name, id }) => (
               <HeaderTab title={name} categoryId={id} key={id} />
             ))}
             {/* <HeaderTab /> */}
           </GridCategory>
-          <GridMiddle className="bg-warning">
+          <GridMiddle >
             <GridSlideUp>
               <MainSlider />
             </GridSlideUp>
@@ -164,7 +154,7 @@ const Home = () => {
               <TopRankings />
             </GridSlideButton>
           </GridMiddle>
-          <GridLast className="d-md-block d-none">
+          <GridLast>
             <WelcomRowOne>
               <p>Welcome to Sassty</p>
             </WelcomRowOne>
@@ -498,7 +488,9 @@ const PageHeader = styled.div`
 const GridCategory = styled.div`
   display: flex;
   flex-direction: column;
-  // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5); */
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   /* justify-content: center; */
   /* align-items: center; */
   /* width: 50%; */

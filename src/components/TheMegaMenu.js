@@ -73,6 +73,9 @@ const TheMenu = styled.div`
   height: 500px;
   width: 70%;
   /* border: 2px solid red; */
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 50px;
   margin-top: 10px;
   z-index: 5;
   border-radius: 10px;
