@@ -72,6 +72,7 @@ const TheMenu = styled.div`
   background-color: #fff;
   height: 500px;
   width: 70%;
+  padding: 20px;
   /* border: 2px solid red; */
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
@@ -86,6 +87,7 @@ const Subsubcatogories = styled.div`
   /* border: 1px solid green; */
   width: 20%;
   height: 100%;
+  flex-wrap: wrap;
 
   > a {
     color: #000;
@@ -101,5 +103,11 @@ const Subsubcatogories = styled.div`
     /* margin-top: 25px; */
     text-decoration: none;
     font-family: "Noto Sans", sans-serif;
+
+    &:hover{
+      font-weight: bold;
+      color: #000;
+      opacity: 1;
+    }
   }
 `;
