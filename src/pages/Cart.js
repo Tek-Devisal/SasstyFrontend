@@ -16,7 +16,7 @@ import {
 import ProductGallery from '../components/ProductGallery';
 import CartItem from '../components/CartItem';
 import { useStateValue } from '../components/BasketContex/StateProvider';
-import CurrencyFormat from 'react-currency-format';
+// import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from '../components/BasketContex/reducer';
 
 const Cart = () => {
@@ -41,13 +41,13 @@ const Cart = () => {
                     <p style={{marginLeft: 20, fontWeight: 'bold'}}>Order Summary</p>
                     <DivOne>
                         <p>Total ({basket?.length} items selected)</p>
-                        {/* <p>GH 36.00</p> */}
-                        <CurrencyFormat 
+                        <p>GH¢{getBasketTotal(basket)*itemQuantity}</p>
+                        {/* <CurrencyFormat 
                             value={getBasketTotal(basket)*itemQuantity}
                             decimalScale={2}
                             displayType={'text'} 
                             thousandSeparator={true} 
-                            prefix={'GH¢'} />
+                            prefix={'GH¢'} /> */}
                     </DivOne>
                     <DivTwo>
                         <p>Make payment</p>
