@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 // import { ComponentWrapper } from './ThirdSidebarCom';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { BASE_URL } from '../pages/Home';
 
 const TopRatedSidebar = ({items}) => {
@@ -11,12 +12,13 @@ const TopRatedSidebar = ({items}) => {
   return (
     <>
         <ComponentWrapper>
+        <Link to='/product-details'>
             <Item>
                 {/* <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/> */}
                 <img src={`${BASE_URL}${items.img_1}`} alt=''/>
                 <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>GH¢{items.prize}</span><br/>{items.name}</p>
             </Item>
-            
+        </Link>
         </ComponentWrapper>
     </>
   )
@@ -35,6 +37,11 @@ export const ComponentWrapper = styled.div`
     /* border: 2px solid #B1B1B1; */
     align-items: center;
     margin-bottom: 20px;
+
+    >a{
+        text-decoration: none;
+    }
+
 `
 const Item = styled.div`
     display: flex;

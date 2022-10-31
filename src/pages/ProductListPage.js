@@ -173,13 +173,15 @@ const AccordionWrapper = styled.div`
 `
 const SortPanel = styled.div`
     width: 100%;
-    height: 50px;
+    max-height: 50px;
     /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 30px;
+    /* padding-top: 50px; */
+    contain: content;
 `
 const Panel = styled.div`
     display: flex;
