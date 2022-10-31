@@ -12,41 +12,47 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { 
     Button
 } from '@mui/material';
 import ProductGallery from '../components/ProductGallery';
 import { useFetch } from '../components/FetchAPI/useFetch';
 import { BASE_URL } from './Home';
+import ItemCounter from '../components/ItemCounter';
+import { useStateValue } from '../components/BasketContex/StateProvider';
 
 
 const ProductDetailPage = () => {
 
-    const [itemNum, setItemNum] = React.useState(1);
+    const [{basket}, dispatch] = useStateValue();
+
     const linkId = localStorage.getItem("hey")
 
     const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchProductForSpecificSubCategory/${linkId}`);
     // console.log("This is detailed data: ",data)
     console.log("Try",linkId)
     
-    const addItem = () => {
-        setItemNum(itemNum + 1);
-        
-    }
-
-    const subItem = () => {
-        if(itemNum >= 1){
-        setItemNum(itemNum - 1);
-        }
-    }
 
     const [material, setMaterial] = React.useState('');
 
     const handleChange = (event) => {
         setMaterial(event.target.value);
     };
+
+    const addToBasket = () => { 
+        // add item to basket
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id: data.id,
+                description: data.description,
+                price: data.prize,
+                discount: data.discount
+
+        }
+        })
+        
+     };
 
   return (
     <>
@@ -79,17 +85,12 @@ const ProductDetailPage = () => {
                                 <MenuItem value={22}>Twenty one and a half</MenuItem>
                             </Select>
                     </FormControl>
-                    <p>Quantity</p>
-                    <div style={{marginTop: 5}} className='item-counter'>
-                        <RemoveIcon onClick={()=>{subItem()}}/>
-                        <p>{itemNum}</p>
-                        <AddIcon onClick={()=>{addItem()}}/>
-                    </div>
+                    <ItemCounter />
                     <WelcomRowTwo>
                         <Button style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#FF7A00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
                             Buy now
                         </Button>
-                        <Button style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#F93C00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
+                        <Button onClick={addToBasket} style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#F93C00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
                             Add to cart
                         </Button>
                 </WelcomRowTwo>

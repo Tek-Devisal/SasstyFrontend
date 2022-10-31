@@ -7,22 +7,24 @@ import DailyDealsItemsTwo from '../components/DailyDealsItemsTwo';
 // import TrendingItemsHead from './Home'
 
 // Material UI components
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+
 import { 
-    Button
+    Button,
+    Divider,
+    Typography
 } from '@mui/material';
 import ProductGallery from '../components/ProductGallery';
 import CartItem from '../components/CartItem';
-
+import { useStateValue } from '../components/BasketContex/StateProvider';
+import CurrencyFormat from 'react-currency-format';
+import { getBasketTotal } from '../components/BasketContex/reducer';
 
 const Cart = () => {
 
+    const [{ basket }] = useStateValue();
+    console.log("My basket",basket);
+
+    let itemQuantity = localStorage.getItem("cart item quantity")
 
   return (
     <>
@@ -30,13 +32,22 @@ const Cart = () => {
         <PageWrapper>
             <MainContent>
                 <ImageSection>
-                    <CartItem />
+                    <Typography variant="h3" mb={2}>Shopping Cart</Typography>
+                    <Divider variant="middle" component="div" role="presentation"/>
+                    {basket?.map((iteminfo)=>(<CartItem item={iteminfo}/>))}
+
                 </ImageSection>
                 <ProductSection>
                     <p style={{marginLeft: 20, fontWeight: 'bold'}}>Order Summary</p>
                     <DivOne>
-                        <p>Total (3 items selected)</p>
-                        <p>GH 36.00</p>
+                        <p>Total ({basket?.length} items selected)</p>
+                        {/* <p>GH 36.00</p> */}
+                        <CurrencyFormat 
+                            value={getBasketTotal(basket)*itemQuantity}
+                            decimalScale={2}
+                            displayType={'text'} 
+                            thousandSeparator={true} 
+                            prefix={'GH¢'} />
                     </DivOne>
                     <DivTwo>
                         <p>Make payment</p>
@@ -129,7 +140,11 @@ const DailyDeals = styled.div`
 `
 const ImageSection = styled.div`
     display: flex;
+    flex-direction: column;
     flex: 60%;
+    padding: 20px;
+    height: auto;
+    /* border: 1px solid red; */
 `
 const ProductSection = styled.div`
     display: flex;
@@ -147,6 +162,10 @@ const DivOne = styled.div`
     /* border: 1px solid green; */
     margin-left: 15px;
     margin-right: 15px;
+
+    >p{
+        margin-block-start: 0.5em;
+    }
 `
 const DivTwo = styled.div`
     display: flex;
