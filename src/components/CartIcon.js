@@ -17,7 +17,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 export default function CartIcon() {
 
   const [{ basket }] = useStateValue();
-
+ 
   return (
     <IconButton aria-label="cart">
       <StyledBadge badgeContent={`${basket?.length}`} color="secondary">
