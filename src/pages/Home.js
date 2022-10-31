@@ -16,6 +16,7 @@ import RecentlyViewed from "../components/RecentlyViewed";
 import Footer from "../components/Footer";
 import MainSlider from "../components/MainSlider";
 import HeaderTab from "../components/HeaderTab";
+import { Link } from "react-router-dom";
 // import accordion from '../components/accordionData';
 
 // import axios
@@ -31,7 +32,6 @@ import {
   Grid,
   Container,
   Typography,
-  Link,
 } from "@mui/material";
 
 // Material UI Icons
