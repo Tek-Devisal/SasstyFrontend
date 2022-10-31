@@ -1,38 +1,33 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-
-import Email from "@mui/icons-material/EmailOutlined";
-import Lock from "@mui/icons-material/LockOutlined";
-import { VisibilityOffOutlined } from "@mui/icons-material";
-import { Link } from "@mui/material/node";
+import cart from "../assets/cart.svg";
 import google from "../assets/google.svg";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { useState } from "react";
-import Login from "../components/Login";
 import Signup from "../components/Signup";
-
+import Login from "../components/Login";
 const Register = () => {
-  const [display, setDisplay] = useState(<Login />);
+  const [display, setDisplay] = useState(<Signup />);
 
   return (
-    //
-    <div>
-      <div className="login_container">
-        <div className="form_container card py-4 px-3">
-          <div className="d-flex justify-content-around mb-3">
-            <button
-              className="register_btn underline"
-              onClick={() => setDisplay(<Login />)}
-            >
-              sign in
-            </button>
-            <button
-              className="register_btn"
-              onClick={() => setDisplay(<Signup />)}
-            >
-              register
-            </button>
+    <div className="register_container">
+      <div className="card border-0 login_height shadow-lg">
+        <div className="row d_small_screen">
+          <div className="col-sm-8 d-sm-block d-none left">
+            <h1 className="text-center  text">Welcome to sassty</h1>
+            <img src={cart} alt="" width={600} className="cart" />
           </div>
-          {display}
+          <div className="col-sm-4 right">
+            {/* <div className="line"></div> */}
+            <div className="btns text-center mt-5">
+              <button className="signup" onClick={() => setDisplay(<Signup />)}>
+                sign up
+              </button>
+              <button className="signin" onClick={() => setDisplay(<Login />)}>
+                sign in
+              </button>
+              {display}
+            </div>
+          </div>
         </div>
       </div>
     </div>
