@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import { Typography, Box, Avatar, Container, Grid } from '@mui/material';
 
 // import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
@@ -12,9 +13,12 @@ const DailyDealsItems = ({items}) => {
   return (
         // <Grid container laptop={1024} tablet={640} mobile={0} desktop={1280} >
         <ComponentWrapper>
-            <ProductImage>
-                <img src="/Images/laptop.png" alt='Item' />
-            </ProductImage>
+            <Link to='/product-details'>
+                <ProductImage>
+                    <img src="/Images/laptop.png" alt='Item' />
+                </ProductImage>
+            </Link>
+            
             <ProductDetails>
                 <Typography variant='h4' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}}>{items.name}</Typography>
                 <Typography variant='h5' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}} style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <Typography variant='span' style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</Typography></Typography>
@@ -59,6 +63,7 @@ const ComponentWrapper = styled.div`
     /* width: 220px; */
     width: 23%;
     height: 80%;
+    cursor: pointer;
     /* background-color: #c4bdbd; */
     /* border: 1px solid #C4BDBD; */
     /* margin-right: 20px; */
