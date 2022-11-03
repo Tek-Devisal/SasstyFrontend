@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { Typography, Box, Avatar, Container, Grid } from '@mui/material';
-
+import { BASE_URL } from '../pages/Home';
 // import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
 
@@ -13,11 +13,11 @@ const DailyDealsItems = ({items}) => {
   return (
         // <Grid container laptop={1024} tablet={640} mobile={0} desktop={1280} >
         <ComponentWrapper>
-            <Link to='/product-details'>
+                <Link to='/product-details'>
                 <ProductImage>
-                    <img src="/Images/laptop.png" alt='Item' />
+                        <img src={`${BASE_URL}${items?.img_1}`} alt='Item' />
                 </ProductImage>
-            </Link>
+                </Link>
             
             <ProductDetails>
                 <Typography variant='h4' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}}>{items.name}</Typography>
@@ -26,28 +26,6 @@ const DailyDealsItems = ({items}) => {
                     <Typography >Available: <Typography variant='span'>21</Typography></Typography>
                     <Typography>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></Typography>
                 </div>
-                {/* <Box className='Progressbar'></Box>
-                <Typography className='DTC1'>Hurry up!</Typography>
-                <Typography className='OfferEnds'>Offer ends in: </Typography>
-
-                <Counter>
-                    <Box>
-                        <Avatar>95</Avatar>
-                        <Typography >DAYS</Typography>
-                    </Box>
-                    <Box>
-                        <Avatar>63</Avatar>
-                        <Typography>HOURS</Typography>
-                    </Box>
-                    <Box>
-                        <Avatar>24</Avatar>
-                        <Typography>MINS</Typography>
-                    </Box>
-                    <Box>
-                        <Avatar >10</Avatar>
-                        <Typography>SEC</Typography>
-                    </Box>
-                </Counter> */}
             </ProductDetails>
 
         </ComponentWrapper>
@@ -59,24 +37,27 @@ export default DailyDealsItems
 const ComponentWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    /* align-items: center; */
     /* width: 220px; */
     width: 23%;
-    height: 80%;
+    height: 100%;
     cursor: pointer;
     /* background-color: #c4bdbd; */
     /* border: 1px solid #C4BDBD; */
+    contain: content;
     /* margin-right: 20px; */
 `
 const ProductImage = styled.div`
     display: flex;
-    flex: 0.4;
+    height: 270px;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid red; */
 
     > img {
-        height: 90%;
-        width: 90%;
+        height: 200px;
+        width: 200px;
         background-size: cover;
     }
 `
@@ -84,33 +65,8 @@ const ProductDetails = styled.div`
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    flex: 0.6;
+    height: 100px;
     background-color: #fff;
     align-items: center;
-`
-const Counter = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* border: 1px solid red; */
-    width: 100%;
-    height: 20%;
-    /* background-color: #B7B7BA; */
-    margin-top: 10px;
-
-    > div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        /* background-color: red; */
-        height: 96%;
-        width: 42px;
-        /* margin-right: 10px; */
-        
-        > p{
-            color: #8E8E8E;
-            font-size: 12px;
-        }
-    }
+    /* border: 1px solid green; */
 `

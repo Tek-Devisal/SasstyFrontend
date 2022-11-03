@@ -28,8 +28,8 @@ const ProductDetailPage = () => {
 
     const linkId = localStorage.getItem("hey")
 
-    const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchProductForSpecificSubCategory/${linkId}`);
-    // console.log("This is detailed data: ",data)
+    const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchSpecificProduct/${linkId}`);
+    console.log("This is detailed data: ",data)
     console.log("Try",linkId)
     
 

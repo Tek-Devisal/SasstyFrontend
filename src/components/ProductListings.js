@@ -22,7 +22,7 @@ const ProductListings = ({items}) => {
             <ProductDetails>
                 <p style={{fontSize: "14px", color: '#F93C00'}}>GH¢{items?.prize} <br/><span>GH¢{items?.prize}</span> 8% off</p>
                 <p>{items?.name}</p>
-                <p>{items?.description.substring(0, 20).concat('...')}</p>
+                {/* <p>{items?.description.substring(0, 20).concat('...')}</p> */}
                 <Button style={{marginTop: "5px", width: "100px", height: "30px", borderRadius: "5px", backgroundColor: "#FF7A00", fontSize:"13px", textTransform: "capitalize"}} variant="contained" size="small">
                     Shop now
                 </Button>

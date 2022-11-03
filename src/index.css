@@ -40,7 +40,7 @@ code {
 .Itemprogress{
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 75%;
   margin-top: 10px;
 }
 .Itemprogress span {

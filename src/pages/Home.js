@@ -299,7 +299,7 @@ const Home = () => {
                   <p>DAILY DEALS</p>
                 </div>
               </DailyDeals>
-              <Grid container>
+              {/* <Grid container> */}
                 <MainRowOne>
                   {dailyitems?.map((item) => (
                     <DailyDealsItems key={item.name} items={item} />
@@ -308,7 +308,7 @@ const Home = () => {
                         <DailyDealsItems />
                         <DailyDealsItems /> */}
                 </MainRowOne>
-              </Grid>
+              {/* </Grid> */}
               {/* <Container container style={{marginTop: 70}}> */}
               <MainRowTwo>
                 {randomproducts?.map((randomitem) => (
@@ -670,8 +670,8 @@ const DailyDeals = styled.div`
 `;
 const MainRowOne = styled.div`
   display: flex;
-  /* height: 610px; */
-  height: 23%;
+  height: 370px;
+  /* height: 23%; */
   margin-top: 20px;
   width: 98%;
   justify-content: space-between;
