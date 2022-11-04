@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "@mui/icons-material";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   // return (
@@ -28,6 +29,7 @@ function App() {
     <MegaMenuProvider>
       <ThemeProvider theme={theme}>
         <Router>
+          <ScrollToTop>
           <div className="App">
             <Routes>
               <Route path="/product-list" element={<ProductListing />} />
@@ -39,6 +41,7 @@ function App() {
               <Route exact path="/" element={<Home />} />
             </Routes>
           </div>
+          </ScrollToTop> 
         </Router>
       </ThemeProvider>
     </MegaMenuProvider>
