@@ -24,7 +24,8 @@ const Cart = () => {
     const [{ basket }] = useStateValue();
     console.log("My basket",basket);
 
-    let itemQuantity = localStorage.getItem("cart item quantity")
+    // const itemQuantity = localStorage.getItem("cart item quantity")
+    console.log("Cart Qty: ",localStorage.getItem("cart item quantity"))
 
   return (
     <>
@@ -34,14 +35,14 @@ const Cart = () => {
                 <ImageSection>
                     <Typography variant="h3" mb={2}>Shopping Cart</Typography>
                     <Divider variant="middle" component="div" role="presentation"/>
-                    {basket?.map((iteminfo)=>(<CartItem item={iteminfo}/>))}
+                    {basket?.map(iteminfo=>(<CartItem item={iteminfo}/>))}
 
                 </ImageSection>
                 <ProductSection>
                     <p style={{marginLeft: 20, fontWeight: 'bold'}}>Order Summary</p>
                     <DivOne>
                         <p>Total ({basket?.length} items selected)</p>
-                        <p>GH¢{getBasketTotal(basket)*itemQuantity}</p>
+                        <p>GH¢{getBasketTotal(basket)}</p>
                         {/* <CurrencyFormat 
                             value={getBasketTotal(basket)*itemQuantity}
                             decimalScale={2}

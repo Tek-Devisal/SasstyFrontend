@@ -9,25 +9,30 @@ import { BASE_URL } from '../pages/Home';
 
 const DailyDealsItems = ({items}) => {
 
+    const getSubId = (id) => { 
+        localStorage.setItem("Specific product id", id)
+        console.log("Testing ",id)
+     }
 
   return (
         // <Grid container laptop={1024} tablet={640} mobile={0} desktop={1280} >
         <ComponentWrapper>
-                <Link to='/product-details'>
+            <Link  onClick={()=>{getSubId(items.id)}} to='/product-details'>
+                
                 <ProductImage>
                         <img src={`${BASE_URL}${items?.img_1}`} alt='Item' />
                 </ProductImage>
-                </Link>
+            
             
             <ProductDetails>
                 <Typography variant='h4' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}}>{items.name}</Typography>
                 <Typography variant='h5' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}} style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <Typography variant='span' style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</Typography></Typography>
                 <div className='Itemprogress'>
-                    <Typography >Available: <Typography variant='span'>21</Typography></Typography>
+                    <Typography>Available: <Typography variant='span' >21</Typography></Typography>
                     <Typography>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></Typography>
                 </div>
             </ProductDetails>
-
+            </Link>
         </ComponentWrapper>
   )
 }
@@ -47,6 +52,11 @@ const ComponentWrapper = styled.div`
     /* border: 1px solid #C4BDBD; */
     contain: content;
     /* margin-right: 20px; */
+
+    > a {
+        color: inherit;
+        text-decoration: none;
+    }
 `
 const ProductImage = styled.div`
     display: flex;

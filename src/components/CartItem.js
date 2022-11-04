@@ -8,6 +8,8 @@ import {
 } from '@mui/material'
 import ItemCounter from './ItemCounter';
 
+import { BASE_URL } from '../pages/Home';
+
 const CartItem = ({item}) => {
 
   const [{basket}, dispatch] = useStateValue();
@@ -25,14 +27,15 @@ const CartItem = ({item}) => {
   return (
     <ComponentWrapper>
         <ProductImage>
-          <img src="/Images/shirt.png" />
+          <img src={`${BASE_URL}${item?.img_1}`} />
         </ProductImage>
         <ProductDetails>
+          <Typography>{item.name}</Typography>
           <Typography variant='p'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis euismod pulvinar sit gravida turpis maecenas.
+            {item?.description}.
             <br/>
             <br/>
-            <Typography style={{color: 'red'}}>GH₵120.00</Typography>
+            <Typography style={{color: 'red'}}>GH₵{item?.price}</Typography>
           </Typography>
         </ProductDetails>
         <Action>

@@ -53,6 +53,9 @@ const Home = () => {
   const [topRatedProducts, setTopRatedProducts] = useState();
   const [trendingProducts, setTrendingProducts] = useState();
 
+
+
+
   // List of funcions
   const handleChange = (event, newValue) => {
     setValue(newValue);

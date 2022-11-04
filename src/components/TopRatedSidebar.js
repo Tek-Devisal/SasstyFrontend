@@ -8,11 +8,15 @@ import { BASE_URL } from '../pages/Home';
 
 const TopRatedSidebar = ({items}) => {
 
+    const getSubId = (id) => { 
+        localStorage.setItem("Specific product id", id)
+        console.log("Testing ",id)
+     }
 
   return (
     <>
         <ComponentWrapper>
-        <Link to='/product-details'>
+        <Link onClick={()=>{getSubId(items.id)}} to='/product-details'>
             <Item>
                 {/* <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/> */}
                 <img src={`${BASE_URL}${items.img_1}`} alt=''/>

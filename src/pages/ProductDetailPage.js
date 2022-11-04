@@ -26,7 +26,7 @@ const ProductDetailPage = () => {
 
     const [{basket}, dispatch] = useStateValue();
 
-    const linkId = localStorage.getItem("hey")
+    const linkId = localStorage.getItem("Specific product id")
 
     const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchSpecificProduct/${linkId}`);
     console.log("This is detailed data: ",data)
@@ -39,15 +39,16 @@ const ProductDetailPage = () => {
         setMaterial(event.target.value);
     };
 
-    const addToBasket = () => { 
+    const addToBasket = (myData) => { 
         // add item to basket
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
-                id: data.id,
-                description: data.description,
-                price: data.prize,
-                discount: data.discount
+                id: myData.id,
+                description: myData.description,
+                price: myData.prize,
+                discount: myData.discount,
+                image: myData.img_1
 
         }
         })
@@ -58,14 +59,14 @@ const ProductDetailPage = () => {
     <>
         <Navbar />
         <PageWrapper>
-            {data && <MainContent key={data.id}>
+            {data?.map(details => (<MainContent key={details.id}>
                 <ImageSection>
-                    <ProductGallery />
+                    <ProductGallery key={details.id}/>
                 </ImageSection>
                 <ProductSection>
-                    <p>{data.description}</p>
-                    <p>GH₵{data.prize-(data.discount/100)*(data.prize)}</p>
-                    <p><span>GH₵{data.prize}</span> {data.discount}% off</p>
+                    <p>{details.description}</p>
+                    <p>GH₵{details.prize-(details.discount/100)*(details.prize)}</p>
+                    <p><span>GH₵{details.prize}</span> {details.discount}% off</p>
 
                     <FormControl style={{marginBottom: 20}}  sx={{ m: 1, minWidth: 120, maxWidth: 200}}>
                         <InputLabel id="demo-simple-select-autowidth-label">Material</InputLabel>
@@ -90,13 +91,13 @@ const ProductDetailPage = () => {
                         <Button style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#FF7A00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
                             Buy now
                         </Button>
-                        <Button onClick={addToBasket} style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#F93C00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
+                        <Button onClick={()=>addToBasket(details)} style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#F93C00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
                             Add to cart
                         </Button>
                 </WelcomRowTwo>
                 <p>Customer Service Policy</p>
                 </ProductSection>
-            </MainContent>}
+            </MainContent>))}
             <TrendingItemsHead>
                 <div style={{height: "104%", width: "200px", backgroundColor: "#01032C"}}>
                     <p>TRENDIND ITEMS</p>

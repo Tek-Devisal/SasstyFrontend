@@ -1,12 +1,19 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import { Typography } from '@mui/material';
 
 const ProductsRowTwo = ({items}) => {
+
+    const getSubId = (id) => { 
+        localStorage.setItem("Specific product id", id)
+        console.log("Testing ",id)
+     }
+
   return (
     <>
         <ComponentWrapper>
-            <Link to='/product-details'>
+            <Link onClick={()=>{getSubId(items.id)}} to='/product-details'>
             <ProductImage>
                 <img src='/Images/eyeset.png' alt='Product Item'/>
             </ProductImage>
@@ -66,6 +73,7 @@ const ProductDetails = styled.div`
     padding: 30px;
 
     >p {
+        white-space: nowrap;
         color: #757E7E;
         font-weight: 500;
         line-height: 5px;
