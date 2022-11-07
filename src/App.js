@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "@mui/icons-material";
+import Registration from "./pages/Registration";
 
 function App() {
   // return (
@@ -35,7 +36,7 @@ function App() {
               <Route path="/sell" element={<SellOnSassty />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/listings" element={<Listings />} />
-              <Route exact path="/login" element={<Register />} />
+              <Route exact path="/login" element={<Registration />} />
               <Route exact path="/" element={<Home />} />
             </Routes>
           </div>
