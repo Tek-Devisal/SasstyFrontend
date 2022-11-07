@@ -21,8 +21,8 @@ const Navbar = () => {
             <Link to="/"><img src="/Images/sasstylogo.jpeg" alt="logo" /></Link>
         </LogoContainer>
         <DeliveryLocationContainer>
-            <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} />
-            <Typography><span>Deliver to</span><br/> Ghana</Typography>
+            {/* <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} /> */}
+            <Link to="/landing"><Typography><span>Sell on</span><br/> Sassty</Typography></Link>
         </DeliveryLocationContainer>
         <SearchBarContainer>
             <FormContainer>
@@ -38,11 +38,14 @@ const Navbar = () => {
                 </Form>
             </FormContainer>
         </SearchBarContainer>
+        {/* <FlagContainer>
+            <Link to="/listings">Sell On Sassty</Link>
+        </FlagContainer> */}
         <FlagContainer>
             {/* <img style={{height: "17px", width: "25px"}} src="/Images/ghflag.png" alt="flag" /> */}
             {/* <Link to="/listings"><a>Sell On Sassty</a></Link> */}
             {/* <Typography>Sell on Sassty</Typography> */}
-            <Typography>Track</Typography>
+            <Typography sx={{color: '#fff', ml: 3}}>Track</Typography>
             <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
         </FlagContainer>
         <SignInContainer>
@@ -104,8 +107,11 @@ const DeliveryLocationContainer = styled.div`
     padding: 2px 5px 7px 5px;
     cursor: pointer;
     
+    >a{
+        text-decoration: none;
+    }
 
-    > p {
+    >a p {
         line-height: 12px;
         font-size: 14px;
         font-weight: bold;
@@ -113,6 +119,7 @@ const DeliveryLocationContainer = styled.div`
         margin-left: 2px;
         margin-bottom: 2px;
         font-family: Arial, sans-serif;
+        
 
         > span {
             color: #ccc;
@@ -127,7 +134,7 @@ const SearchBarContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex: 0.562;
+    flex: 0.45;
     /* border: 1px solid white; */
     height: 80%;
     /* width: auto; */
@@ -143,11 +150,13 @@ const FlagContainer = styled.div`
     cursor: pointer;
     /* border: 1px solid white; */
 
-    p{
+    a{
         line-height: 12px;
         font-size: 15px;
         font-weight: 500;
         color: #fff;
+        white-space: nowrap;
+        text-decoration: none;
         /* margin-left: 2px; */
         /* margin-bottom: 2px; */
     }

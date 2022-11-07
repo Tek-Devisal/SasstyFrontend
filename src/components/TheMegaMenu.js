@@ -96,9 +96,9 @@ const Subsubcatogories = styled.div`
     padding-left: 50px;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.5;
+    /* line-height: 10; */
     cursor: pointer;
-    line-height: 10px;
+    line-height: 30px;
     white-space: nowrap;
     /* margin-top: 25px; */
     text-decoration: none;

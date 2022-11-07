@@ -181,11 +181,12 @@ const Home = () => {
                   backgroundColor: "#FDF6F8",
                   color: "#000",
                   textTransform: "capitalize",
+                  textDecoration: 'none'
                 }}
                 variant="contained"
                 size="large"
               >
-                <Link to="/login">Sign in</Link>
+                <Link style={{textDecoration: 'none', color: 'black'}} to="/login">Sign in</Link>
               </Button>
             </WelcomRowTwo>
             <Divider
@@ -485,7 +486,7 @@ const PageHeader = styled.div`
   gap: 15px;
   height: 500px;
   margin-top: 10px;
-  background-color: #f7f7f7;
+  background-color: #fff;
   /* border: 1px solid gray; */
 `;
 const GridCategory = styled.div`
@@ -509,7 +510,7 @@ const GridCategory = styled.div`
 `;
 
 const GridMiddle = styled.div`
-  background-color: #f7f7f7;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -531,14 +532,14 @@ const GridLast = styled.div`
 `;
 
 const GridSlideUp = styled.div`
-  background-color: #f7f7f7;
+  background-color: #fff;
   /* flex: 0.7; */
   height: 70%;
   border-radius: 10px;
 `;
 
 const GridSlideMiddle = styled.div`
-  background-color: #b7b7ba;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   flex: 0.22;
@@ -547,7 +548,7 @@ const GridSlideMiddle = styled.div`
 `;
 
 const GridSlideButton = styled.div`
-  background-color: #f7f7f7;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   /* flex: 0.3; */
@@ -563,7 +564,7 @@ const PageBody = styled.div`
   height: auto;
   /* background-color: blue; */
   margin-top: 40px;
-  /* width: 100%; */
+  width: 90%;
   /* border: 1px solid green; */
   gap: 20px;
 `;
