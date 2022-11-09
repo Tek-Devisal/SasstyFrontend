@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar';
 import styled from "styled-components";
 import CheckIcon from '@mui/icons-material/Check';
+import {Grid, Box, Typography} from '@mui/material'
 import { Link } from "react-router-dom";
 
 

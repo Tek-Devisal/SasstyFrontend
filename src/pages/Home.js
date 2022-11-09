@@ -223,14 +223,7 @@ const Home = () => {
             
              */}
         </PageHeader>
-        <Grid
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          container
-        >
+
           <PageBody>
             <LeftSidebar>
               <AdBoard>
@@ -279,7 +272,7 @@ const Home = () => {
               </AdBoard3>
             </LeftSidebar>
             <MainWindow>
-              <Grid container>
+              
                 <Adbar>
                   <div
                     className="AdbarLeft"
@@ -291,7 +284,7 @@ const Home = () => {
                     ></div>
                   </div>
                 </Adbar>
-              </Grid>
+              
               <DailyDeals>
                 <div
                   style={{
@@ -303,7 +296,6 @@ const Home = () => {
                   <p>DAILY DEALS</p>
                 </div>
               </DailyDeals>
-              {/* <Grid container> */}
                 <MainRowOne>
                   {dailyitems?.map((item) => (
                     <DailyDealsItems key={item.name} items={item} />
@@ -312,7 +304,6 @@ const Home = () => {
                         <DailyDealsItems />
                         <DailyDealsItems /> */}
                 </MainRowOne>
-              {/* </Grid> */}
               {/* <Container container style={{marginTop: 70}}> */}
               <MainRowTwo>
                 {randomproducts?.map((randomitem) => (
@@ -324,11 +315,9 @@ const Home = () => {
                             <ProductsRowTwo /> */}
               </MainRowTwo>
               {/* </Container> */}
-              {/* <Grid container> */}
               <Adbar2>
                 <img src="/Images/banner.png" alt="Ad" />
               </Adbar2>
-              {/* </Grid> */}
               <TrendingItemsHead>
                 <div
                   style={{
@@ -395,7 +384,6 @@ const Home = () => {
               </AdBoard4>
             </MainWindow>
           </PageBody>
-        </Grid>
         <PageBottom>
           <TrendingItemsHead>
             <div
@@ -477,6 +465,7 @@ const PageWrapper = styled.div`
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
+  /* overflow-x: scroll; */
   /* border: 1px solid green; */
 `;
 const PageHeader = styled.div`
@@ -576,7 +565,7 @@ const PageBottom = styled.div`
   height: auto;
   /* background-color: blue; */
   margin-top: 1px;
-  width: 100%;
+  width: 90%;
   /* border: 1px solid green; */
   gap: 20px;
 `;

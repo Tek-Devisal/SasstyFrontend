@@ -15,7 +15,7 @@ import CartIcon from './CartIcon';
 
 const Navbar = () => {
   return (
-    <Grid container>
+    <>
     <NavbarContainer>
         <LogoContainer>
             <Link to="/"><img src="/Images/sasstylogo.jpeg" alt="logo" /></Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
         </CartContainer>
     </NavbarContainer>
     {/* <NavbarTwo /> */}
-    </Grid>
+    </>
   )
 }
 
@@ -81,6 +81,7 @@ const NavbarContainer = styled.div`
     background-color: #FF2164;
     padding-right: 10px;
     padding-left: 10px;
+    /* overflow: scroll; */
 `
 const LogoContainer = styled.div`
     flex: 0.083;
