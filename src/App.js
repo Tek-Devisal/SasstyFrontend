@@ -18,6 +18,7 @@ import SellLandingPage from "./components/SellLandingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "@mui/icons-material";
 import ScrollToTop from "./components/ScrollToTop";
+import Registration from "./pages/Registration";
 
 function App() {
   // return (
@@ -39,7 +40,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/landing" element={<SellLandingPage />} />
               <Route path="/listings" element={<Listings />} />
-              <Route exact path="/login" element={<Register />} />
+              <Route exact path="/login" element={<Registration />} />
               <Route exact path="/" element={<Home />} />
             </Routes>
           </div>
