@@ -14,7 +14,7 @@ const SellLandingPage = () => {
             <CarouselTextContainer>
                 <TextWrapper>
                     <h1>Start Selling on Sassty</h1>
-                    <div style={{width: 500}}><p>Make your selling journey easier with Jungle Scout’s helpful tools and tips.</p></div>
+                    <div style={{width: 500}}><p>Make your selling journey easier with Sassty's helpful tools and tips.</p></div>
                     
                     <p className='tick'><CheckIcon style={{color: '#F57706', marginRight: 15}}/>Find a high-demand product to sell</p>
                     <p className='tick'><CheckIcon style={{color: '#F57706', marginRight: 15}}/>Build a profitable business</p>
@@ -43,6 +43,8 @@ const ImageContainer = styled.div`
     flex-direction: row;
     justify-content: space-around;
     height: 90vh;
+    width: 100%;
+    min-width: 1280px;
     background-color: #FFF1E2;
     
 `

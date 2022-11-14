@@ -6,6 +6,8 @@ import TrendingItemsTwo from '../components/TrendingItemsTwo';
 import DailyDealsItemsTwo from '../components/DailyDealsItemsTwo';
 // import TrendingItemsHead from './Home'
 
+import PaystackPop from '@paystack/inline-js'
+
 // Material UI components
 
 import { 
@@ -21,11 +23,22 @@ import { getBasketTotal } from '../components/BasketContex/reducer';
 
 const Cart = () => {
 
+
+
     const [{ basket }] = useStateValue();
     console.log("My basket",basket);
 
     // const itemQuantity = localStorage.getItem("cart item quantity")
     console.log("Cart Qty: ",localStorage.getItem("cart item quantity"))
+
+    const MakePayment = () => { 
+        const paystack = new PaystackPop();
+        paystack.newTransaction({
+            key: 'pk_test_f38f4ed39ec5301f0cc6784799288b023132b805',
+            amount: JSON.stringify(getBasketTotal(basket)*100),
+            email: 'darkolawrence@gmail.com'
+        })
+     }
 
   return (
     <>
@@ -61,6 +74,9 @@ const Cart = () => {
                             
                         </DivImages>
                     </DivTwo>
+                    <CheckOut onClick={MakePayment}>
+                        <p>Check Out</p>
+                    </CheckOut>
                 </ProductSection>
             </MainContent>
 
@@ -150,7 +166,10 @@ const ImageSection = styled.div`
 const ProductSection = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex: 40%;
+    /* margin-left: 20px; */
     /* border: 1px solid red; */
 `
 const DivOne = styled.div`
@@ -161,7 +180,7 @@ const DivOne = styled.div`
     width: 95%;
     margin-bottom: 20px;
     /* border: 1px solid green; */
-    margin-left: 15px;
+    /* margin-left: 15px; */
     margin-right: 15px;
 
     >p{
@@ -176,10 +195,10 @@ const DivTwo = styled.div`
     height: 250px;
     width: 95%;
     line-height: 25px;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     padding-right: 15px;
     padding-left: 40px;
-    margin-right: 40px;
+    /* margin-right: 40px; */
     /* border: 1px solid blue; */
     background-color: #F93C0033;
 `
@@ -190,4 +209,23 @@ const DivImages = styled.div`
     width: 95%;
     margin-top: 20px;
     /* border: 1px solid blue; */
+`
+const CheckOut = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D0D0D0;
+    width: 300px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #FF2164;
+    margin-top: 30px;
+    cursor: pointer;
+
+    >p{
+        color: #fff;
+        margin-block-start: 0.5em;
+        font-size: 19px;
+        font-weight: 'bold';
+    }
 `

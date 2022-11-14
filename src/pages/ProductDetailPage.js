@@ -141,6 +141,7 @@ const PageWrapper = styled.div`
     background-color: #FDFDFD;
     height: auto;
     width: 100%;
+    min-width: 1280px;
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 20px;

@@ -30,6 +30,7 @@ const ComponentWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-width: 1280px;
     height: 200px;
     background-color: #c4bdbd;
     /* border-radius: 10px; */
@@ -49,6 +50,7 @@ const Line = styled.div`
 const CopyRight = styled.div`
     height: 50px;
     width: 100%;
+    min-width: 1280px;
     background-color: #000;
     display: flex;
     justify-content: center;

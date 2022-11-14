@@ -172,7 +172,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
               >
-                Join us
+                <Link style={{textDecoration: 'none', color: 'white'}} to="/landing">Join us</Link>
               </Button>
               <Button
                 style={{
@@ -463,6 +463,7 @@ const PageWrapper = styled.div`
   background-color: #fff;
   height: auto;
   width: 100%;
+  min-width: 1280px;
   padding-left: 20px;
   padding-right: 20px;
   /* overflow-x: scroll; */

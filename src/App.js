@@ -14,6 +14,7 @@ import theme from "./theme";
 import Testing from "./pages/Testing";
 import Register from "./pages/Register";
 import SellLandingPage from "./components/SellLandingPage";
+import VendorDetails from "./pages/VendorDetails";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "@mui/icons-material";
@@ -39,7 +40,8 @@ function App() {
               <Route path="/sell" element={<SellOnSassty />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/landing" element={<SellLandingPage />} />
-              <Route path="/listings" element={<Listings />} />
+              {/* <Route path="/listings" element={<Listings />} /> */}
+              <Route path="/listings" element={<VendorDetails />} />
               <Route exact path="/login" element={<Registration />} />
               <Route exact path="/" element={<Home />} />
             </Routes>
