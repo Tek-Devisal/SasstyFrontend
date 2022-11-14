@@ -172,7 +172,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
               >
-                <Link style={{textDecoration: 'none', color: 'white'}} to="/landing">Join us</Link>
+                <Link style={{textDecoration: 'none', color: 'white', whiteSpace: 'nowrap'}} to="/landing">Join us</Link>
               </Button>
               <Button
                 style={{
