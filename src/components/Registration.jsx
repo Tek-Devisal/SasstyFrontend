@@ -4,6 +4,7 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import RedeemOutlinedIcon from "@mui/icons-material/RedeemOutlined";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 const RegistrationSignup = () => {
   const [show, setShow] = useState(false);
 
@@ -11,6 +12,8 @@ const RegistrationSignup = () => {
     setShow(!show);
   };
   return (
+    <>
+    {/* <Navbar /> */}
     <div>
       <div className="text-center d-flex align-items-center justify-content-center gift_text">
         <RedeemOutlinedIcon className="mx-1" style={{ fontSize: "1rem" }} />
@@ -61,6 +64,7 @@ const RegistrationSignup = () => {
         />
       </form>
     </div>
+    </>
   );
 };
 

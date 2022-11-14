@@ -6,6 +6,8 @@ import apple from "../assets/apple.svg";
 import { useState } from "react";
 import RegistrationLogin from "../components/RegistrationLogin";
 import RegistrationSignup from "../components/Registration";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 const Registration = () => {
   const [show, setShow] = useState(false);
   const [focus1, setFocus1] = useState(true);
@@ -26,6 +28,8 @@ const Registration = () => {
   let className = "buttons";
 
   return (
+    <>
+    <Navbar />
     <div className="register_container">
       <div className="card border-0 login_height shadow-lg">
         <div className="d-flex justify-content-around align-items-center button_group">
@@ -58,6 +62,8 @@ const Registration = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
