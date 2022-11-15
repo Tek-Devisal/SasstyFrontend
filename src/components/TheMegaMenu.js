@@ -56,7 +56,7 @@ const MegaMenu = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  margin-left: -120px;
+  margin-left: -25px;
   margin-right: 50px;
   /* height: 500px;
     width: 1000px; */

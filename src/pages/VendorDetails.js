@@ -13,8 +13,7 @@ const VendorDetails = () => {
           lastName: '',
           email: '',
           shoplocation: '',
-          password: '',
-          confirmPassword: '',
+          contact: ''
         },
         validationSchema: Yup.object({
           firstName: Yup.string()
@@ -91,6 +90,19 @@ const VendorDetails = () => {
                 {formik.touched.shoplocation && formik.errors.shoplocation ? (
                     <div>{formik.errors.shoplocation}</div>
                 ) : null}
+
+                <input
+                    id="contact"
+                    name="contact"
+                    type="text"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.contact}
+                    placeholder="Contact"
+                />
+                {formik.touched.shoplocation && formik.errors.shoplocation ? (
+                    <div>{formik.errors.shoplocation}</div>
+                ) : null}
             
                 <button style={{margin: 20}} type="submit">Submit</button>
             </form>
@@ -108,7 +120,8 @@ const PageWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px;
+    height: 450px;
+    /* height: 100%; */
     min-width: 1280px;
     /* border: 1px solid red; */
 `
