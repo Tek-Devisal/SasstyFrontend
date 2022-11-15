@@ -463,6 +463,7 @@ const PageWrapper = styled.div`
   background-color: #fff;
   height: auto;
   width: 100%;
+  box-sizing: border-box;
   min-width: 1280px;
   padding-left: 20px;
   padding-right: 20px;
