@@ -186,7 +186,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
               >
-                <Link style={{textDecoration: 'none', color: 'black'}} to="/login">Sign in</Link>
+                <Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap'}} to="/login">Sign in</Link>
               </Button>
             </WelcomRowTwo>
             <Divider
