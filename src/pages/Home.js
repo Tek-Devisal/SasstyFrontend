@@ -1036,7 +1036,7 @@ const PolicyOne = styled.div`
   > p{
     white-space: nowrap;
     line-height: 25px;
-    font-size: 10px;
+    font-size: 11px;
     margin-block-start: 0rem;
     padding-block-start: 0rem;
     margin-block-end: 0rem;
@@ -1058,7 +1058,7 @@ const PolicyTwo = styled.div`
   > p{
     white-space: nowrap;
     line-height: 25px;
-    font-size: 10px;
+    font-size: 11px;
     margin-block-start: 0rem;
     padding-block-start: 0rem;
     margin-block-end: 0rem;

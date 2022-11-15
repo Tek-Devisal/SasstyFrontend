@@ -15,10 +15,10 @@ const RegistrationSignup = () => {
     <>
     {/* <Navbar /> */}
     <div>
-      <div className="text-center d-flex align-items-center justify-content-center gift_text">
+      {/* <div className="text-center d-flex align-items-center justify-content-center gift_text">
         <RedeemOutlinedIcon className="mx-1" style={{ fontSize: "1rem" }} />
         FREE gifts and $4 Allowance are waiting for you
-      </div>
+      </div> */}
       <form action="" className="form">
         <div className="form_control">
           <input type="text" placeholder="Email" />
