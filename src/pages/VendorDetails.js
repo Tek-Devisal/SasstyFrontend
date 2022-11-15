@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Footer from '../components/Footer';
 
 const VendorDetails = () => {
 
@@ -94,6 +95,7 @@ const VendorDetails = () => {
                 <button style={{margin: 20}} type="submit">Submit</button>
             </form>
         </PageWrapper>
+        <Footer />
     </>
   )
 }

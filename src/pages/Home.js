@@ -36,6 +36,9 @@ import {
 
 // Material UI Icons
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import TopRankings from '../components/TopRankings';
 import TheMegaMenu from '../components/TheMegaMenu';
 
@@ -158,9 +161,59 @@ const Home = () => {
             </GridSlideButton>
           </GridMiddle>
           <GridLast>
-            <WelcomRowOne>
-              <p>Welcome to Sassty</p>
-            </WelcomRowOne>
+            <GridLastTop>
+              <WelcomRowOne>
+                <p>Welcome to Sassty</p>
+              </WelcomRowOne>
+              <WelcomRowTwo>
+              <Button
+                style={{
+                  width: "45%",
+                  borderRadius: "50px",
+                  height: '25px',
+                  backgroundColor: "#FC2566",
+                  textTransform: "capitalize",
+                }}
+                variant="contained"
+                size="large"
+              >
+                <Link style={{textDecoration: 'none', color: 'white', whiteSpace: 'nowrap', fontSize: 10, fontWeight: 'bold'}} to="/landing">Join us</Link>
+              </Button>
+              <Button
+                style={{
+                  width: "45%",
+                  borderRadius: "50px",
+                  height: '25px',
+                  backgroundColor: "white",
+                  border: "1px solid #ECECEC",
+                  color: "#000",
+                  textTransform: "capitalize",
+                  textDecoration: 'none'
+                }}
+                variant="contained"
+                size="large"
+              >
+                <Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap', fontSize: 10, fontWeight: 'bold'}} to="/login">Sign in</Link>
+              </Button>
+            </WelcomRowTwo>
+            <CusterPolicyTag>Customer Policy Service</CusterPolicyTag>
+            <CusterPolicyItems>
+                <PolicyOne>
+                  <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Payment Security</p>
+                  <p><WorkspacePremiumIcon style={{fontSize: 10, marginRight: 4}}/>Quality Guaranteed</p>
+                </PolicyOne>
+                <PolicyTwo>
+                  <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Delivery Guaranteed</p>
+                  <p><DeliveryDiningIcon style={{fontSize: 10, marginRight: 4}}/>No Reason Returns</p>
+                </PolicyTwo>
+            </CusterPolicyItems>
+            </GridLastTop>
+            <GridLastDown>
+              <WelcomRowOne>
+                <p style={{marginTop: 30}}>New user benefit</p>
+              </WelcomRowOne>
+            </GridLastDown>
+            {/* 
             <WelcomRowTwo>
               <Button
                 style={{
@@ -178,7 +231,7 @@ const Home = () => {
                 style={{
                   width: "45%",
                   borderRadius: "50px",
-                  backgroundColor: "#FDF6F8",
+                  backgroundColor: "#FFA5C0",
                   color: "#000",
                   textTransform: "capitalize",
                   textDecoration: 'none'
@@ -186,7 +239,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
               >
-                <Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap'}} to="/login">Sign in</Link>
+                <Link style={{textDecoration: 'none', color: 'white', whiteSpace: 'nowrap'}} to="/login">Sign in</Link>
               </Button>
             </WelcomRowTwo>
             <Divider
@@ -194,7 +247,7 @@ const Home = () => {
               style={{
                 backgroundColor: "#333",
                 width: "100%",
-                marginTop: "20px",
+                marginTop: "20p
               }}
             />
             <p style={{ fontSize: "22px", marginBottom: "30px" }}>
@@ -217,7 +270,7 @@ const Home = () => {
                 <RadioButtonCheckedIcon style={{ marginRight: "10px" }} />
                 No reason return
               </p>
-            </WelcomRowThree>
+            </WelcomRowThree> */}
           </GridLast>
           {/* 
             
@@ -494,6 +547,7 @@ const GridCategory = styled.div`
   width: 25%;
   /* gap: 2px; */
   overflow-y: scroll;
+  border-radius: 10px;
 
   ::-webkit-scrollbar {
     display: none;
@@ -506,6 +560,7 @@ const GridMiddle = styled.div`
   flex-direction: column;
   gap: 15px;
   width: 50%;
+  border-radius: 10px;
   /* flex: 0.5; */
 `;
 
@@ -513,12 +568,15 @@ const GridLast = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("/Images/background.png");
-  background-color: #fff;
+ 
+  /* background-image: url("/Images/background.png"); */
+  background-color: white;
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 25%;
+  border-radius: 10px;
+  /* background-image: url("/Images/download.png"); */
   /* flex: 0.25; */
 `;
 
@@ -879,20 +937,30 @@ const WelcomRowOne = styled.div`
   align-items: center;
   height: 30px;
   width: 98%;
-  margin-top: 120px;
+  /* margin-top: 120px; */
   /* border: 1px solid red; */
 
   > p {
-    font-size: 23px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    height: 19px;
+    line-height: 19px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* width: 100%; */
   }
 `;
 const WelcomRowTwo = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 40px;
   width: 70%;
   margin-top: 10px;
+  /* margin-left: 40px; */
   /* border: 1px solid red; */
 `;
 const WelcomRowThree = styled.div`
@@ -914,5 +982,88 @@ const WelcomRowThree = styled.div`
     /* border: 1px solid red; */
   }
 `;
+
+const GridLastTop = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  height: 50%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-image: url("/Images/download.png");
+  background-repeat: no-repeat;
+`
+const GridLastDown = styled.div`
+  background-color: white;
+  width: 100%;
+  height: 50%;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+`
+const CusterPolicyTag = styled.p`
+    font-size: 14px;
+    font-weight: 700;
+    height: 19px;
+    color: #333;
+    margin-left: 7px;
+    margin-top: 15px;
+`
+const CusterPolicyItems = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+  margin: 10px;
+  contain: content;
+  
+`
+const PolicyOne = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* width: 44%; */
+  height: 50px;
+  contain: content;
+  /* background-color: red; */
+  justify-content: center;
+  /* padding-top: 20px; */
+  
+
+  > p{
+    white-space: nowrap;
+    line-height: 25px;
+    font-size: 10px;
+    margin-block-start: 0rem;
+    padding-block-start: 0rem;
+    margin-block-end: 0rem;
+    padding-block-end: 0rem;
+  }
+`
+
+const PolicyTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* width: 44%; */
+  height: 50px;
+  contain: content;
+  /* background-color: red; */
+  justify-content: center;
+  /* padding-top: 20px; */
+  
+
+  > p{
+    white-space: nowrap;
+    line-height: 25px;
+    font-size: 10px;
+    margin-block-start: 0rem;
+    padding-block-start: 0rem;
+    margin-block-end: 0rem;
+    padding-block-end: 0rem;
+  }
+`
 
 // STYLES

@@ -19,7 +19,7 @@ const TopRankings = () => {
   return (
     <PageWrapper>
         <SectionOne>
-            <div>Top Rankings </div>
+            <div>Made in Ghana </div>
             <OneWraper>
             {LeftProduct.map(({image, price})=>(<ProductAndPrice key={price}>
                 <img src={image}/>
@@ -28,7 +28,7 @@ const TopRankings = () => {
             </OneWraper>
         </SectionOne>
         <SectionTwo>
-            <div>Clearance</div>
+            <div>Newest</div>
             <OneWraper>
             {RightProduct.map(({image, price})=>(<ProductAndPrice key={price}>
                 <img src={image}/>
@@ -96,5 +96,5 @@ const OneWraper = styled.div`
     display: flex;
     margin-top: 10px;
     justify-content: space-around;
-    /* gap: 10px; */
+    gap: 10px;
 `

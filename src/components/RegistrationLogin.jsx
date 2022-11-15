@@ -32,7 +32,7 @@ const RegistrationLogin = () => {
                 headers: {"Content-Type": "application/json"},
                
             };
-            axios.post(`${BASE_URL}/users/v1/api/token/` ,{email, password}, config)
+            axios.post(`${BASE_URL}/users/v1/api/token/` ,{username: email, password: password}, config)
             .then(res => {
                 console.log(res)
                 console.log(res.data)
