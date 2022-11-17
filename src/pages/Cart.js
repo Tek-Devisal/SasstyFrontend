@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import TrendingItemsTwo from '../components/TrendingItemsTwo';
 import DailyDealsItemsTwo from '../components/DailyDealsItemsTwo';
 // import TrendingItemsHead from './Home'
-
+import { PaystackButton } from 'react-paystack';
 import PaystackPop from '@paystack/inline-js'
 
 // Material UI components
@@ -21,8 +21,10 @@ import { useStateValue } from '../components/BasketContex/StateProvider';
 // import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from '../components/BasketContex/reducer';
 
-const Cart = () => {
 
+
+
+const Cart = () => {
 
 
     const [{ basket }] = useStateValue();

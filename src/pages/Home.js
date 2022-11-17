@@ -57,6 +57,23 @@ const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState();
 
 
+    const newCategories = [
+        {name: "Women's Clothing", id: 1},
+        {name: "Men's Clothin", id: 2},
+        {name: "Phones & Accessories", id: 3},
+        {name: "Electronics", id: 4},
+        {name: "Tools, Industrial & Scientific", id: 5},
+        {name: "Toys Hobbies and Robot", id: 6},
+        {name: "Computers & Office", id: 7},
+        {name: "Automobiles & Motocycles", id: 8},
+        {name: "Sports & Outdoor", id: 9},
+        {name: "Home, Garden & Furniture", id: 10},
+        {name: "Jewelry & Watches", id: 11},
+        {name: "Home Appliances", id: 12},
+        {name: "Shoes and Bags", id: 13},
+        {name: "Lights & Lighting", id: 15},
+
+      ]
 
 
   // List of funcions
@@ -144,7 +161,7 @@ const Home = () => {
       <PageWrapper>
         <PageHeader >
           <GridCategory >
-            {categories?.map(({ name, id }) => (
+            {newCategories.map(({ name, id }) => (
               <HeaderTab title={name} categoryId={id} key={id} />
             ))}
             {/* <HeaderTab /> */}
@@ -200,10 +217,10 @@ const Home = () => {
             <CusterPolicyItems>
                 <PolicyOne>
                   <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Payment Security</p>
-                  <p><WorkspacePremiumIcon style={{fontSize: 10, marginRight: 4}}/>Quality Guaranteed</p>
+                  <p><WorkspacePremiumIcon style={{fontSize: 10, marginRight: 4}}/>Quality Guarantee</p>
                 </PolicyOne>
                 <PolicyTwo>
-                  <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Delivery Guaranteed</p>
+                  <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Delivery Guarantee</p>
                   <p><DeliveryDiningIcon style={{fontSize: 10, marginRight: 4}}/>No Reason Returns</p>
                 </PolicyTwo>
             </CusterPolicyItems>
@@ -1036,7 +1053,8 @@ const PolicyOne = styled.div`
   > p{
     white-space: nowrap;
     line-height: 25px;
-    font-size: 11px;
+    font-size: 12px;
+    /* letter-spacing: 1px; */
     margin-block-start: 0rem;
     padding-block-start: 0rem;
     margin-block-end: 0rem;
@@ -1058,7 +1076,8 @@ const PolicyTwo = styled.div`
   > p{
     white-space: nowrap;
     line-height: 25px;
-    font-size: 11px;
+    font-size: 12px;
+    /* letter-spacing: 1px; */
     margin-block-start: 0rem;
     padding-block-start: 0rem;
     margin-block-end: 0rem;

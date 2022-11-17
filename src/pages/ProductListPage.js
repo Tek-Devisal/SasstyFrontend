@@ -81,7 +81,7 @@ const ProductList = () => {
         <PageWrapper>
             <LeftSidebar>
                 <AccordionWrapper>
-                {categories?.map(({name, id})=>(<HeaderTab title={name} categoryId={id} key={id}/>))}
+                {/* {categories?.map(({name, id})=>(<HeaderTab title={name} categoryId={id} key={id}/>))} */}
                 </AccordionWrapper>
                 
             </LeftSidebar>
@@ -161,7 +161,7 @@ const AccordionWrapper = styled.div`
     /* align-items: center; */
     /* width: 100%; */
     height: 500px;
-    background-color: #B7B7BA;
+    background-color: #fff;
     width: 100%;
     /* gap: 2px; */
     z-index: 1;

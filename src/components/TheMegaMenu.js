@@ -3,18 +3,43 @@ import styled from "styled-components";
 import MegaMenuChoiceContext from "../ContextAPI/MegaMenuContext";
 import { BASE_URL } from "../pages/Home";
 import { Link } from "react-router-dom";
+import WatchesMenuView from "./WatchesMenuView";
+import ToolsIndScientMenuView from "./ToolsIndScientMenuView";
+import ToysHobbiesMenuView from "./ToysHobbiesMenuView";
+import WomensClothsMenuView from "./WomensClothsMenuView";
+import PhoneAccessMenuView from "./PhoneAccessMenuView";
+import MensClothMenuView from "./MensClothMenuView";
+import ElectronicsMenuView from "./ElectronicsMenuView";
 
 import axios from "axios";
 
 const TheMegaMenu = () => {
-  const { openMenu, setOpenMenu, setSubcategoryid, subcategorydata } =
-    useContext(MegaMenuChoiceContext);
+  const { openMenu, setOpenMenu, setSubcategoryid, subcategorydata, catIdforMegaMenu } = useContext(MegaMenuChoiceContext);
+
+  const [changeSubMenuView, setChangeSubMenuView] = useState()
+
 
   const handleAssignment = (id) => {
     setSubcategoryid(id);
     localStorage.setItem("Sub-category id", id);
     console.log("Sub-category id: ", id);
   };
+
+  const setView = () => { 
+    return  catIdforMegaMenu == 1 ? setChangeSubMenuView(<WomensClothsMenuView/>)
+          : catIdforMegaMenu == 2 ? setChangeSubMenuView(<MensClothMenuView/>)
+          : catIdforMegaMenu == 3 ? setChangeSubMenuView(<PhoneAccessMenuView/>)
+          : catIdforMegaMenu == 4 ? setChangeSubMenuView(<ElectronicsMenuView/>)
+          : catIdforMegaMenu == 5 ? setChangeSubMenuView(<ToolsIndScientMenuView/>)
+          : catIdforMegaMenu == 6 ? setChangeSubMenuView(<ToysHobbiesMenuView/>)
+          : catIdforMegaMenu == 7 ? setChangeSubMenuView(<WatchesMenuView/>)
+          : setChangeSubMenuView("");
+  }
+
+  useEffect(() => {
+    setView()
+  }, [catIdforMegaMenu])
+  
 
   return (
     <div>
@@ -30,20 +55,16 @@ const TheMegaMenu = () => {
         >
           <Subsubcatogories>
             {subcategorydata?.map(({ name, id }) => (
-              <Link
-                onClick={() => {
-                  handleAssignment(id);
-                }}
-                to="/product-list"
-                key={id}
-              >
+              <Link onClick={() => {handleAssignment(id)}} to="/product-list" key={id}>
                 <p>{name}</p>
               </Link>
             ))}
           </Subsubcatogories>
           <Subsubcatogories>
-            {/* <Link to="/product-list">{subcategorydata?.map(({name, id})=>(<p key={id}>{name}</p>))}</Link> */}
+              {catIdforMegaMenu}
+              
           </Subsubcatogories>
+          {changeSubMenuView}
         </TheMenu>
       </MegaMenu>
     </div>
@@ -56,7 +77,7 @@ const MegaMenu = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  margin-left: -29px;
+  margin-left: -40px;
   margin-right: 50px;
   /* height: 500px;
     width: 1000px; */

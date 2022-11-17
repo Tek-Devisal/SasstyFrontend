@@ -10,8 +10,7 @@ import axios from "axios";
 
 const Accordion = ({ title, categoryId }) => {
   const [isActive, setIsActive] = useState(false);
-  const { openMenu, setOpenMenu, subcategorydata, setSubcategorydata } =
-    useContext(MegaMenuChoiceContext);
+  const { openMenu, setOpenMenu, subcategorydata, setSubcategorydata, setCatIdforMegaMenu } = useContext(MegaMenuChoiceContext);
   const [categoryid, setCategoryid] = useState(1);
 
   const assignCategoryId = () => {
@@ -19,6 +18,7 @@ const Accordion = ({ title, categoryId }) => {
     // console.log("category id: ", categoryid)
     // setCategoryid(categoryId)
     setCategoryid(categoryId);
+    setCatIdforMegaMenu(categoryId);
   };
 
   const fetchSubCategories = async () => {
@@ -57,7 +57,7 @@ const Accordion = ({ title, categoryId }) => {
           </Title>
           {/* <Espansion><p>{isActive? <KeyboardArrowUpIcon />:<KeyboardArrowDownIcon/>}</p></Espansion> */}
         </AccordionTitle>
-        {isActive && (
+        {/* {isActive && (
           <AccordionContent key={title}>
             <Link to="/product-list">
               {subcategorydata.map((element) => (
@@ -65,7 +65,7 @@ const Accordion = ({ title, categoryId }) => {
               ))}
             </Link>
           </AccordionContent>
-        )}
+        )} */}
       </AccordionContainer>
     </div>
   );
