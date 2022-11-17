@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const WomensClothsMenuView = () => {
 
@@ -22,8 +23,137 @@ const WomensClothsMenuView = () => {
       ]
 
   return (
-    <div>WomensClothsMenuView</div>
+    <PageWrapper>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+      <Subsublist>
+        <p>Dresses</p>
+        <p>Midi Dresses</p>
+        <p>Maxi Dresses</p>
+        <p>Mini Dresses</p>
+        <p>Long Sleeve Dresses</p>
+        <p>Bodycorn/Wrap Dresses</p>
+        <p>Shirt Dressers</p>
+      </Subsublist>
+
+    </PageWrapper>
   )
 }
 
 export default WomensClothsMenuView
+
+const PageWrapper = styled.div`
+  display: flex;
+  width: 90%;
+  height: 100%;
+  /* border: 1px solid red; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  contain: content;
+`
+const Subsublist = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  /* border: 1px solid green; */
+  /* height: 100px; */
+  padding: 20px;
+
+  p:nth-child(1) {
+    font-size: 15px;
+    font-weight: bold;
+    /* text-decoration: underline; */
+    margin-bottom: 4px;
+    color: black;
+    cursor: pointer;
+
+    &:hover {
+            color: red;
+            /* font-size: 20px; */
+            border-bottom: 5px solid #66a3a3;
+        }
+  }
+  
+  
+
+  >p{
+    margin-block-start: 0rem;
+    margin-block-end: 0rem;
+    padding-block-start: 0rem;
+    padding-block-end: 0rem;
+    color: #868686;
+    font-size: 13px;
+    cursor: pointer;
+  
+  }
+`

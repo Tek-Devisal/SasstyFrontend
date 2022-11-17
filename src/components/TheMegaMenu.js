@@ -53,18 +53,18 @@ const TheMegaMenu = () => {
           }}
           openMenu={openMenu}
         >
-          <Subsubcatogories>
+          {/* <Subsubcatogories>
             {subcategorydata?.map(({ name, id }) => (
               <Link onClick={() => {handleAssignment(id)}} to="/product-list" key={id}>
                 <p>{name}</p>
               </Link>
             ))}
-          </Subsubcatogories>
+          </Subsubcatogories> */}
           <Subsubcatogories>
-              {catIdforMegaMenu}
-              
+              {/* {catIdforMegaMenu} */}
+              {changeSubMenuView}
           </Subsubcatogories>
-          {changeSubMenuView}
+          
         </TheMenu>
       </MegaMenu>
     </div>
@@ -106,7 +106,7 @@ const Subsubcatogories = styled.div`
   display: flex;
   flex-direction: column;
   /* border: 1px solid green; */
-  width: 20%;
+  width: 100%;
   height: 100%;
   flex-wrap: wrap;
 
