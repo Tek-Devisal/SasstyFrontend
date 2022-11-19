@@ -20,6 +20,7 @@ import { useFetch } from '../components/FetchAPI/useFetch';
 import { BASE_URL } from './Home';
 import ItemCounter from '../components/ItemCounter';
 import { useStateValue } from '../components/BasketContex/StateProvider';
+import ProductGallery2 from '../components/ProductGallery2';
 
 
 const ProductDetailPage = () => {
@@ -61,7 +62,8 @@ const ProductDetailPage = () => {
         <PageWrapper>
             {data?.map(details => (<MainContent key={details.id}>
                 <ImageSection>
-                    <ProductGallery key={details.id}/>
+                    {/* <ProductGallery key={details.id}/> */}
+                    <ProductGallery2 />
                 </ImageSection>
                 <ProductSection>
                     <p>{details.description}</p>
@@ -224,11 +226,13 @@ const DailyDeals = styled.div`
 const ImageSection = styled.div`
     display: flex;
     flex: 50%;
+    height: auto;
 `
 const ProductSection = styled.div`
     display: flex;
     flex-direction: column;
     flex: 50%;
+    height: auto;
 
     > p:nth-child(2){
         font-size: 20px;
