@@ -70,7 +70,7 @@ const ProductDetailPage = () => {
                     <p>GH₵{details.prize-(details.discount/100)*(details.prize)}</p>
                     <p><span>GH₵{details.prize}</span> {details.discount}% off</p>
 
-                    <FormControl style={{marginBottom: 20}}  sx={{ m: 1, minWidth: 120, maxWidth: 200}}>
+                    {/* <FormControl style={{marginBottom: 20}}  sx={{ m: 1, minWidth: 120, maxWidth: 200}}>
                         <InputLabel id="demo-simple-select-autowidth-label">Material</InputLabel>
                             <Select
                             labelId="demo-simple-select-autowidth-label"
@@ -87,7 +87,7 @@ const ProductDetailPage = () => {
                                 <MenuItem value={21}>Twenty one</MenuItem>
                                 <MenuItem value={22}>Twenty one and a half</MenuItem>
                             </Select>
-                    </FormControl>
+                    </FormControl> */}
                     <ItemCounter />
                     <WelcomRowTwo>
                         <Button style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#FF7A00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">

@@ -11,11 +11,11 @@ const ProductGallery2 = () => {
             <img src={activeImage} alt='Selected' />
         </MainImage>
         <Sub>
-            <SubImage onClick={()=>setActiveImage("Images/sl2.jpg")}><img src="Images/sl2.jpg"/></SubImage>
-            <SubImage onClick={()=>setActiveImage("Images/sl3.jpg")}><img src="Images/sl3.jpg"/></SubImage>
-            <SubImage onClick={()=>setActiveImage("Images/sl4.jpg")}><img src="Images/sl4.jpg"/></SubImage>
-            <SubImage onClick={()=>setActiveImage("Images/sl5.jpg")}><img src="Images/sl5.jpg"/></SubImage>
-            <SubImage onClick={()=>setActiveImage("Images/sl6.jpg")}><img src="Images/sl6.jpg"/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage("Images/sl2.jpg")}><img src="Images/sl2.jpg"/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage("Images/sl3.jpg")}><img src="Images/sl3.jpg"/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage("Images/sl4.jpg")}><img src="Images/sl4.jpg"/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage("Images/sl5.jpg")}><img src="Images/sl5.jpg"/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage("Images/sl6.jpg")}><img src="Images/sl6.jpg"/></SubImage>
         </Sub>
     </ComponentWrapper>
   )
@@ -56,8 +56,12 @@ const SubImage = styled.div`
     height: 70px;
     margin: 10px;
 
+    &:hover{
+        border: 2px solid #F0A1A1;
+    }
+
     > img{
-        height: 60px;
+        height: 58px;
         width: 58px;
         margin: 5px;
     }
