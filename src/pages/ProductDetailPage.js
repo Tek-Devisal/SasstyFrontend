@@ -118,6 +118,7 @@ const ProductDetailPage = () => {
                 </PolicyItems>
                 </ProductSection>
             </MainContent>))}
+            <Related>
             <TrendingItemsHead>
                 <div style={{height: "104%", width: "200px", backgroundColor: "#01032C"}}>
                     <p>TRENDIND ITEMS</p>
@@ -145,6 +146,7 @@ const ProductDetailPage = () => {
                 <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
             </RelatedContentTwo>
+            </Related>
         </PageWrapper>
         <Footer />
     </>
@@ -160,7 +162,9 @@ const PageWrapper = styled.div`
     /* align-items: center; */
     background-color: #FDFDFD;
     height: auto;
-    width: 100%;
+    /* width: 90%; */
+    justify-content: center;
+    align-items: center;
     min-width: 1280px;
     padding-left: 20px;
     padding-right: 20px;
@@ -171,6 +175,7 @@ const MainContent = styled.div`
     display: flex;
     flex-direction: row;
     height: auto;
+    width: 90%;
     padding-right: 200px;
     /* border: 1px solid red; */
 
@@ -289,4 +294,9 @@ const WelcomRowTwo = styled.div`
 const PolicyItems = styled.div`
     /* border: 1px solid red; */
     width: 260px;
+`
+const Related = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 90%;
 `
