@@ -1028,7 +1028,7 @@ const CusterPolicyTag = styled.p`
     margin-left: 7px;
     margin-top: 15px;
 `
-const CusterPolicyItems = styled.div`
+export const CusterPolicyItems = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1039,7 +1039,7 @@ const CusterPolicyItems = styled.div`
   contain: content;
   
 `
-const PolicyOne = styled.div`
+export const PolicyOne = styled.div`
   display: flex;
   flex-direction: column;
   /* width: 44%; */
@@ -1062,7 +1062,7 @@ const PolicyOne = styled.div`
   }
 `
 
-const PolicyTwo = styled.div`
+export const PolicyTwo = styled.div`
   display: flex;
   flex-direction: column;
   /* width: 44%; */

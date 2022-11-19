@@ -22,6 +22,12 @@ import ItemCounter from '../components/ItemCounter';
 import { useStateValue } from '../components/BasketContex/StateProvider';
 import ProductGallery2 from '../components/ProductGallery2';
 
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+
+import {CusterPolicyItems, PolicyOne, PolicyTwo} from './Home'
+
 
 const ProductDetailPage = () => {
 
@@ -98,6 +104,18 @@ const ProductDetailPage = () => {
                         </Button>
                 </WelcomRowTwo>
                 <p>Customer Service Policy</p>
+                <PolicyItems>
+                <CusterPolicyItems style={{margin: 0}}>
+                    <PolicyOne>
+                    <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Payment Security</p>
+                    <p><WorkspacePremiumIcon style={{fontSize: 10, marginRight: 4}}/>Quality Guarantee</p>
+                    </PolicyOne>
+                    <PolicyTwo>
+                    <p><CurrencyExchangeIcon style={{fontSize: 10, marginRight: 4}}/>Delivery Guarantee</p>
+                    <p><DeliveryDiningIcon style={{fontSize: 10, marginRight: 4}}/>No Reason Returns</p>
+                    </PolicyTwo>
+                </CusterPolicyItems>
+                </PolicyItems>
                 </ProductSection>
             </MainContent>))}
             <TrendingItemsHead>
@@ -267,4 +285,8 @@ const WelcomRowTwo = styled.div`
     margin-top: 20px;
     margin-bottom: 10px;
     /* border: 1px solid red; */
+`
+const PolicyItems = styled.div`
+    /* border: 1px solid red; */
+    width: 260px;
 `
