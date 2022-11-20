@@ -20,7 +20,7 @@ const ProductsRowTwo = ({items}) => {
             
             
             <ProductDetails>
-                <p>{items.name}</p>
+                <Typography sx={{fontSize: {lg: 14,md: 12,sm: 10,xs: 10}}}>{items.name}</Typography>
                 <p style={{fontSize: "14px", fontWeight: "bold"}}>GH¢{items.prize}</p>
             </ProductDetails>
             </Link>
@@ -71,11 +71,12 @@ const ProductDetails = styled.div`
     background-color: #EBFCFC;
     border-radius: 0px 0px 10px 10px;
     padding: 30px;
+    contain: content;
 
     >p {
         white-space: nowrap;
         color: #757E7E;
         font-weight: 500;
-        line-height: 5px;
+        line-height: 20px;
     }
 `

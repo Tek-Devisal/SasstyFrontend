@@ -40,7 +40,7 @@ export const ComponentWrapper = styled.div`
     flex-direction: column;
     width: 100%;
     margin-top: 20px;
-    height: 410px;
+    height: auto;
     background-color: #fff;
     border-radius: 15px;
     border: 2px solid #B1B1B1;

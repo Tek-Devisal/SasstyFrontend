@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
+import { BASE_URL } from '../pages/Home';
 
 import MopedIcon from '@mui/icons-material/Moped';
 
-const LatestProdSidebar = () => {
+const LatestProdSidebar = ({items}) => {
   return (
     <>
         <ComponentWrapper>
             <ProductItem>
+                <img src={`${BASE_URL}${items?.img_1}`} alt=""/>
+                <p>{items.name}</p>
+            </ProductItem>
+            {/* <ProductItem>
                 <img src="/Images/sidead.png" alt=""/>
                 <p>WAFU Q2 Smart</p>
             </ProductItem>
@@ -18,11 +23,7 @@ const LatestProdSidebar = () => {
             <ProductItem>
                 <img src="/Images/sidead.png" alt=""/>
                 <p>WAFU Q2 Smart</p>
-            </ProductItem>
-            <ProductItem>
-                <img src="/Images/sidead.png" alt=""/>
-                <p>WAFU Q2 Smart</p>
-            </ProductItem>
+            </ProductItem> */}
         </ComponentWrapper>
     </>
   )
@@ -50,6 +51,8 @@ const ProductItem = styled.div`
 
     > img {
       margin-right: 15px;
+      height: 80px;
+      width: 80px;
     }
     
     >p{
