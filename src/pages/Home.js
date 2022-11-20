@@ -55,6 +55,7 @@ const Home = () => {
   const [randomproducts, setRandomproducts] = useState();
   const [topRatedProducts, setTopRatedProducts] = useState();
   const [trendingProducts, setTrendingProducts] = useState();
+  const [latestProducts, setLatestProducts] = useState();
 
 
     const newCategories = [
@@ -146,12 +147,26 @@ const Home = () => {
     }
   };
 
+  const fetchLatestProducts = async () => {
+    try {
+      //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+      const latestproductitemsdata = await axios.get(
+        `${BASE_URL}/products/v1/lastestProducts/${4}`
+      );
+      setLatestProducts(latestproductitemsdata.data);
+      console.log("Latest Products ", latestproductitemsdata.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchCategories();
     fetchDailyProducts();
     fetchRandomProducts();
     fetchTrendingItems();
     fetchTopRatedProducts();
+    fetchLatestProducts();
   }, []);
 
   return (
@@ -229,69 +244,11 @@ const Home = () => {
               <WelcomRowOne>
                 <p style={{marginTop: 30}}>New user benefit</p>
               </WelcomRowOne>
+              <img src='Images/black.jpg' />
             </GridLastDown>
-            {/* 
-            <WelcomRowTwo>
-              <Button
-                style={{
-                  width: "45%",
-                  borderRadius: "50px",
-                  backgroundColor: "#FC2566",
-                  textTransform: "capitalize",
-                }}
-                variant="contained"
-                size="large"
-              >
-                <Link style={{textDecoration: 'none', color: 'white', whiteSpace: 'nowrap'}} to="/landing">Join us</Link>
-              </Button>
-              <Button
-                style={{
-                  width: "45%",
-                  borderRadius: "50px",
-                  backgroundColor: "#FFA5C0",
-                  color: "#000",
-                  textTransform: "capitalize",
-                  textDecoration: 'none'
-                }}
-                variant="contained"
-                size="large"
-              >
-                <Link style={{textDecoration: 'none', color: 'white', whiteSpace: 'nowrap'}} to="/login">Sign in</Link>
-              </Button>
-            </WelcomRowTwo>
-            <Divider
-              variant="fullWidth"
-              style={{
-                backgroundColor: "#333",
-                width: "100%",
-                marginTop: "20p
-              }}
-            />
-            <p style={{ fontSize: "22px", marginBottom: "30px" }}>
-              Customer Service Policy
-            </p>
-            <WelcomRowThree>
-              <p>
-                <RadioButtonCheckedIcon style={{ marginRight: "10px" }} />
-                Payment Security
-              </p>
-              <p>
-                <RadioButtonCheckedIcon style={{ marginRight: "10px" }} />
-                Guaranteed Delivery
-              </p>
-              <p>
-                <RadioButtonCheckedIcon style={{ marginRight: "10px" }} />
-                Guaranteed Quality
-              </p>
-              <p>
-                <RadioButtonCheckedIcon style={{ marginRight: "10px" }} />
-                No reason return
-              </p>
-            </WelcomRowThree> */}
+
           </GridLast>
-          {/* 
-            
-             */}
+
         </PageHeader>
 
           <PageBody>
@@ -310,7 +267,10 @@ const Home = () => {
                   <p>LATEST PRODUCT</p>
                 </div>
               </DailyDeals>
-              <LatestProdSidebar />
+              {/* <LatestProdSidebar /> */}
+              {latestProducts?.map((item) => (
+                    <LatestProdSidebar key={item.name} items={item} />
+                  ))}
               <ThirdSidebarCom />
               <AdBoard2>
                 <img src="/Images/ad9.png" alt="Ad" />
@@ -1014,11 +974,22 @@ const GridLastTop = styled.div`
   background-repeat: no-repeat;
 `
 const GridLastDown = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
   width: 100%;
   height: 50%;
   border-radius: 7px;
+  contain: content;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  >img{
+    width: 300px;
+    height: 210px;
+    margin: 3px;
+  }
 `
 const CusterPolicyTag = styled.p`
     font-size: 14px;

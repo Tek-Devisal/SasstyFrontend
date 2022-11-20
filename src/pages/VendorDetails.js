@@ -1,11 +1,40 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Footer from '../components/Footer';
+import axios from 'axios';
+import { BASE_URL } from './Home';
 
 const VendorDetails = () => {
+
+    const [isSuccess, setIsSuccess] = useState()
+
+    const addNewVendor = (value) => { 
+        // axios POST request
+        const options = {
+            url: `${BASE_URL}/products/v1/addVendor/`,
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8'
+            },
+            data: {
+                shop_name: value.ShopName,
+                manager_name: value.ManagerName,
+                phone_number: value.contact,
+                location: value.shoplocation
+            }
+        };
+        
+        axios(options)
+            .then(response => {
+            console.log(response.status);
+            });
+
+            
+     }
 
     const formik = useFormik({
         initialValues: {
@@ -30,7 +59,9 @@ const VendorDetails = () => {
             .required('Required'),
         }),
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+            addNewVendor(values);
+            setIsSuccess("VENDOR ADDED");
+        //   alert(JSON.stringify(values, null, 2));
         },
       });
 
@@ -111,6 +142,7 @@ const VendorDetails = () => {
                 ) : null}
             
                 {/* <button style={{margin: 20}} type="submit">Submit</button> */}
+                <p style={{color: 'green', marginLeft: 100}}>{isSuccess}</p>
                 <input
                     type="submit"
                     className="d-block w-100 border-0 submit text-white"

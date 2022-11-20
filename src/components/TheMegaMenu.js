@@ -26,13 +26,13 @@ const TheMegaMenu = () => {
   };
 
   const setView = () => { 
-    return  catIdforMegaMenu == 1 ? setChangeSubMenuView(<WomensClothsMenuView/>)
-          : catIdforMegaMenu == 2 ? setChangeSubMenuView(<MensClothMenuView/>)
-          : catIdforMegaMenu == 3 ? setChangeSubMenuView(<PhoneAccessMenuView/>)
-          : catIdforMegaMenu == 4 ? setChangeSubMenuView(<ElectronicsMenuView/>)
-          : catIdforMegaMenu == 5 ? setChangeSubMenuView(<ToolsIndScientMenuView/>)
-          : catIdforMegaMenu == 6 ? setChangeSubMenuView(<ToysHobbiesMenuView/>)
-          : catIdforMegaMenu == 7 ? setChangeSubMenuView(<WatchesMenuView/>)
+    return  catIdforMegaMenu === 1 ? setChangeSubMenuView(<WomensClothsMenuView/>)
+          : catIdforMegaMenu === 2 ? setChangeSubMenuView(<MensClothMenuView/>)
+          : catIdforMegaMenu === 3 ? setChangeSubMenuView(<PhoneAccessMenuView/>)
+          : catIdforMegaMenu === 4 ? setChangeSubMenuView(<ElectronicsMenuView/>)
+          : catIdforMegaMenu === 5 ? setChangeSubMenuView(<ToolsIndScientMenuView/>)
+          : catIdforMegaMenu === 6 ? setChangeSubMenuView(<ToysHobbiesMenuView/>)
+          : catIdforMegaMenu === 7 ? setChangeSubMenuView(<WatchesMenuView/>)
           : setChangeSubMenuView("");
   }
 
@@ -40,6 +40,7 @@ const TheMegaMenu = () => {
     setView()
   }, [catIdforMegaMenu])
   
+  // You have to declare and call the function in a useEffect to keep it persisting
 
   return (
     <div>
