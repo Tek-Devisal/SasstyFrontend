@@ -244,7 +244,7 @@ const Home = () => {
               <WelcomRowOne>
                 <p style={{marginTop: 30}}>New user benefit</p>
               </WelcomRowOne>
-              <img src='Images/black.jpg' />
+              <img src='Images/black.jpg' alt='black' />
             </GridLastDown>
 
           </GridLast>

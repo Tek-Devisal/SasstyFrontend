@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { Typography } from '@mui/material';
+import { BASE_URL } from '../pages/Home';
 
 const ProductsRowTwo = ({items}) => {
 
@@ -15,7 +16,7 @@ const ProductsRowTwo = ({items}) => {
         <ComponentWrapper>
             <Link onClick={()=>{getSubId(items.id)}} to='/product-details'>
             <ProductImage>
-                <img src='/Images/eyeset.png' alt='Product Item'/>
+                <img src={`${BASE_URL}${items?.img_1}`} alt='Product Item'/>
             </ProductImage>
             
             
