@@ -9,20 +9,25 @@ const VendorDetails = () => {
 
     const formik = useFormik({
         initialValues: {
-          firstName: '',
-          lastName: '',
+          ShopName: '',
+          ManagerName: '',
           email: '',
           shoplocation: '',
           contact: ''
         },
         validationSchema: Yup.object({
-          firstName: Yup.string()
+          ShopName: Yup.string()
             .max(15, 'Must be 15 characters or less')
             .required('Required'),
-          lastName: Yup.string()
+          ManagerName: Yup.string()
             .max(20, 'Must be 20 characters or less')
             .required('Required'),
           email: Yup.string().email('Invalid email address').required('Required'),
+          shoplocation: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+          contact: Yup.string()
+            .required('Required'),
         }),
         onSubmit: values => {
           alert(JSON.stringify(values, null, 2));
@@ -35,32 +40,32 @@ const VendorDetails = () => {
         <PageWrapper>
             <p style={{fontSize: 30, fontWeight: 'bold'}}>Vendor Details</p>
             <form style={{display: 'flex', flexDirection: 'column', width: "20%", gap: 20}} onSubmit={formik.handleSubmit}>
-                {/* <label htmlFor="firstName">First Name</label> */}
+                {/* <label htmlFor="ShopName">First Name</label> */}
                 <input
-                    id="firstName"
-                    name="firstName"
+                    id="ShopName"
+                    name="ShopName"
                     type="text"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.firstName}
-                    placeholder="First Name"
+                    value={formik.values.ShopName}
+                    placeholder="Shop Name"
                 />
-                {formik.touched.firstName && formik.errors.firstName ? (
-                    <div>{formik.errors.firstName}</div>
+                {formik.touched.ShopName && formik.errors.ShopName ? (
+                    <div className='danger'>{formik.errors.ShopName}</div>
                 ) : null}
             
-                {/* <label htmlFor="lastName">Last Name</label> */}
+                {/* <label htmlFor="ManagerName">Last Name</label> */}
                 <input
-                    id="lastName"
-                    name="lastName"
+                    id="ManagerName"
+                    name="ManagerName"
                     type="text"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.lastName}
-                    placeholder="Last Name"
+                    value={formik.values.ManagerName}
+                    placeholder="Manager Name"
                 />
-                {formik.touched.lastName && formik.errors.lastName ? (
-                    <div>{formik.errors.lastName}</div>
+                {formik.touched.ManagerName && formik.errors.ManagerName ? (
+                    <div className='danger'>{formik.errors.ManagerName}</div>
                 ) : null}
             
                 {/* <label htmlFor="email">Email Address</label> */}
@@ -74,7 +79,7 @@ const VendorDetails = () => {
                     placeholder="Email"
                 />
                 {formik.touched.email && formik.errors.email ? (
-                    <div>{formik.errors.email}</div>
+                    <div className='danger'>{formik.errors.email}</div>
                 ) : null}
 
                 {/* <label htmlFor="location">Shop Location</label> */}
@@ -88,7 +93,7 @@ const VendorDetails = () => {
                     placeholder="Shop Location"
                 />
                 {formik.touched.shoplocation && formik.errors.shoplocation ? (
-                    <div>{formik.errors.shoplocation}</div>
+                    <div className='danger'>{formik.errors.shoplocation}</div>
                 ) : null}
 
                 <input
@@ -101,7 +106,7 @@ const VendorDetails = () => {
                     placeholder="Contact"
                 />
                 {formik.touched.shoplocation && formik.errors.shoplocation ? (
-                    <div>{formik.errors.shoplocation}</div>
+                    <div className='danger'>{formik.errors.shoplocation}</div>
                 ) : null}
             
                 <button style={{margin: 20}} type="submit">Submit</button>
@@ -120,7 +125,9 @@ const PageWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 450px;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
     /* height: 100%; */
     min-width: 1280px;
     /* border: 1px solid red; */

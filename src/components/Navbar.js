@@ -18,7 +18,7 @@ const Navbar = () => {
     <>
     <NavbarContainer>
         <LogoContainer>
-            <Link to="/"><img src="/Images/sasstylogo2.png" alt="logo" /></Link>
+            <Link to="/"><img src="/Images/sasstylogo3.png" alt="logo" /></Link>
         </LogoContainer>
         <DeliveryLocationContainer>
             {/* <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} /> */}
@@ -98,8 +98,8 @@ const LogoContainer = styled.div`
     height: 85%;
 
     > a img {
-        height: 45px;
-        width: 70px;
+        height: 37px;
+        width: 110px;
     }
 `
 const DeliveryLocationContainer = styled.div`

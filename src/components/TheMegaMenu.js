@@ -77,11 +77,11 @@ const MegaMenu = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  margin-left: -40px;
-  margin-right: 50px;
+  margin-left: 90px;
+  margin-right: 90px;
   /* height: 500px;
     width: 1000px; */
-  /* border: 1px solid red; */
+  /* border: 5px solid red; */
 `;
 
 const TheMenu = styled.div`
@@ -92,7 +92,7 @@ const TheMenu = styled.div`
   flex-direction: row;
   background-color: #fff;
   height: 500px;
-  width: 70%;
+  width: 1060px;
   padding: 20px;
   /* border: 2px solid red; */
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */

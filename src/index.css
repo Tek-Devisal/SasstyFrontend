@@ -133,8 +133,8 @@ code {
 
 .form{
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   width: 100%;
   padding: 0 2rem;
@@ -244,7 +244,12 @@ border: 1px solid #ccc;
   font-size: 16px;
 }
 
+/* Vendor Details Required fields */
 
+.danger{
+  color: red;
+  font-size: 12px;
+}
 
 
 
