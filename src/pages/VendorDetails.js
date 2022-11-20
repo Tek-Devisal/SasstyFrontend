@@ -39,7 +39,7 @@ const VendorDetails = () => {
         <Navbar />
         <PageWrapper>
             <FormContainer>
-            <p style={{fontSize: 20, fontWeight: 'bold', color: 'linear-gradient(270deg,#ff4733,#ff6e26)'}}>VENDOR DETAILS</p>
+            <p style={{fontSize: 20, fontWeight: 'bold', color: '#ff6e26'}}>VENDOR DETAILS</p>
             <form className='form_control2' style={{display: 'flex', flexDirection: 'column', width: 300, gap: 20}} onSubmit={formik.handleSubmit}>
                 {/* <label htmlFor="ShopName">First Name</label> */}
                 <input
