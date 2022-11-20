@@ -38,8 +38,9 @@ const VendorDetails = () => {
     <>
         <Navbar />
         <PageWrapper>
-            <p style={{fontSize: 30, fontWeight: 'bold'}}>Vendor Details</p>
-            <form style={{display: 'flex', flexDirection: 'column', width: "20%", gap: 20}} onSubmit={formik.handleSubmit}>
+            <FormContainer>
+            <p style={{fontSize: 20, fontWeight: 'bold', color: 'linear-gradient(270deg,#ff4733,#ff6e26)'}}>VENDOR DETAILS</p>
+            <form className='form_control2' style={{display: 'flex', flexDirection: 'column', width: 300, gap: 20}} onSubmit={formik.handleSubmit}>
                 {/* <label htmlFor="ShopName">First Name</label> */}
                 <input
                     id="ShopName"
@@ -109,8 +110,14 @@ const VendorDetails = () => {
                     <div className='danger'>{formik.errors.shoplocation}</div>
                 ) : null}
             
-                <button style={{margin: 20}} type="submit">Submit</button>
+                {/* <button style={{margin: 20}} type="submit">Submit</button> */}
+                <input
+                    type="submit"
+                    className="d-block w-100 border-0 submit text-white"
+                    value="Create Account"
+                    />
             </form>
+            </FormContainer>
         </PageWrapper>
         <Footer />
     </>
@@ -126,9 +133,22 @@ const PageWrapper = styled.div`
     align-items: center;
     width: 100%;
     height: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    
     /* height: 100%; */
     min-width: 1280px;
     /* border: 1px solid red; */
+`
+const FormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    /* border: 1px solid green; */
+    margin: 100px 100px;
+    padding: 30px 50px 30px 50px;
+    border-radius: 8px;
+    /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 `
