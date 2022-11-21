@@ -724,6 +724,7 @@ const MainRowTwo = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+  contain: content;
 `;
 const MainRowThree = styled.div`
   display: flex;

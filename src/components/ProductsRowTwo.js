@@ -51,15 +51,18 @@ const ComponentWrapper = styled.div`
 `
 const ProductImage = styled.div`
     display: flex;
-    flex: 0.6;
+    /* flex: 0.6; */
+    height: 130px;
     background-color: #F7F7F7;
     justify-content: center;
     align-items: center;
+    contain: content;
     border-radius: 10px 10px 0px 0px;
 
     > img {
         height: 90%;
         width: 90%;
+        object-fit: contain;
         background-size: cover;
     }
 `
@@ -68,7 +71,8 @@ const ProductDetails = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 0.4;
+    /* flex: 0.4; */
+    height: 100px;
     background-color: #EBFCFC;
     border-radius: 0px 0px 10px 10px;
     padding: 30px;

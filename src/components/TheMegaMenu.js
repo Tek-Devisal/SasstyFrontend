@@ -82,6 +82,7 @@ const MegaMenu = styled.div`
   margin-right: 90px;
   /* height: 500px;
     width: 1000px; */
+    width: 90%;
   /* border: 5px solid red; */
 `;
 

@@ -24,8 +24,9 @@ const ComponentWrapper = styled.div`
     flex-direction: column;
     /* justify-content: space-between; */
     width: 180px;
-    height: 380px;
+    height: 280px;
     margin-top: 20px;
+    /* border: 1px solid red; */
     /* background-color: #c4bdbd; */
     /* border-radius: 10px; */
 `
@@ -40,6 +41,7 @@ const ProductImage = styled.div`
     > img {
         height:80%;
         width: 100%;
+        object-fit: contain;
         background-size: cover;
     }
 `

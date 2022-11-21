@@ -43,16 +43,18 @@ const ComponentWrapper = styled.div`
 `
 const ProductItem = styled.div`
     display: flex;
-    padding: 20px;
-    /* align-items: center; */
+    padding: 10px;
+    align-items: center;
     /* justify-content: space-around; */
     width: 100%;
-    /* border-bottom: 1px solid #B1B1B1; */
+    border-bottom: 1px solid #B1B1B1;
+    /* border: 1px solid red; */
 
     > img {
       margin-right: 15px;
-      height: 80px;
-      width: 80px;
+      height: 90px;
+      width: 90px;
+      object-fit: contain;
     }
     
     >p{

@@ -68,6 +68,7 @@ const ProductImage = styled.div`
     > img {
         height: 200px;
         width: 200px;
+        object-fit: contain;
         background-size: cover;
     }
 `

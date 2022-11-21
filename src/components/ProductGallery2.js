@@ -42,6 +42,7 @@ const MainImage = styled.div`
         /* width: 100px;
         height: 100px; */
         margin: 5px;
+        object-fit: contain;
     }
 `
 const Sub = styled.div`
@@ -52,17 +53,19 @@ const Sub = styled.div`
 const SubImage = styled.div`
     border: 1px solid #DCDCDC;
     border-radius: 8px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     margin: 10px;
+    contain: content;
 
     &:hover{
         border: 2px solid #F0A1A1;
     }
 
     > img{
-        height: 58px;
-        width: 58px;
-        margin: 5px;
+        height: 49px;
+        width: 49px;
+        object-fit: contain;
+        margin: 4px;
     }
 `
