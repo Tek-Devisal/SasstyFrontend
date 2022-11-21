@@ -33,8 +33,8 @@ export default LatestProdSidebar
 
 const ComponentWrapper = styled.div`
     width: 100%;
-    margin-top: 20px;
-    height: 580px;
+    margin-top: 10px;
+    height: 118px;
     /* margin-right: 10px; */
     background-color: #fff;
     /* border-radius: 15px; */
