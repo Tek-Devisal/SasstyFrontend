@@ -1,17 +1,26 @@
 import React from 'react'
 import styled from 'styled-components';
 import { BASE_URL } from '../pages/Home';
+import { Link } from "react-router-dom";
 
 import MopedIcon from '@mui/icons-material/Moped';
 
 const LatestProdSidebar = ({items}) => {
+
+  const getSubId = (id) => { 
+    localStorage.setItem("Specific product id", id)
+    console.log("Testing ",id)
+ }
+
   return (
     <>
         <ComponentWrapper>
-            <ProductItem>
-                <img src={`${BASE_URL}${items?.img_1}`} alt=""/>
-                <p>{items.name}</p>
-            </ProductItem>
+            <Link onClick={()=>{getSubId(items.id)}} to='/product-details'>
+              <ProductItem>
+                  <img src={`${BASE_URL}${items?.img_1}`} alt=""/>
+                  <p>{items.name}</p>
+              </ProductItem>
+            </Link>
             {/* <ProductItem>
                 <img src="/Images/sidead.png" alt=""/>
                 <p>WAFU Q2 Smart</p>
@@ -40,6 +49,11 @@ const ComponentWrapper = styled.div`
     /* border-radius: 15px; */
     /* border: 2px solid #B1B1B1; */
     margin-bottom: 30px;
+
+    > a{
+        text-decoration: none;
+        /* line-height: 10px; */
+    }
 `
 const ProductItem = styled.div`
     display: flex;

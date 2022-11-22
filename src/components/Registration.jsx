@@ -11,6 +11,9 @@ import axios from "axios";
 const RegistrationSignup = () => {
   const [show, setShow] = useState(false);
   const [warnig, setWarnig] = useState()
+  const [username, setUsername] = useState();
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
@@ -28,17 +31,24 @@ const RegistrationSignup = () => {
     
     else{
           const options = {
-            url: `${BASE_URL}/users/v1/register`,
+            url: `${BASE_URL}/users/v1/register/`,
             method: 'POST',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json;charset=UTF-8'
             },
             data: {
-                username: email,
+                username: username,
+                first_name: firstname,
+                last_name: lastname,
                 password: password,
+                email: email
             }
           };
+
+            navigate("/login")
+            window.location.reload();
+            console.log("User successfully logged in")
         
             axios(options)
               .then(response => {
@@ -58,8 +68,15 @@ const RegistrationSignup = () => {
       </div> */}
       <form action="" onSubmit={signUp} className="form">
         <div className="form_control">
-          <input type="text" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
+          <input type="text" onChange={(e)=>{setUsername(e.target.value)}} placeholder="Username" />
         </div>
+        <div className="form_control">
+          <input type="text" onChange={(e)=>{setFirstname(e.target.value)}} placeholder="First Name" />
+        </div>
+        <div className="form_control">
+          <input type="text" onChange={(e)=>{setLastname(e.target.value)}} placeholder="Last Name" />
+        </div>
+        
         <div className="form_control">
           <input type={show ? "text" : "password"} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Password" />
           {show ? (
@@ -75,6 +92,9 @@ const RegistrationSignup = () => {
               onClick={handleClick}
             />
           )}
+        </div>
+        <div className="form_control">
+          <input type="text" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
         </div>
         <div className="d-flex align-items-center">
           <input type="checkbox" name="check1" id="check1" className="check" />
