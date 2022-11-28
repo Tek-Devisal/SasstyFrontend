@@ -13,6 +13,21 @@ export function MegaMenuProvider ({children}) {
     const [subcategoryinfo, setSubcategoryinfo] = useState()
     const [subsubcatURL, setSubsubcatURL] = useState()
 
+
+    const [subSubMenuForMen, setSubSubMenuForMen] = useState()
+    const [subSubMenuPhonesAccessories, setSubSubMenuPhonesAccessories] = useState()
+    const [subSubMenuElectronics, setSubSubMenuElectronics] = useState()
+    const [subSubMenuIndustrial, setSubSubMenuIndustrial] = useState()
+    const [subSubMenuHobbies, setSubSubMenuHobbies] = useState()
+    const [subSubMenuComputers, setSubSubMenuComputers] = useState()
+    const [subSubMenuAutomobiles, setSubSubMenuAutomobiles] = useState()
+    const [subSubMenuSports, setSubSubMenuSports] = useState()
+    const [subSubMenuFurniture, setSubSubMenuFurniture] = useState()
+    const [subSubMenuJewelries, setSubSubMenuJewelries] = useState()
+    const [subSubMenuHomeAppliances, setSubSubMenuHomeAppliances] = useState()
+    const [subSubMenuShoesBags, setSubSubMenuShoesBags] = useState()
+    const [subSubMenuLights, setSubSubMenuLights] = useState()
+
     const newId = subcategoryid
 
     return(
@@ -29,7 +44,21 @@ export function MegaMenuProvider ({children}) {
                 openMenu, 
                 setOpenMenu,
                 catIdforMegaMenu, 
-                setCatIdforMegaMenu}}>
+                setCatIdforMegaMenu,
+                subSubMenuForMen, setSubSubMenuForMen,
+                subSubMenuPhonesAccessories, setSubSubMenuPhonesAccessories,
+                subSubMenuElectronics, setSubSubMenuElectronics,
+                subSubMenuIndustrial, setSubSubMenuIndustrial,
+                subSubMenuHobbies, setSubSubMenuHobbies,
+                subSubMenuComputers, setSubSubMenuComputers,
+                subSubMenuAutomobiles, setSubSubMenuAutomobiles,
+                subSubMenuSports, setSubSubMenuSports,
+                subSubMenuFurniture, setSubSubMenuFurniture,
+                subSubMenuJewelries, setSubSubMenuJewelries,
+                subSubMenuHomeAppliances, setSubSubMenuHomeAppliances,
+                subSubMenuShoesBags, setSubSubMenuShoesBags,
+                subSubMenuLights, setSubSubMenuLights
+                }}>
             {children}
         </MegaMenuStateContext.Provider>
     );

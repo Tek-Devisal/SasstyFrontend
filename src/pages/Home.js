@@ -52,7 +52,21 @@ export const BASE_URL = "https://sassty-web.herokuapp.com"
 
 const Home = () => {
 
-  const { setSubcategoryinfo } = useContext(MegaMenuStateContext);
+  const { setSubcategoryinfo,
+          setSubSubMenuForMen,
+          setSubSubMenuPhonesAccessories,
+          setSubSubMenuElectronics,
+          setSubSubMenuIndustrial,
+          setSubSubMenuHobbies,
+          setSubSubMenuComputers,
+          setSubSubMenuAutomobiles,
+          setSubSubMenuSports,
+          setSubSubMenuFurniture,
+          setSubSubMenuJewelries,
+          setSubSubMenuHomeAppliances,
+          setSubSubMenuShoesBags,
+          setSubSubMenuLights
+   } = useContext(MegaMenuStateContext);
   const { userInfo, setUserInfo, setAuthTokens, authTokens } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -95,11 +109,39 @@ const Home = () => {
     setValue(newValue);
   };
 
-  const fetchWCSubCategories = async () => {
+  const fetchAllSubCategories = async () => {
     try {
       //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
       const data = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${7}`);
+      const data1 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${8}`);
+      const data2 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${9}`);
+      const data3 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${10}`);
+      const data4 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${11}`);
+      const data5 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${12}`);
+      const data6 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${13}`);
+      const data7 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${14}`);
+      const data8 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${15}`);
+      const data9 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${16}`);
+      const data10 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${17}`);
+      const data11 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${18}`);
+      const data12 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${19}`);
+      const data13 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${20}`);
+
       setSubcategoryinfo(data.data);
+      setSubSubMenuForMen(data1.data);
+      setSubSubMenuPhonesAccessories(data2.data);
+      setSubSubMenuElectronics(data3.data);
+      setSubSubMenuIndustrial(data4.data);
+      setSubSubMenuHobbies(data5.data);
+      setSubSubMenuComputers(data6.data);
+      setSubSubMenuAutomobiles(data7.data);
+      setSubSubMenuSports(data8.data);
+      setSubSubMenuFurniture(data9.data);
+      setSubSubMenuJewelries(data10.data);
+      setSubSubMenuHomeAppliances(data11.data);
+      setSubSubMenuShoesBags(data12.data);
+      setSubSubMenuLights(data13.data)
+
       console.log("Menu Data ", data.data);
     } catch (error) {
       console.log(error);
@@ -137,7 +179,7 @@ const Home = () => {
   const logOutUser = () =>{
     setAuthTokens(null)
     setUserInfo(null)
-    localStorage.remove('authTokens')
+    localStorage.removeItem('authTokens')
     navigate('/login')
 }
 
@@ -220,7 +262,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchCategories();
-    fetchWCSubCategories()
+    fetchAllSubCategories()
     fetchDailyProducts();
     fetchRandomProducts();
     fetchTrendingItems();
@@ -286,7 +328,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
               >
-                {authTokens? <Button onClick={logOutUser}>Logout</Button> :<Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap', fontSize: 10, fontWeight: 'bold'}} to="/login">Sign in</Link>}
+                {authTokens? <Button onClick={logOutUser}>Logout</Button> : <Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap', fontSize: 10, fontWeight: 'bold'}} to="/login">Sign in</Link>}
                 {/* <Button onClick={logOutUser}>Logout</Button> */}
               </Button>
             </WelcomRowTwo>

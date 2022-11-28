@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
@@ -9,6 +9,8 @@ import axios from 'axios';
 // import TrendingItemsHead from './Home'
 import { PaystackButton } from 'react-paystack';
 import PaystackPop from '@paystack/inline-js'
+import { UserContext } from '../ContextAPI/UserContext';
+import { Link } from 'react-router-dom';
 
 // Material UI components
 
@@ -28,7 +30,7 @@ import { getBasketTotal } from '../components/BasketContex/reducer';
 
 const Cart = () => {
 
-
+    const {authTokens} = useContext(UserContext)
     const [{ basket }] = useStateValue();
     console.log("My basket",basket);
 
@@ -113,9 +115,14 @@ const Cart = () => {
                         <input className='button-87' type='submit' value='Apply'/>
                     </CouponForm>
                     
-                    <CheckOut onClick={MakePayment}>
-                        <p>Check Out</p>
-                    </CheckOut>
+                    {authTokens?
+                        (<CheckOut onClick={MakePayment}>
+                            <p>Check Out</p>
+                        </CheckOut>):
+                        (<Link to='/login'><CheckOut>
+                            <p> Login to Check Out</p>
+                        </CheckOut></Link>)
+                    }
                     {/* <button class="button-52" role="button">Button 52</button> */}
                 </ProductSection>
             </MainContent>
@@ -262,6 +269,11 @@ const CheckOut = styled.div`
     margin-top: 10px;
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
     cursor: pointer;
+
+    >a{
+        color: inherit;
+        text-decoration: none;
+    }
 
     >p{
         color: #fff;

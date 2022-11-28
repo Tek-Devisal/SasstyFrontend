@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components';
-import axios from 'axios';
-import { BASE_URL } from '../pages/Home';
-import MegaMenuStateContext from '../ContextAPI/MegaMenuContext';
+import MegaMenuStateContext from '../../ContextAPI/MegaMenuContext';
 import { Link } from 'react-router-dom';
 
 const WomensClothsMenuView = () => {
@@ -45,7 +43,7 @@ const WomensClothsMenuView = () => {
 
 export default WomensClothsMenuView
 
-const PageWrapper = styled.div`
+export const PageWrapper = styled.div`
   display: flex;
   width: 90%;
   height: 100%;
@@ -54,7 +52,7 @@ const PageWrapper = styled.div`
   flex-wrap: wrap;
   contain: content;
 `
-const Subsublist = styled.div`
+export const Subsublist = styled.div`
   display: flex;
   flex-direction: column;
   width: 250px;

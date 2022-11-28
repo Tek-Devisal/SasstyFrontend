@@ -3,13 +3,13 @@ import styled from "styled-components";
 import MegaMenuChoiceContext from "../ContextAPI/MegaMenuContext";
 import { BASE_URL } from "../pages/Home";
 import { Link } from "react-router-dom";
-import WatchesMenuView from "./WatchesMenuView";
-import ToolsIndScientMenuView from "./ToolsIndScientMenuView";
-import ToysHobbiesMenuView from "./ToysHobbiesMenuView";
-import WomensClothsMenuView from "./WomensClothsMenuView";
-import PhoneAccessMenuView from "./PhoneAccessMenuView";
-import MensClothMenuView from "./MensClothMenuView";
-import ElectronicsMenuView from "./ElectronicsMenuView";
+import WatchesMenuView from "./CategoriesComponentView/WatchesMenuView";
+import ToolsIndScientMenuView from "./CategoriesComponentView/ToolsIndScientMenuView";
+import ToysHobbiesMenuView from "./CategoriesComponentView/ToysHobbiesMenuView";
+import WomensClothsMenuView from "./CategoriesComponentView/WomensClothsMenuView";
+import PhoneAccessMenuView from "./CategoriesComponentView/PhoneAccessMenuView";
+import MensClothMenuView from "./CategoriesComponentView/MensClothMenuView";
+import ElectronicsMenuView from "./CategoriesComponentView/ElectronicsMenuView";
 
 import axios from "axios";
 
