@@ -1,10 +1,12 @@
-import React,{ useState } from "react";
+import React,{ useState, useContext } from "react";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import jwt_decode from 'jwt-decode'
 import { BASE_URL } from "../pages/Home";
+import { UserContext } from "../ContextAPI/UserContext";
 
 
 const RegistrationLogin = () => {
@@ -13,12 +15,16 @@ const RegistrationLogin = () => {
   const [warnig, setWarnig] = useState()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
   const navigate = useNavigate();
 
+  const {userInfo, setUserInfo, setAuthTokens} = useContext(UserContext)
 
   const handleClick = () => {
     setShow(!show);
   };
+
+  console.log(userInfo);
 
   const signIn = (e) => {
     e.preventDefault()
@@ -34,13 +40,18 @@ const RegistrationLogin = () => {
             };
             axios.post(`${BASE_URL}/users/v1/api/token/` ,{username: email, password: password}, config)
             .then(res => {
-                console.log(res)
                 console.log(res.data)
-                localStorage.setItem("user info", JSON.stringify(res.data))
+                // localStorage.setItem("user info", JSON.stringify(res.data))
 
-                navigate("/")
-                window.location.reload();
-                console.log("User successfully logged in")
+ 
+                  if(res.status==200){
+                    console.log("User successfully logged in")
+                    setAuthTokens(res.data);
+                    setUserInfo(jwt_decode(res.data.access));
+                    localStorage.setItem('authTokens', JSON.stringify(res.data))
+                    navigate("/")
+                    // window.location.reload();
+              }
             })
            
             

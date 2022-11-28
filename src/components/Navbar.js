@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import NavbarTwo from './NavbarTwo';
 import Badge from '@mui/material/Badge';
@@ -11,21 +11,25 @@ import {Grid, Box, Typography} from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
 import CartIcon from './CartIcon';
+import { UserContext } from '../ContextAPI/UserContext';
 
 
 const Navbar = () => {
+
+    const { userInfo, authTokens } = useContext(UserContext);
+
   return (
     <>
     <NavbarContainer>
         <LogoContainer>
             <Link to="/"><img src="/Images/sasstylogo3.png" alt="logo" /></Link>
         </LogoContainer>
-        <DeliveryLocationContainer>
+        {authTokens && <DeliveryLocationContainer>
             {/* <LocationOnOutlinedIcon style={{color: "white", fontSize: "16px", marginBottom: "2px"}} /> */}
             {/* <Link to="/landing"><Typography><span>Sell on</span><br/> Sassty</Typography></Link> */}
             <Typography sx={{color: '#fff', ml: 3}}>Track</Typography>
             <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
-        </DeliveryLocationContainer>
+        </DeliveryLocationContainer>}
         <SearchBarContainer>
             <FormContainer>
                 <Form>
@@ -33,7 +37,7 @@ const Navbar = () => {
                         <Typography>All</Typography>
                         <ArrowDropDownIcon style={{color: "black", marginTop: "2px"}} />
                     </CustomSearch>
-                    <FormInput type="email" />
+                    <FormInput type="text" />
                     <FormButton>
                         <SearchSharpIcon style={{color: "#fff"}}/>
                     </FormButton>
@@ -55,9 +59,9 @@ const Navbar = () => {
             <Typography>Hello, Sign in<br/><span>Account & List</span></Typography>
             <ArrowDropDownIcon style={{color: "white", marginTop: "2px"}} />
         </SignInContainer>
-        <ReturnNordersContainer>
+        {authTokens && <ReturnNordersContainer>
             <Typography>Return <br/><span>& Orders</span></Typography>
-        </ReturnNordersContainer>
+        </ReturnNordersContainer>}
         <CartContainer>
             <Link to="/cart">
                 <CartIcon />

@@ -36,7 +36,7 @@ const ProductList = () => {
 
     console.log("Link Id: ",id)
 
-    const { subcategoryid } = useContext(MegaMenuChoiceContext);
+    const { subcategoryid, subsubcatURL } = useContext(MegaMenuChoiceContext);
 
     const [categories, setCategories] = useState([])
     const [specificProduct, setSpecificProduct] = useState()
@@ -59,10 +59,10 @@ const ProductList = () => {
     }
     }
 
-    const fetchProductsForSpecificSubCategory = async () => {
+    const fetchProductsForSpecificSubSubCategory = async () => {
     try {
     //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
-        const data = await axios.get(`${BASE_URL}/products/v1/fetchProductForSpecificSubCategory/${localStorage.getItem("Sub-category id")}`);
+        const data = await axios.get(`${BASE_URL}/products/v1/fetchProductsForSpecificSubSubCategory/${subsubcatURL}`);
         setSpecificProduct(data.data)
         console.log("Sub category data: ",data.data)
     } catch (error) {
@@ -72,7 +72,7 @@ const ProductList = () => {
 
     useEffect(() => {
     fetchCategories()
-    fetchProductsForSpecificSubCategory()
+    fetchProductsForSpecificSubSubCategory()
     }, [])
 
   return (

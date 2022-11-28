@@ -1,118 +1,43 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
+import axios from 'axios';
+import { BASE_URL } from '../pages/Home';
+import MegaMenuStateContext from '../ContextAPI/MegaMenuContext';
+import { Link } from 'react-router-dom';
 
 const WomensClothsMenuView = () => {
+
+  const { subcategoryinfo, setSubsubcatURL } = useContext(MegaMenuStateContext);
 
     const accordionData = [
         {title: "Watches", data: [{id: 2, name: 'Rolex'}, {id: 3, name: 'Casio'}]}, //content: ["Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer", "Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer"]},
         {title: "Books", data: [{id: 4, name: 'Bugatti'}, {id: 5, name: 'Hey'}]},
-        // {title: "Home Appliance", content: ["Rice Cooker", "Microwave", "Refrigerator", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier", "Washing Machine", "Air Conditioner", "Television", "Vacuum Cleaner", "Water Purifier"]},
-        // {title: "Mobile Phones", content: ["Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola", "Samsung", "Apple", "Nokia", "OnePlus", "Xiaomi", "Sony", "HTC", "Lenovo", "Motorola"]},
-        // {title: "Kitchen", content: ["Fridge", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender", "Mixer", "Oven", "Toaster", "Juicer", "Grinder", "Blender"]},
-        // {title: "Tables and Chairs", content: ["Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs", "Tables", "Chairs"]},
-        // {title: "Books and Pens", content: ["Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens", "Books", "Pens"]},
-        // {title: "Furniture", content: ["Sofa", "Egonomic Chair", ]},
-        // {title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
-        // {title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
-        // {title: "Automobiles", content: ["Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike", "Car", "Bike"]},
-        // {title: "Health and Beauty", content: ["Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care", "Makeup", "Perfume", "Hair Care", "Skin Care"]},
-        // {title: "Books", content: ["Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction", "Novel", "Poetry", "Biography", "Fiction"]},
-        // {title: "Fashion", content: ["Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts", "Shirt", "T-Shirt", "Jeans", "Shorts"]},
-        // {title: "Sports", content: ["Ball", "Soccer Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball", "Basketball", "Football", "Volleyball", "Tennis Ball", "Badminton", "Table Tennis", "Golf Ball", "Baseball", "Cricket Ball", "Bowling Ball"]},
-        // {title: "Electronics", content: ["Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer", "Mobile Phone", "Laptop", "Television", "Computer"]},
-
       ]
 
-      accordionData.map((item)=>(
-        console.log(item.title),
-        item.data.map((hey)=>{
-          console.log(hey.name)
-        })
-      ))
+
+    const setURLName = (url) => { 
+      setSubsubcatURL(url)
+      console.log("url name", url)
+     }
+      
+
+      // accordionData.map((item)=>(
+      //   console.log(item.title),
+      //   item.data.map((hey)=>{
+      //     console.log(hey.name)
+      //   })
+      // ))
 
   return (
     <PageWrapper>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
-      <Subsublist>
-        <p>Dresses</p>
-        <p>Midi Dresses</p>
-        <p>Maxi Dresses</p>
-        <p>Mini Dresses</p>
-        <p>Long Sleeve Dresses</p>
-        <p>Bodycorn/Wrap Dresses</p>
-        <p>Shirt Dressers</p>
-      </Subsublist>
+      {subcategoryinfo?.map(item => (<Subsublist>
+        <h6>{item.name}</h6>
+        {item.data.map(subname =>(
+        <Link onClick={()=>setURLName(subname.ref_code)} to="/product-list">{subname.name}</Link>
+        ))}
+
+      </Subsublist>))}
+
 
     </PageWrapper>
   )
@@ -137,7 +62,12 @@ const Subsublist = styled.div`
   /* height: 100px; */
   padding: 20px;
 
-  p:nth-child(1) {
+  >a{
+    text-decoration: none;
+    color: black;
+  }
+
+  h6 {
     font-size: 15px;
     font-weight: bold;
     /* text-decoration: underline; */

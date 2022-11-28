@@ -9,6 +9,7 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import SellOnSassty from "./pages/SellOnSassty";
 import Cart from "./pages/Cart";
 import { MegaMenuProvider } from "./ContextAPI/MegaMenuContext";
+import { UserProvider } from "./ContextAPI/UserContext";
 import Listings from "./pages/Listings";
 import theme from "./theme";
 import Testing from "./pages/Testing";
@@ -30,25 +31,27 @@ function App() {
 
   return (
     <MegaMenuProvider>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <ScrollToTop>
-          <div className="App">
-            <Routes>
-              <Route path="/product-list" element={<ProductListing />} />
-              <Route path="/product-details" element={<ProductDetailPage />} />
-              <Route path="/sell" element={<SellOnSassty />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/landing" element={<SellLandingPage />} />
-              {/* <Route path="/listings" element={<Listings />} /> */}
-              <Route path="/listings" element={<VendorDetails />} />
-              <Route exact path="/login" element={<Registration />} />
-              <Route exact path="/" element={<Home />} />
-            </Routes>
-          </div>
-          </ScrollToTop> 
-        </Router>
-      </ThemeProvider>
+      <UserProvider>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <ScrollToTop>
+            <div className="App">
+              <Routes>
+                <Route path="/product-list" element={<ProductListing />} />
+                <Route path="/product-details" element={<ProductDetailPage />} />
+                <Route path="/sell" element={<SellOnSassty />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/landing" element={<SellLandingPage />} />
+                {/* <Route path="/listings" element={<Listings />} /> */}
+                <Route path="/listings" element={<VendorDetails />} />
+                <Route exact path="/login" element={<Registration />} />
+                <Route exact path="/" element={<Home />} />
+              </Routes>
+            </div>
+            </ScrollToTop> 
+          </Router>
+        </ThemeProvider>
+      </UserProvider>
     </MegaMenuProvider>
   );
 }

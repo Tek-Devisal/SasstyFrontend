@@ -1,2 +1,30 @@
 Referral Candy
 Shipday
+
+const loginUser = async (email, password) => {
+    const response = await fetch(`${BASE_URL}/users/v1/api/token/`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email, password
+      })
+    })
+
+    const data = await response.json();
+    if(response.status === 2000){
+      setAuthTokens(data);
+      setUserInfo(jwt_decode(data.access));
+      localStorage.setItem('authTokens', JSON.stringify(data))
+      navigate('/')
+    }
+
+  };
+
+const logOutUser =()=>{
+    setAuthTokens(null)
+    setUserInfo(null)
+    localStorage.remove('authTokens')
+    navigate('/')
+}

@@ -46,14 +46,26 @@ const RegistrationSignup = () => {
             }
           };
 
-            navigate("/login")
-            window.location.reload();
-            console.log("User successfully logged in")
+            
         
             axios(options)
               .then(response => {
               console.log(response.status);
+              if(response.status==201){
+                console.log("User successfully logged in")
+                navigate("/login")
+                window.location.reload();
+                setUsername('')
+                setFirstname('')
+                setLastname('')
+                setPassword('')
+                setEmail('')
+              }
               });
+
+            
+
+            
 
           }
     }

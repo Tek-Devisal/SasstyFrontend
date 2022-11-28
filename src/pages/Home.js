@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import LatestProdSidebar from "../components/LatestProdSidebar";
@@ -17,6 +17,9 @@ import Footer from "../components/Footer";
 import MainSlider from "../components/MainSlider";
 import HeaderTab from "../components/HeaderTab";
 import { Link } from "react-router-dom";
+import MegaMenuStateContext from "../ContextAPI/MegaMenuContext";
+import { UserContext } from "../ContextAPI/UserContext";
+import { useNavigate } from "react-router-dom"
 // import accordion from '../components/accordionData';
 
 // import axios
@@ -48,13 +51,23 @@ export const BASE_URL = "https://sassty-web.herokuapp.com"
 // import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Home = () => {
+
+  const { setSubcategoryinfo } = useContext(MegaMenuStateContext);
+  const { userInfo, setUserInfo, setAuthTokens, authTokens } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  console.log(userInfo)
+
   // List of useStates
   const [value, setValue] = useState("one");
   const [categories, setCategories] = useState([]);
   const [dailyitems, setDailyitems] = useState([]);
+  const [dailyitems2, setDailyitems2] = useState([]);
   const [randomproducts, setRandomproducts] = useState();
   const [topRatedProducts, setTopRatedProducts] = useState();
   const [trendingProducts, setTrendingProducts] = useState();
+  const [trendingProducts2, setTrendingProducts2] = useState();
   const [latestProducts, setLatestProducts] = useState();
 
 
@@ -82,6 +95,17 @@ const Home = () => {
     setValue(newValue);
   };
 
+  const fetchWCSubCategories = async () => {
+    try {
+      //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+      const data = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${7}`);
+      setSubcategoryinfo(data.data);
+      console.log("Menu Data ", data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const fetchDailyProducts = async () => {
     try {
       //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
@@ -95,6 +119,27 @@ const Home = () => {
       console.log(error);
     }
   };
+
+  // const fetchDailyProducts2 = async () => {
+  //   try {
+  //     //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+  //     const items = await axios.get(
+  //       BASE_URL + "/products/v1/fetchDailyProducts/"
+  //     );
+  //     //   const items = await axios.get("https://sassty-web.herokuapp.com/products/v1/fetchDailyProducts/");
+  //     setDailyitems2(items.data);
+  //     console.log(items.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const logOutUser = () =>{
+    setAuthTokens(null)
+    setUserInfo(null)
+    localStorage.remove('authTokens')
+    navigate('/login')
+}
 
   //   Fetch All categories
   const fetchCategories = async () => {
@@ -134,6 +179,19 @@ const Home = () => {
     }
   };
 
+  const fetchTrendingItems2 = async () => {
+    try {
+      //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+      const trendingitemsdata2 = await axios.get(
+        `${BASE_URL}/products/v1/trendingItems/${6}`
+      );
+      setTrendingProducts2(trendingitemsdata2.data);
+      console.log("Trending Products ", trendingitemsdata2.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const fetchTopRatedProducts = async () => {
     try {
       //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
@@ -162,11 +220,14 @@ const Home = () => {
 
   useEffect(() => {
     fetchCategories();
+    fetchWCSubCategories()
     fetchDailyProducts();
     fetchRandomProducts();
     fetchTrendingItems();
+    fetchTrendingItems2();
     fetchTopRatedProducts();
     fetchLatestProducts();
+    // fetchDailyProducts2();
   }, []);
 
   return (
@@ -225,7 +286,8 @@ const Home = () => {
                 variant="contained"
                 size="large"
               >
-                <Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap', fontSize: 10, fontWeight: 'bold'}} to="/login">Sign in</Link>
+                {authTokens? <Button onClick={logOutUser}>Logout</Button> :<Link style={{textDecoration: 'none', color: 'black', whiteSpace: 'nowrap', fontSize: 10, fontWeight: 'bold'}} to="/login">Sign in</Link>}
+                {/* <Button onClick={logOutUser}>Logout</Button> */}
               </Button>
             </WelcomRowTwo>
             <CusterPolicyTag>Customer Policy Service</CusterPolicyTag>
@@ -428,12 +490,10 @@ const Home = () => {
           </TrendingItemsHead>
 
           <RowSix>
-            <TrendingItemsTwo />
-            <TrendingItemsTwo />
-            <TrendingItemsTwo />
-            <TrendingItemsTwo />
-            <TrendingItemsTwo />
-            <TrendingItemsTwo />
+            {/* <TrendingItemsTwo /> */}
+            {trendingProducts2?.map((trendingitems2) => (
+                <TrendingItemsTwo key={trendingitems2.id} items={trendingitems2} />
+            ))}
           </RowSix>
           <DailyDeals>
             <div
@@ -447,12 +507,10 @@ const Home = () => {
             </div>
           </DailyDeals>
           <RowSeven>
-            <DailyDealsItemsTwo />
-            <DailyDealsItemsTwo />
-            <DailyDealsItemsTwo />
-            <DailyDealsItemsTwo />
-            <DailyDealsItemsTwo />
-            <DailyDealsItemsTwo />
+            {/* <DailyDealsItemsTwo /> */}
+            {randomproducts?.map((item) => (
+                    <DailyDealsItemsTwo key={item.name} items={item} />
+                  ))}
           </RowSeven>
           <RowEight>
             <img src="/Images/banner2.png" alt="Ad" />
@@ -715,7 +773,7 @@ const MainRowTwo = styled.div`
   display: flex;
   justify-content: space-between;
   /* height: 300px; */
-  height: 11%;
+  height: 12%;
   /* margin-top: 20px; */
   margin-top: 3%;
   width: 98%;

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import TrendingItemsTwo from '../components/TrendingItemsTwo';
 import DailyDealsItemsTwo from '../components/DailyDealsItemsTwo';
+import { BASE_URL } from './Home';
+import axios from 'axios';
 // import TrendingItemsHead from './Home'
 import { PaystackButton } from 'react-paystack';
 import PaystackPop from '@paystack/inline-js'
@@ -30,6 +32,8 @@ const Cart = () => {
     const [{ basket }] = useStateValue();
     console.log("My basket",basket);
 
+    const [couponValue, setCouponValue] = useState()
+
     // const itemQuantity = localStorage.getItem("cart item quantity")
     console.log("Cart Qty: ",localStorage.getItem("cart item quantity"))
 
@@ -40,6 +44,33 @@ const Cart = () => {
             amount: JSON.stringify(getBasketTotal(basket)*100),
             email: 'darkolawrence@gmail.com'
         })
+     }
+
+    const submitCoupon = (e) => { 
+        e.preventDefault()
+
+        try {
+            const options = {
+                url: `${BASE_URL}/users/v1/registerss/`,
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+                },
+                data: {
+                    coupon: couponValue
+                }
+              };
+            
+                axios(options)
+                  .then(response => {
+                  console.log(response.status);
+                  });
+        } catch (error) {
+            console.log(error)
+        }
+
+        setCouponValue('')
      }
 
   return (
@@ -76,9 +107,16 @@ const Cart = () => {
                             
                         </DivImages>
                     </DivTwo>
+
+                    <CouponForm onSubmit={submitCoupon}>
+                        <FormInput placeholder='Enter coupon...' type="text" onChange={(e)=>{setCouponValue(e.target.value)}} />
+                        <input className='button-87' type='submit' value='Apply'/>
+                    </CouponForm>
+                    
                     <CheckOut onClick={MakePayment}>
                         <p>Check Out</p>
                     </CheckOut>
+                    {/* <button class="button-52" role="button">Button 52</button> */}
                 </ProductSection>
             </MainContent>
 
@@ -217,17 +255,42 @@ const CheckOut = styled.div`
     justify-content: center;
     align-items: center;
     border: 1px solid #D0D0D0;
-    width: 300px;
+    width: 250px;
     height: 40px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     background-color: #FF2164;
-    margin-top: 30px;
+    margin-top: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
     cursor: pointer;
 
     >p{
         color: #fff;
         margin-block-start: 0.5em;
-        font-size: 19px;
+        font-size: 16px;
         font-weight: 'bold';
     }
+`
+const CouponForm = styled.form`
+    display: flex;
+    width: 250px;
+    height: 50px;
+    /* border: 1px solid red; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+`
+export const FormInput = styled.input`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    height: 38px;
+    width: 60%;
+    /* border-radius: 0px 0px 0px 0px; */
+    border: 1px solid #ccc;
+    outline: none;
+
 `

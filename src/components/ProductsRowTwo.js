@@ -41,7 +41,7 @@ const ComponentWrapper = styled.div`
     width: 19%;
     height: 80%;
     /* background-color: #c4bdbd; */
-    margin-top: 70px;
+    margin-top: 40px;
     border-radius: 10px;
 
     > a{

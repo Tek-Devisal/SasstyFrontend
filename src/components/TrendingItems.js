@@ -37,6 +37,7 @@ const ComponentWrapper = styled.div`
     /* border: 1px solid red; */
     /* background-color: #c4bdbd; */
     /* border-radius: 10px; */
+    cursor: pointer;
     > a{
         text-decoration: none;
         /* line-height: 10px; */
@@ -51,6 +52,7 @@ const ProductImage = styled.div`
     align-items: center;
     contain: content;
     /* border-radius: 10px 10px 0px 0px; */
+
 
     > img {
         height:80%;

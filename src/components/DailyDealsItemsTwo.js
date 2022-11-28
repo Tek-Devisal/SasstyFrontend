@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components';
+import { BASE_URL } from '../pages/Home';
+import { Link } from "react-router-dom";
 
-const DailyDealsItemsTwo = () => {
+const DailyDealsItemsTwo = ({items}) => {
+
+    const getSubId = (id) => { 
+        localStorage.setItem("Specific product id", id)
+        console.log("Testing ",id)
+     }
+
   return (
     <>
         <ComponentWrapper>
-            <ProductImage>
-                <img src='/Images/watch.png' alt='Product Item'/>
-            </ProductImage>
-            <ProductDetails>
-                <p>Eius Modi Tempora</p>
-                <p style={{fontSize: "14px", fontWeight: "bold", color: '#FF2164'}}>$120.00 <span>$130.00</span></p>
-            </ProductDetails>
+            <Link  onClick={()=>{getSubId(items.id)}} to='/product-details'>
+                <ProductImage>
+                    <img src={`${BASE_URL}${items?.img_1}`} alt='Product Item'/>
+                </ProductImage>
+                <ProductDetails>
+                    <p>{items?.name}</p>
+                    <p style={{fontSize: "14px", fontWeight: "bold", color: '#FF2164'}}>GH₵{items?.prize-(items?.discount/100)*(items?.prize)}<span>GH₵{items?.prize}</span></p>
+                </ProductDetails>
+            </Link> 
         </ComponentWrapper>
         
     </>
@@ -28,18 +38,27 @@ const ComponentWrapper = styled.div`
     height: 100%;
     /* background-color: #c4bdbd; */
     border-radius: 10px;
+    cursor: pointer;
+
+    > a {
+        color: inherit;
+        text-decoration: none;
+    }
 `
 const ProductImage = styled.div`
     display: flex;
-    flex: 0.8;
+    /* flex: 0.8; */
+    height: 210px;
     background-color: #fff;
     justify-content: center;
     align-items: center;
+    contain: content;
     /* border-radius: 10px 10px 0px 0px; */
 
     > img {
         height: 80%;
         width: 100%;
+        object-fit: contain;
         background-size: cover;
     }
 `
