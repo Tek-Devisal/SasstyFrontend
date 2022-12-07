@@ -41,6 +41,7 @@ const RegistrationLogin = () => {
             axios.post(`${BASE_URL}/users/v1/api/token/` ,{username: email, password: password}, config)
             .then(res => {
                 console.log(res.data)
+                console.log(res);
                 // localStorage.setItem("user info", JSON.stringify(res.data))
 
  

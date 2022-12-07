@@ -597,8 +597,15 @@ const PageWrapper = styled.div`
   min-width: 1280px;
   padding-left: 20px;
   padding-right: 20px;
+  margin: 0px;
+  /* contain: content; */
   /* overflow-x: scroll; */
-  /* border: 1px solid green; */
+  /* border: 1px solid white; */
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    min-width: fit-content;
+
+}
 `;
 const PageHeader = styled.div`
   display: flex;
@@ -609,6 +616,11 @@ const PageHeader = styled.div`
   margin-top: 10px;
   background-color: #fff;
   /* border: 1px solid gray; */
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+    width: 100%;
+}
 `;
 const GridCategory = styled.div`
   display: flex;
@@ -629,6 +641,10 @@ const GridCategory = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+}
 `;
 
 const GridMiddle = styled.div`
@@ -655,6 +671,10 @@ const GridLast = styled.div`
   border-radius: 10px;
   /* background-image: url("/Images/download.png"); */
   /* flex: 0.25; */
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+}
 `;
 
 const GridSlideUp = styled.div`
@@ -681,6 +701,10 @@ const GridSlideButton = styled.div`
   height: 30%;
   /* gap: 10px; */
   border-radius: 10px;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+}
 `;
 const PageBody = styled.div`
   display: flex;
@@ -693,18 +717,29 @@ const PageBody = styled.div`
   width: 90%;
   /* border: 1px solid green; */
   gap: 20px;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    margin: 0px;
+}
 `;
 const PageBottom = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
+  /* height: auto; */
   /* background-color: blue; */
   margin-top: 1px;
   width: 90%;
-  /* border: 1px solid green; */
+  border: 1px solid green;
   gap: 20px;
+
+  @media only screen and (max-width: 600px) {
+    display: none; 
+    /* width: 100%; 
+    flex-wrap: wrap; */
+  }
 `;
 
 const LeftSidebar = styled.div`
@@ -714,6 +749,10 @@ const LeftSidebar = styled.div`
   flex-direction: column;
   background-color: #fdfdfd;
   align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+}
 `;
 const MainWindow = styled.div`
   display: flex;
@@ -723,6 +762,10 @@ const MainWindow = styled.div`
   /* justify-content: center; */
   align-items: center;
   background-color: #fdfdfd;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+}
 `;
 const AdBoard = styled.div`
   width: 100%;
@@ -774,6 +817,9 @@ const AdBoard4 = styled.div`
   /* border-radius: 15px; */
   margin-top: 40px;
   margin-bottom: 30px;
+  @media only screen and (max-width: 600px) {
+    display: none;
+}
 `;
 const Adbar = styled.div`
   display: flex;
@@ -782,6 +828,12 @@ const Adbar = styled.div`
   /* transform: skew(20deg); */
   background-color: #c4bdbd;
   /* clip-path: polygon(0 0,100% 0%,90% 100%, 0% 100%); */
+  @media only screen and (max-width: 600px) {
+    display: none;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
 `;
 const DailyDeals = styled.div`
   display: flex;
@@ -797,6 +849,12 @@ const DailyDeals = styled.div`
     font-weight: bold;
     font-size: 20px;
   }
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 const MainRowOne = styled.div`
   display: flex;
@@ -810,6 +868,14 @@ const MainRowOne = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+  /* border: 3px solid green; */
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    height: 400px;
+    flex-wrap: wrap;
+  }
 `;
 const MainRowTwo = styled.div`
   display: flex;
@@ -825,6 +891,13 @@ const MainRowTwo = styled.div`
   /* transform: skew(20deg); */
   background-color: #fff;
   contain: content;
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+  }
 `;
 const MainRowThree = styled.div`
   display: flex;
@@ -838,6 +911,13 @@ const MainRowThree = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+    /* height: auto; */
+  }
 `;
 
 const Adbar2 = styled.div`
@@ -855,6 +935,12 @@ const Adbar2 = styled.div`
     height: 100%;
     /* object-fit: cover; */
     border-radius: 5px;
+  }
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    /* height: 30%; */
+    flex-wrap: wrap;
   }
 `;
 export const TrendingItemsHead = styled.div`
@@ -880,6 +966,12 @@ export const TrendingItemsHead = styled.div`
     font-size: 20px;
     color: #fff;
   }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 const MainRowFour = styled.div`
   display: flex;
@@ -893,6 +985,11 @@ const MainRowFour = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+  @media only screen and (max-width: 600px) {
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 const MainRowFive = styled.div`
   display: flex;
@@ -906,6 +1003,12 @@ const MainRowFive = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 
 const LeftAd = styled.div`
@@ -953,18 +1056,31 @@ const TopVendorsHead = styled.div`
     font-size: 20px;
     color: #333333;
   }
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 const RowSix = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 300px;
+  height: 330px;
   margin-top: 20px;
   width: 98%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   /* padding-bottom: 20px; */
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+  }
 `;
 const RowSeven = styled.div`
   display: flex;
@@ -1008,6 +1124,13 @@ const RowNine = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+  }
 `;
 const WelcomRowOne = styled.div`
   display: flex;

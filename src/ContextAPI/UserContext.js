@@ -19,11 +19,11 @@ export function UserProvider ({children}) {
 
     return(
         <UserContext.Provider 
-        value={{userInfo, 
-                setUserInfo,
-                authTokens,
-                setAuthTokens,
-                }}>
+            value={{userInfo, 
+                    setUserInfo,
+                    authTokens,
+                    setAuthTokens,
+                    }}>
 
             {children}
         </UserContext.Provider>

@@ -39,6 +39,13 @@ const ComponentWrapper = styled.div`
     grid-template-columns:repeat(4, 1fr);
     grid-gap: 6px;
     /* grid-auto-columns: minmax(600px, auto); */
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 45%;
+    /* min-width: fit-content; */
+    flex-wrap: wrap;
+  }
 `
 const MainPic = styled.div`
     /* background-color: red; */

@@ -25,8 +25,8 @@ const DailyDealsItems = ({items}) => {
             
             
             <ProductDetails>
-                <Typography variant='h4' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}}>{items.name}</Typography>
-                <Typography variant='h5' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 10}}} style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <Typography variant='span' style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</Typography></Typography>
+                <Typography variant='h4' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 13}, textAlign: 'center'}}>{items.name}</Typography>
+                <Typography variant='h5' sx={{fontSize: {lg: 25,md: 15,sm: 15,xs: 13}}} style={{color: "#FF2164"}}>GH¢{items.prize-(items.discount/100)*(items.prize)} <Typography variant='span' style={{textDecoration: "line-through", color: "#C4BDBD", fontWeight: "400", fontSize: "16px"}}>₵{items.prize}</Typography></Typography>
                 <div className='Itemprogress'>
                     <Typography>Available: <Typography variant='span' >21</Typography></Typography>
                     <Typography>Sold: <span style={{color: "black", fontWeight: "bold"}}>8</span></Typography>
@@ -57,6 +57,12 @@ const ComponentWrapper = styled.div`
         color: inherit;
         text-decoration: none;
     }
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 48%;
+}
+    
 `
 const ProductImage = styled.div`
     display: flex;

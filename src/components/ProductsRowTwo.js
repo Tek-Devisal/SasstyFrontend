@@ -48,6 +48,12 @@ const ComponentWrapper = styled.div`
         text-decoration: none;
         /* line-height: 10px; */
     }
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 47%;
+    height: 25%;
+    /* margin: 0px; */
+}
 `
 const ProductImage = styled.div`
     display: flex;

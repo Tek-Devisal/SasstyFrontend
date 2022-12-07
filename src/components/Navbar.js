@@ -86,10 +86,16 @@ const NavbarContainer = styled.div`
     width: 100%;
     /* width: 1200px!important; */
     min-width: 1280px;
+    /* border: 4px solid blue; */
+    box-sizing: border-box;
     position: relative;
     background-color: #FF2164;
     padding-right: 10px;
     padding-left: 10px;
+
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
     /* overflow: scroll; */
 `
 const LogoContainer = styled.div`

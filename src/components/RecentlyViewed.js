@@ -28,6 +28,12 @@ const ComponentWrapper = styled.div`
     height: 100%;
     /* background-color: #c4bdbd; */
     border-radius: 10px;
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 47%;
+    flex-wrap: wrap;
+  }
 `
 const ProductImage = styled.div`
     display: flex;

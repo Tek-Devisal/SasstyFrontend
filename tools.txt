@@ -28,3 +28,64 @@ const logOutUser =()=>{
     localStorage.remove('authTokens')
     navigate('/')
 }
+
+
+
+
+//Discount code
+
+import React, { useState } from 'react';
+import { View, Text, TextInput } from 'react-native';
+
+const DiscountCalculator = () => {
+  // Define the state variables to hold the discount, the original price, and the discount percentage using the useState hook
+  const [discount, setDiscount] = useState(0);
+  const [originalPrice, setOriginalPrice] = useState(0);
+  const [discountPercent, setDiscountPercent] = useState(0);
+  const [discountCode, setDiscountCode] = useState('');
+
+  // Function to calculate the discount
+  const calculateDiscount = (price, discountPercent) => {
+    return price - (price * (discountPercent / 100));
+  };
+
+  // Function to apply the discount code
+  const applyDiscountCode = (code) => {
+    // You can add your own logic here to check if the discount code is valid and get the discount percentage
+    // For this example, we will just assume that the discount code "HOLIDAY" gives a 20% discount
+    if (code === 'HOLIDAY') {
+      setDiscountPercent(20);
+    }
+  };
+
+  // Render function to display the original price, discount percentage, and discounted price
+  return (
+    <View>
+      <Text>Original price:</Text>
+      <TextInput
+        // Add an onChangeText prop to handle when the user inputs the original price
+        onChangeText={(text) => setOriginalPrice(parseFloat(text))}
+      />
+      <Text>Discount percentage:</Text>
+      <TextInput
+        // Add an onChangeText prop to handle when the user inputs the discount percentage
+        onChangeText={(text) => setDiscountPercent(parseFloat(text))}
+      />
+      <Text>Discount code:</Text>
+      <TextInput
+        // Add an onChangeText prop to handle when the user inputs the discount code
+        onChangeText={(text) => {
+          setDiscountCode(text);
+          applyDiscountCode(text);
+        }}
+      />
+      <Text>Discounted price:</Text>
+      <Text>
+        {/* Use the calculateDiscount function to calculate the discounted price and display it */}
+        {calculateDiscount(originalPrice, discountPercent)}
+      </Text>
+    </View>
+  );
+};
+
+export default DiscountCalculator;
