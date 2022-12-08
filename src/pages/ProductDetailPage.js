@@ -139,7 +139,7 @@ const ProductDetailPage = () => {
                 </div>
             </DailyDeals>
             <RelatedContentTwo>
-            <DailyDealsItemsTwo />
+                <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
@@ -170,6 +170,12 @@ const PageWrapper = styled.div`
     padding-right: 20px;
     margin-top: 20px;
     /* border: 1px solid red; */
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    min-width: fit-content;
+  }
 `
 const MainContent = styled.div`
     display: flex;
@@ -178,6 +184,15 @@ const MainContent = styled.div`
     width: 90%;
     padding-right: 200px;
     /* border: 1px solid red; */
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    height: auto;
+    padding-right: 0px;
+  }
 
 `
 const RelatedContentOne = styled.div`
@@ -191,6 +206,13 @@ const RelatedContentOne = styled.div`
     /* justify-content: center; */
     /* transform: skew(20deg); */
     background-color: #fff;
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+        width: 100%;
+        flex-wrap: wrap;
+        height: auto;
+  }
 `
 
 const RelatedContentTwo = styled.div`
@@ -205,6 +227,13 @@ const RelatedContentTwo = styled.div`
     /* justify-content: center; */
     /* transform: skew(20deg); */
     background-color: #fff;
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+  }
 `
 
 const TrendingItemsHead = styled.div`
@@ -250,12 +279,22 @@ const ImageSection = styled.div`
     display: flex;
     flex: 50%;
     height: auto;
+    /* border: 1px solid red; */
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    /* flex-wrap: wrap; */
+    height: auto;
+    /* padding: 0px; */
+  }
 `
 const ProductSection = styled.div`
     display: flex;
     flex-direction: column;
     flex: 50%;
     height: auto;
+    /* border: 1px solid red; */
 
     > p:nth-child(2){
         font-size: 20px;
@@ -280,6 +319,12 @@ const ProductSection = styled.div`
         margin-top: 10px;
     }
 
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+    }
 
 `
 const WelcomRowTwo = styled.div`
@@ -299,4 +344,11 @@ const Related = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    /* flex-wrap: wrap; */
+    height: auto;
+  }
 `

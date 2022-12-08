@@ -19,7 +19,7 @@ const DailyDealsItemsTwo = ({items}) => {
                 </ProductImage>
                 <ProductDetails>
                     <p>{items?.name}</p>
-                    <p style={{fontSize: "14px", fontWeight: "bold", color: '#FF2164'}}>GH₵{items?.prize-(items?.discount/100)*(items?.prize)}<span>GH₵{items?.prize}</span></p>
+                    <p style={{fontSize: "14px", fontWeight: "bold", color: '#FF2164'}}>GH₵{(items?.prize-(items?.discount/100)*(items?.prize)).toFixed(2)}<span>GH₵{items?.prize}</span></p>
                 </ProductDetails>
             </Link> 
         </ComponentWrapper>
@@ -43,6 +43,12 @@ const ComponentWrapper = styled.div`
     > a {
         color: inherit;
         text-decoration: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+        /* display: none; */
+        width: 48%;
+        flex-wrap: wrap;
     }
 `
 const ProductImage = styled.div`

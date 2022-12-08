@@ -45,9 +45,9 @@ const ComponentWrapper = styled.div`
     }
 
     @media only screen and (max-width: 600px) {
-    /* display: none; */
-    width: 47%;
-    flex-wrap: wrap;
+        /* display: none; */
+        width: 47%;
+        flex-wrap: wrap;
   }
 `
 const ProductImage = styled.div`

@@ -728,17 +728,17 @@ const PageBottom = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: auto; */
+  height: auto;
   /* background-color: blue; */
   margin-top: 1px;
   width: 90%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   gap: 20px;
 
   @media only screen and (max-width: 600px) {
-    display: none; 
-    /* width: 100%; 
-    flex-wrap: wrap; */
+    /* display: none; */
+    width: 100%; 
+    /*flex-wrap: wrap; */
   }
 `;
 
@@ -854,6 +854,12 @@ const DailyDeals = styled.div`
     /* display: none; */
     width: 100%;
     flex-wrap: wrap;
+
+    > div > p {
+    /* margin-top: 25px; */
+      font-size: 18px;
+      margin-block-start: 1.5rem;
+    }
   }
 `;
 const MainRowOne = styled.div`
@@ -968,9 +974,18 @@ export const TrendingItemsHead = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    display: none;
+    /* display: none; */
     width: 100%;
+    height: 35px;
     flex-wrap: wrap;
+
+    > div > p {
+    /* margin-top: 25px; */
+      font-weight: bold;
+      font-size: 15px;
+      color: #fff;
+      margin-block-start: 1rem;
+    }
   }
 `;
 const MainRowFour = styled.div`
@@ -1069,7 +1084,7 @@ const RowSix = styled.div`
   height: 330px;
   margin-top: 20px;
   width: 98%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* padding-bottom: 20px; */
   /* justify-content: center; */
   /* transform: skew(20deg); */
@@ -1093,6 +1108,13 @@ const RowSeven = styled.div`
   /* justify-content: center; */
   /* transform: skew(20deg); */
   background-color: #fff;
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+  }
 `;
 const RowEight = styled.div`
   display: flex;
@@ -1111,6 +1133,13 @@ const RowEight = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+  }
 `;
 const RowNine = styled.div`
   display: flex;
@@ -1126,7 +1155,7 @@ const RowNine = styled.div`
   background-color: #fff;
 
   @media only screen and (max-width: 600px) {
-    display: none;
+    /* display: none; */
     width: 100%;
     flex-wrap: wrap;
     height: auto;

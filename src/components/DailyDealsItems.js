@@ -61,6 +61,7 @@ const ComponentWrapper = styled.div`
     @media only screen and (max-width: 600px) {
     /* display: none; */
     width: 48%;
+    flex-wrap: wrap;
 }
     
 `

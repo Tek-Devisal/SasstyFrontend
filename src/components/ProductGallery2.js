@@ -30,6 +30,13 @@ const ComponentWrapper = styled.div`
     height: 100%;
     /* border: 1px solid red; */
     /* gap: 10px; */
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    /* flex-wrap: wrap; */
+    height: auto;
+    }
 `
 const MainImage = styled.div`
     width: 95%;
@@ -41,7 +48,23 @@ const MainImage = styled.div`
     >img{
         /* width: 100px;
         height: 100px; */
-        margin: 5px;
+        margin: 0px;
+        
+        object-fit: contain;
+    }
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    margin: 0px;
+    /* flex-wrap: wrap; */
+    height: auto;
+    }
+
+    >img{
+        width: 100%;
+        height: 100%;
+        margin: 0px;
         object-fit: contain;
     }
 `
@@ -58,6 +81,10 @@ const SubImage = styled.div`
     margin: 10px;
     contain: content;
 
+    @media only screen and (max-width: 600px) {
+        margin: 5px;
+    }
+
     &:hover{
         border: 2px solid #F0A1A1;
     }
@@ -68,4 +95,6 @@ const SubImage = styled.div`
         object-fit: contain;
         margin: 4px;
     }
+
+    
 `
