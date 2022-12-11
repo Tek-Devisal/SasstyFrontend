@@ -37,7 +37,7 @@ const Cart = () => {
     const [couponValue, setCouponValue] = useState()
 
     // const itemQuantity = localStorage.getItem("cart item quantity")
-    console.log("Cart Qty: ",localStorage.getItem("cart item quantity"))
+    // console.log("Cart Qty: ",localStorage.getItem("cart item quantity"))
 
     const MakePayment = () => { 
         const paystack = new PaystackPop();
@@ -90,7 +90,7 @@ const Cart = () => {
                     <p style={{marginLeft: 20, fontWeight: 'bold'}}>Order Summary</p>
                     <DivOne>
                         <p>Total ({basket?.length} items selected)</p>
-                        <p>GH¢{getBasketTotal(basket)}</p>
+                        <p>GH¢{getBasketTotal(basket).toFixed(2)}</p>
                         {/* <CurrencyFormat 
                             value={getBasketTotal(basket)*itemQuantity}
                             decimalScale={2}

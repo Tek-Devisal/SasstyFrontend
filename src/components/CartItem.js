@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { useStateValue } from './BasketContex/StateProvider';
 
 import {
@@ -13,6 +15,22 @@ import { BASE_URL } from '../pages/Home';
 const CartItem = ({item}) => {
 
   const [{basket}, dispatch] = useStateValue();
+
+
+  const [itemNum, setItemNum] = useState(1);
+
+
+  const addItem = () => {
+    setItemNum(itemNum + 1);
+    
+  }
+
+  const subItem = () => {
+      if(itemNum >= 2){
+      setItemNum(itemNum - 1);
+      }
+  }
+
 
   const removeFromBusket = () => { 
     // remove from basket
@@ -35,11 +53,19 @@ const CartItem = ({item}) => {
             {item?.description}.
             <br/>
             <br/>
-            <Typography style={{color: 'red'}}>GH₵{item?.price}</Typography>
+            <Typography style={{color: 'red'}}>GH₵{(item?.price*item?.quantity).toFixed(2)}</Typography>
           </Typography>
         </ProductDetails>
         <Action>
-          <ItemCounter />
+        {/* <div>
+          <p>Quantity</p>
+          <div style={{marginTop: 5}} className='item-counter'>
+              <RemoveIcon onClick={()=>{subItem()}}/>
+              <p>{itemNum}</p>
+              <AddIcon onClick={()=>{addItem()}}/>
+          </div>
+        </div> */}
+        <p>Qty: {item.quantity}</p>
           <DeleteIcon onClick={removeFromBusket} style={{marginTop: '15px', opacity: 0.5, cursor: 'pointer'}}/>
         </Action>
     </ComponentWrapper>

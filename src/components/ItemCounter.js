@@ -6,7 +6,6 @@ import RemoveIcon from '@mui/icons-material/Remove';
 const ItemCounter = () => {
     
     const [itemNum, setItemNum] = useState(1);
-    localStorage.setItem("cart item quantity", itemNum);
 
 
         const addItem = () => {

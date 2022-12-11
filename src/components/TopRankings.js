@@ -47,6 +47,11 @@ const PageWrapper = styled.div`
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+}
 `
 
 const SectionOne = styled.div`

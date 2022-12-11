@@ -60,4 +60,7 @@ const Item = styled.div`
         height: 100%;
         width: 30%;
     }
+    >p{
+        color: #333;
+    }
 `

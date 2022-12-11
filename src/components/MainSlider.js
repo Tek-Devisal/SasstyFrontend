@@ -17,7 +17,7 @@ const MainSlider = () => {
     <div>
         <Swiper
             pagination={{
-            dynamicBullets: true,
+                dynamicBullets: true,
             }}
             modules={[ Autoplay, Pagination, Navigation]}
             loop={true}
@@ -42,7 +42,7 @@ const MainSlider = () => {
                 
             //   }}
             className="mySwiper"
-            style={{ height: "340px", width: "100%", zIndex: 1, borderRadius: "5px" }}
+            style={{ height: "340px",  zIndex: 1, borderRadius: "5px" }}
         >
             <SwiperSlide className="slideItem"
                 style={{

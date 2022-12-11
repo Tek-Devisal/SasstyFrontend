@@ -45,12 +45,16 @@ export default WomensClothsMenuView
 
 export const PageWrapper = styled.div`
   display: flex;
-  width: 90%;
+  width: 100%;
   height: 100%;
   /* border: 1px solid red; */
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   contain: content;
+
+  @media only screen and (max-width: 600px){
+    justify-content: space-evenly;
+  }
 `
 export const Subsublist = styled.div`
   display: flex;
@@ -79,8 +83,6 @@ export const Subsublist = styled.div`
             /* border-bottom: 1px solid #66a3a3; */
         }
   }
-  
-  
 
   >p{
     margin-block-start: 0rem;
@@ -91,5 +93,17 @@ export const Subsublist = styled.div`
     font-size: 13px;
     cursor: pointer;
   
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: auto;
+    /* gap: 10px; */
+    /* border: 1px solid red; */
+    >a{
+      font-size: 14px;
+    }
+    >h6{
+      font-size: 14px;
+    }
   }
 `

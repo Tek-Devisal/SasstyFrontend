@@ -66,7 +66,7 @@ const Terms = styled.p`
   }
 `
 
-const Line = styled.div`
+export const Line = styled.div`
     width: 60%;
     border-bottom: 1px solid white;
     margin-top: 10px;

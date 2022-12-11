@@ -8,6 +8,7 @@ export function MegaMenuProvider ({children}) {
     // const [friendName, setFriendName] = useState(null)
     const [openMenu, setOpenMenu] = useState(false)
     const [subcategorydata, setSubcategorydata] = useState()
+    const [allcategory, setAllcategory] = useState()
     const [subcategoryid, setSubcategoryid] = useState()
     const [catIdforMegaMenu, setCatIdforMegaMenu] = useState()
     const [subcategoryinfo, setSubcategoryinfo] = useState()
@@ -45,6 +46,8 @@ export function MegaMenuProvider ({children}) {
                 setOpenMenu,
                 catIdforMegaMenu, 
                 setCatIdforMegaMenu,
+                allcategory, setAllcategory,
+
                 subSubMenuForMen, setSubSubMenuForMen,
                 subSubMenuPhonesAccessories, setSubSubMenuPhonesAccessories,
                 subSubMenuElectronics, setSubSubMenuElectronics,

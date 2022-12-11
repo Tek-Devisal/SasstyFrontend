@@ -74,5 +74,6 @@ const ProductItem = styled.div`
     >p{
       font-size: 19px;
       margin-top: 10px;
+      color: #333;
     }
 `

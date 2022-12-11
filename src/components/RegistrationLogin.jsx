@@ -68,7 +68,7 @@ const RegistrationLogin = () => {
     <div>
       <form action="" onSubmit={signIn} className="form">
         <div className="form_control">
-          <input type="text" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
+          <input type="text" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Username" />
         </div>
         <div className="form_control">
           <input type={show ? "text" : "password"} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Password" />

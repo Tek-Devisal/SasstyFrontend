@@ -273,7 +273,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="HomePage">
       <Navbar />
       <TheMegaMenu />
       <PageWrapper>
@@ -619,6 +619,7 @@ const PageHeader = styled.div`
 
   @media only screen and (max-width: 600px) {
     display: none;
+    height: 250px;
     width: 100%;
 }
 `;
@@ -654,7 +655,14 @@ const GridMiddle = styled.div`
   gap: 15px;
   width: 50%;
   border-radius: 10px;
+  /* border: 2px solid red; */
   /* flex: 0.5; */
+  @media only screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    contain: content;
+    /* border: 5px solid red; */
+}
 `;
 
 const GridLast = styled.div`
@@ -682,6 +690,14 @@ const GridSlideUp = styled.div`
   /* flex: 0.7; */
   height: 70%;
   border-radius: 10px;
+
+   @media only screen and (max-width: 600px) {
+    /* display: none; */
+    height: 100%;
+    /* width: 100%; */
+    /* border: 2px solid green; */
+    
+}
 `;
 
 const GridSlideMiddle = styled.div`

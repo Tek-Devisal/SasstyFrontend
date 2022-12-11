@@ -89,3 +89,34 @@ const DiscountCalculator = () => {
 };
 
 export default DiscountCalculator;
+
+
+
+
+
+
+Recently Viewed
+******************
+import React, { useState } from 'react';
+
+const RecentlyViewed = () => {
+  // use the useState hook to create a state variable for the recently viewed items
+  const [recentlyViewed, setRecentlyViewed] = useState([]);
+
+  // method to add a product to the recently viewed array in the component's state
+  const addToRecentlyViewed = (product) => {
+    setRecentlyViewed((prevState) => [...prevState, product]);
+  }
+
+  return (
+    <div>
+      <h2>Recently Viewed</h2>
+      {/* map over the recently viewed items and display them in a list */}
+      <ul>
+        {recentlyViewed.map((product) => (
+          <li>{product.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}

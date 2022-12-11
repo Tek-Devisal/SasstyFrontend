@@ -21,6 +21,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Login } from "@mui/icons-material";
 import ScrollToTop from "./components/ScrollToTop";
 import Registration from "./pages/Registration";
+import CategoryMobile from "./pages/CategoryMobile";
 
 function App() {
   // return (
@@ -45,6 +46,7 @@ function App() {
                 {/* <Route path="/listings" element={<Listings />} /> */}
                 <Route path="/listings" element={<VendorDetails />} />
                 <Route exact path="/login" element={<Registration />} />
+                <Route exact path="/categorymobile" element={<CategoryMobile />} />
                 <Route exact path="/" element={<Home />} />
               </Routes>
             </div>

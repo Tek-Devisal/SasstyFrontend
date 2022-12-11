@@ -25,6 +25,8 @@ import ProductGallery2 from '../components/ProductGallery2';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 import {CusterPolicyItems, PolicyOne, PolicyTwo} from './Home'
 
@@ -41,6 +43,20 @@ const ProductDetailPage = () => {
     
 
     const [material, setMaterial] = React.useState('');
+    const [itemNum, setItemNum] = useState(1);
+
+    const addItem = () => {
+        setItemNum(itemNum + 1);
+        
+      }
+    
+      const subItem = () => {
+          if(itemNum >= 2){
+          setItemNum(itemNum - 1);
+          }
+      }
+
+
 
     const handleChange = (event) => {
         setMaterial(event.target.value);
@@ -55,7 +71,8 @@ const ProductDetailPage = () => {
                 description: myData.description,
                 price: myData.prize,
                 discount: myData.discount,
-                image: myData.img_1
+                image: myData.img_1,
+                quantity: itemNum
 
         }
         })
@@ -94,7 +111,15 @@ const ProductDetailPage = () => {
                                 <MenuItem value={22}>Twenty one and a half</MenuItem>
                             </Select>
                     </FormControl> */}
-                    <ItemCounter />
+                    {/* <ItemCounter /> */}
+                    <div>
+                        <p>Quantity</p>
+                        <div style={{marginTop: 5}} className='item-counter'>
+                            <RemoveIcon onClick={()=>{subItem()}}/>
+                            <p>{itemNum}</p>
+                            <AddIcon onClick={()=>{addItem()}}/>
+                        </div>
+                    </div>
                     <WelcomRowTwo>
                         <Button style={{whiteSpace: 'nowrap',width: "150px", borderRadius: "10px", backgroundColor: "#FF7A00", color: "#fff", textTransform: "inherit"}} variant="contained" size="large">
                             Buy now

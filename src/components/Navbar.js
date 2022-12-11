@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import NavbarTwo from './NavbarTwo';
 import Badge from '@mui/material/Badge';
+import Divider from '@mui/material/Divider';
 // import {LocationOnOutlinedIcon } from '@mui/icons-material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -12,11 +13,40 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
 import CartIcon from './CartIcon';
 import { UserContext } from '../ContextAPI/UserContext';
+import {motion} from 'framer-motion'
+import { Slide } from 'react-burger-menu';
+import MegaMenuStateContext from '../ContextAPI/MegaMenuContext';
+import axios from 'axios';
+import { BASE_URL } from '../pages/Home';
 
 
 const Navbar = () => {
 
     const { userInfo, authTokens } = useContext(UserContext);
+    const { setAllcategory } = useContext(MegaMenuStateContext);
+
+    const [isOpen, setIsOpen] = useState(false)
+
+
+
+    const fetchAllCategories = async () => {
+        try {
+          //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const allcategorydata = await axios.get(
+            `${BASE_URL}/products/v1/fetchCategories/`
+          );
+          setAllcategory(allcategorydata.data);
+          console.log("All catogory ", allcategorydata.data);
+        } catch (error) {
+          console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchAllCategories();
+    }, [])
+    
+
 
   return (
     <>
@@ -69,6 +99,36 @@ const Navbar = () => {
         </CartContainer>
     </NavbarContainer>
     {/* <NavbarTwo /> */}
+
+    <MobileViewNavbarContainer>
+        <OpenLinksButton closeBtn = {isOpen} onClick={()=> {setIsOpen(!isOpen)}}>
+                {isOpen ? <>&#10005;</> : <>&#8801;</>}
+        </OpenLinksButton>
+        {isOpen && <MenuItemsContainer>
+        <motion.div initial={{x:-250}} animate={{x: 0}} transition={{type: 'tween', duration: 1, damping: 5, stiffness: 20}} style={{width: '80%', height: '100%', backgroundColor: '#fff', contain: 'content', overflow: 'scroll'}}>
+            {/* {range.map(c=><p>{c}</p>)} */}
+            <MobileListContainer>
+                <h5>Hello, Sign In</h5>
+                <p>Home</p>
+                <p>Browing History</p>
+                <p>Orders</p>
+                <p>Track</p>
+                <p>Cart</p>
+                <p>Customer Service</p>
+                <Divider style={{ backgroundColor: "#6605B8", fontSize: 2, marginBottom: 20 }}  sx={{fontSize: 1}}/>
+                <h5>Explore</h5>
+                {/* <Divider style={{ backgroundColor: "#6605B8", fontSize: 2, marginBottom: 20 }} /> */}
+                <Link to="categorymobile">All Categories</Link>
+            </MobileListContainer>
+        </motion.div>
+        <div onClick={()=> {setIsOpen(!isOpen)}} style={{fontSize: 35, zIndex: 3, marginLeft: 15, color: 'white'}}>
+            {isOpen ? <>&#10005;</> : <>&#8801;</>}
+        </div>
+    </MenuItemsContainer>}
+    </MobileViewNavbarContainer>
+
+
+
     </>
   )
 }
@@ -98,6 +158,76 @@ const NavbarContainer = styled.div`
     }
     /* overflow: scroll; */
 `
+const MobileListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-right: 20px;
+
+    > p{
+        font-size: 18px;
+        line-height: 2.5rem;
+    }
+    
+    > h5{
+        margin-bottom: 30px;
+    }
+
+    > h5:nth-child(2){
+        margin-bottom: 0px;
+    }
+
+    >a{
+        text-decoration: none;
+        color: inherit;
+    }
+`
+
+const MobileViewNavbarContainer = styled.div`
+    display: none;
+    @media only screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-around; */
+        align-items: center;
+        top: 0;
+        left: 0;
+        height: 60px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        background-color: #FF2164;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-bottom: 20px;
+    }
+`
+const OpenLinksButton = styled.div`
+    width: 70px;
+    height: 50px;
+    background: none;
+    border: none;
+    color: ${(props) => (props.closeBtn ? 'transparent' : '#fff')};
+    font-size: 45px;
+    cursor: pointer;
+    z-index: 10;
+`
+const MenuItemsContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #E4E4E4;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
+`
+
 const LogoContainer = styled.div`
     /* flex: 0.083; */
     /* border: 1px solid white; */
