@@ -40,12 +40,17 @@ const ComponentWrapper = styled.div`
     justify-content: space-between;
     width: 180px;
     height: 320px;
-    margin-right: 25px;
+    /* margin-right: 25px; */
     margin-bottom: 15px;
     /* background-color: #c4bdbd; */
     border-radius: 10px;
     /* padding-bottom: 20px; */
+    /* border: 1px solid red; */
     cursor: pointer;
+
+    @media only screen and (max-width: 600px) {
+        width: 46%;
+    }
 `
 const ProductImage = styled.div`
     display: flex;

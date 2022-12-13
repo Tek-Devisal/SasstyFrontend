@@ -10,6 +10,9 @@ import { BASE_URL } from './Home';
 import { Link, useParams } from "react-router-dom";
 import MegaMenuChoiceContext from "../ContextAPI/MegaMenuContext"
 
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+
 
 const ProductList = () => {
 
@@ -36,10 +39,25 @@ const ProductList = () => {
 
     console.log("Link Id: ",id)
 
+    // const getSubSubURL = () => { 
+    //     const { subcategoryid, subsubcatURL } = useContext(MegaMenuChoiceContext);
+    //  }
     const { subcategoryid, subsubcatURL } = useContext(MegaMenuChoiceContext);
+
+
+    useEffect(() => {
+
+    }, [])
+    
 
     const [categories, setCategories] = useState([])
     const [specificProduct, setSpecificProduct] = useState()
+
+    const [value, setValue] = useState([20, 37]);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+      };
 
     console.log("sub category id", subcategoryid)
 
@@ -82,6 +100,15 @@ const ProductList = () => {
             <LeftSidebar>
                 <AccordionWrapper>
                 {/* {categories?.map(({name, id})=>(<HeaderTab title={name} categoryId={id} key={id}/>))} */}
+                {/* <Box sx={{ width: 350, marginTop: 10, marginLeft: 1 }}> */}
+                <Slider
+                    getAriaLabel={() => 'Temperature range'}
+                    value={value}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    // getAriaValueText= "5"
+                />
+                {/* </Box> */}
                 </AccordionWrapper>
                 
             </LeftSidebar>
@@ -126,6 +153,10 @@ const PageWrapper = styled.div`
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 20px;
+
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+    }
 `
 const LeftSidebar = styled.div`
     display: flex;
@@ -134,12 +165,16 @@ const LeftSidebar = styled.div`
     background-color: #FDFDFD;
     width: 20%;
     
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+    }
 
 `
 const MainContent = styled.div`
     display: flex;
     flex-direction: row;
     /* border: 1px solid red; */
+    gap: 15px;
     /* flex: 0.75; */
     width: 80%;
     /* justify-content: center; */
@@ -151,6 +186,10 @@ const MainContent = styled.div`
     a{
         text-decoration: none;
         color: black;
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
     }
 `
 const AccordionWrapper = styled.div`
@@ -169,6 +208,10 @@ const AccordionWrapper = styled.div`
 
     ::-webkit-scrollbar {
         display: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+        height: 200px;
     }
 `
 const SortPanel = styled.div`
@@ -189,15 +232,17 @@ const Panel = styled.div`
     justify-content: space-evenly;
     align-items: center;
     height: 32px;
-    width: 450px;
+    width: 600px;
     border-radius: 5px;
     border: 1px solid #333;
     margin-left: 15px;
+    line-height: 5px;
     opacity: 0.3;
     cursor: pointer;
 
     >p{
         margin-block-end: 3px;
+        white-space: nowrap;
     }
 
     p:active, p:hover, p::selection{
@@ -205,4 +250,7 @@ const Panel = styled.div`
         opacity: 1;
     }
 
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+    }
 `

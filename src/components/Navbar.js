@@ -109,7 +109,7 @@ const Navbar = () => {
             {/* {range.map(c=><p>{c}</p>)} */}
             <MobileListContainer>
                 <h5>Hello, Sign In</h5>
-                <p>Home</p>
+                <Link to='/'>Home</Link>
                 <p>Browing History</p>
                 <p>Orders</p>
                 <p>Track</p>
@@ -220,7 +220,7 @@ const MenuItemsContainer = styled.div`
     height: 100vh;
     width: 100%;
     background-color: #E4E4E4;
-    z-index: 1;
+    z-index: 5;
     display: flex;
     flex-direction: row;
     overflow: hidden;
