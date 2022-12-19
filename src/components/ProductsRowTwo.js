@@ -85,7 +85,8 @@ const ProductDetails = styled.div`
     contain: content;
 
     >p {
-        white-space: nowrap;
+        white-space: wrap;
+        text-align: center;
         color: #757E7E;
         font-weight: 500;
         line-height: 20px;

@@ -50,8 +50,10 @@ const ProductList = () => {
     }, [])
     
 
-    const [categories, setCategories] = useState([])
+    // const [categories, setCategories] = useState([])
     const [specificProduct, setSpecificProduct] = useState()
+    const [min, setMin] = useState(1)
+    const [max, setMax] = useState(1000000000000)
 
     const [value, setValue] = useState([20, 37]);
 
@@ -66,30 +68,35 @@ const ProductList = () => {
      }
 
           //   Fetch All categories
-    const fetchCategories = async () => {
-    try {
-    //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
-        const data = await axios.get(BASE_URL + "/products/v1/fetchCategories/");
-        setCategories(data.data)
-        console.log("Main Categories: ",data.data)
-    } catch (error) {
-        console.log(error)
-    }
-    }
+    // const fetchCategories = async () => {
+    //     try {
+    //     //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+    //         const data = await axios.get(BASE_URL + "/products/v1/fetchCategories/");
+    //         setCategories(data.data)
+    //         console.log("Main Categories: ",data.data)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     const fetchProductsForSpecificSubSubCategory = async () => {
-    try {
-    //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
-        const data = await axios.get(`${BASE_URL}/products/v1/fetchProductsForSpecificSubSubCategory/${subsubcatURL}`);
-        setSpecificProduct(data.data)
-        console.log("Sub category data: ",data.data)
-    } catch (error) {
-        console.log(error)
-    }
+        try {
+        //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+            const data = await axios.get(`${BASE_URL}/products/v1/fetchProductsForSpecificSubSubCategory/${subsubcatURL}`);
+            setSpecificProduct(data.data.filter((item)=>item.prize >= min || item.prize <= max))
+            console.log("Sub category data: ",data.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
+    const filterList = (e) => { 
+        e.preventDefault()
+     }
+
+
     useEffect(() => {
-    fetchCategories()
+    // fetchCategories()
     fetchProductsForSpecificSubSubCategory()
     }, [])
 
@@ -100,15 +107,23 @@ const ProductList = () => {
             <LeftSidebar>
                 <AccordionWrapper>
                 {/* {categories?.map(({name, id})=>(<HeaderTab title={name} categoryId={id} key={id}/>))} */}
-                {/* <Box sx={{ width: 350, marginTop: 10, marginLeft: 1 }}> */}
-                <Slider
+                {/* <Slider
                     getAriaLabel={() => 'Temperature range'}
                     value={value}
                     onChange={handleChange}
                     valueLabelDisplay="auto"
                     // getAriaValueText= "5"
-                />
-                {/* </Box> */}
+                /> */}
+
+                <p>Price, GH</p>
+                <FilterForm action="" onSubmit={filterList}>
+                    <FormWrapper>
+                        <input type="number" placeholder="min" onChange={(e)=>{setMin(e.target.value)}}/>
+                        <p>-</p>
+                        <input type="number" placeholder="max" onChange={(e)=>{setMax(e.target.value)}}/>
+                    </FormWrapper>
+                    <input type="submit" value="Save"/>
+                </FilterForm>
                 </AccordionWrapper>
                 
             </LeftSidebar>
@@ -197,9 +212,9 @@ const AccordionWrapper = styled.div`
     flex-direction: column;
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
     /* justify-content: center; */
-    /* align-items: center; */
+    align-items: center;
     /* width: 100%; */
-    height: 500px;
+    height: 200px;
     background-color: #fff;
     width: 100%;
     /* gap: 2px; */
@@ -254,3 +269,32 @@ const Panel = styled.div`
         width: 100%;
     }
 `
+const FilterForm = styled.form`
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* border: 1px solid red; */
+    >input{
+        width: 80px;
+        /* height: 40px; */
+        margin-top: 10px;
+        background-color: none;
+    }
+`
+const FormWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+    align-items: center;
+
+    >input{
+        width: 45%;
+        height: 40px;
+        border-radius: 8px;
+        border-width: 1pt;
+        color: grey;
+    }
+`
+

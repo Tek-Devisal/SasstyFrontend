@@ -80,7 +80,8 @@ const ProductDetails = styled.div`
         color: #757E7E;
         font-weight: 390;
         text-transform: uppercase;
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 18px;
         text-align: center;
     }
 `

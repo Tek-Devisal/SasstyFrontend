@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const RecentlyViewed = () => {
+const RecentlyViewed = ({items}) => {
   return (
     <>
         <ComponentWrapper>
@@ -9,8 +9,8 @@ const RecentlyViewed = () => {
                 <img src='/Images/laptop.png' alt='Product Item'/>
             </ProductImage>
             <ProductDetails>
-                <p>Eius Modi Tempora</p>
-                <p style={{fontSize: "14px", fontWeight: "bold", color: '#FF2164'}}>$120.00 <span>$130.00</span></p>
+                <p>{items.name}</p>
+                <p style={{fontSize: "14px", fontWeight: "bold", color: '#FF2164'}}>GH¢{items.prize}<span>$130.00</span></p>
             </ProductDetails>
         </ComponentWrapper>
         

@@ -105,7 +105,7 @@ const Navbar = () => {
                 {isOpen ? <>&#10005;</> : <>&#8801;</>}
         </OpenLinksButton>
         {isOpen && <MenuItemsContainer>
-        <motion.div initial={{x:-250}} animate={{x: 0}} transition={{type: 'tween', duration: 1, damping: 5, stiffness: 20}} style={{width: '80%', height: '100%', backgroundColor: '#fff', contain: 'content', overflow: 'scroll'}}>
+        <motion.div initial={{x:-250}} animate={{x: 0}} transition={{type: 'tween', duration: .5, damping: 5, stiffness: 20}} style={{width: '80%', height: '100%', backgroundColor: '#fff', contain: 'content', overflow: 'scroll'}}>
             {/* {range.map(c=><p>{c}</p>)} */}
             <MobileListContainer>
                 <h5>Hello, Sign In</h5>

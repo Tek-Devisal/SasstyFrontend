@@ -42,13 +42,13 @@ export default LatestProdSidebar
 
 const ComponentWrapper = styled.div`
     width: 100%;
-    margin-top: 10px;
+    /* margin-top: 5px; */
     height: 118px;
     /* margin-right: 10px; */
     background-color: #fff;
     /* border-radius: 15px; */
     /* border: 2px solid #B1B1B1; */
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 
     > a{
         text-decoration: none;
@@ -72,7 +72,7 @@ const ProductItem = styled.div`
     }
     
     >p{
-      font-size: 19px;
+      font-size: 16px;
       margin-top: 10px;
       color: #333;
     }

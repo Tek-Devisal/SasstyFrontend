@@ -20,7 +20,7 @@ const TopRatedSidebar = ({items}) => {
             <Item>
                 {/* <LocationOnOutlinedIcon style={{color: "#333", fontSize: "70px", marginRight: "10px"}}/> */}
                 <img src={`${BASE_URL}${items.img_1}`} alt=''/>
-                <p style={{color: '#5F5D5D', fontSize: '18px', fontWight: 'bold'}}><span style={{fontSize: "17px", fontWeight: 'bold', color: '#FF2164'}}>GH¢{items.prize}</span><br/>{items.name}</p>
+                <p style={{color: '#5F5D5D', fontSize: '16px', fontWight: 'bold'}}><span style={{fontSize: "16px", fontWeight: 'bold', color: '#FF2164'}}>GH¢{items.prize}</span><br/>{items.name}</p>
             </Item>
         </Link>
         </ComponentWrapper>
@@ -35,12 +35,12 @@ export const ComponentWrapper = styled.div`
     flex-direction: column;
     width: 100%;
     margin-top: 0px;
-    height: 463px;
+    height: 110px;
     background-color: #fff;
     /* border-radius: 15px; */
     /* border: 2px solid #B1B1B1; */
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     >a{
         text-decoration: none;

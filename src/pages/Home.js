@@ -45,8 +45,8 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import TopRankings from '../components/TopRankings';
 import TheMegaMenu from '../components/TheMegaMenu';
 
-export const BASE_URL = "https://sassty-web.herokuapp.com"
-// export const BASE_URL = "http://127.0.0.1:8000"
+// export const BASE_URL = "https://sassty-web.herokuapp.com"
+export const BASE_URL = "http://146.190.57.41:8000"
 
 // import { Helmet, HelmetProvider } from 'react-helmet-async';
 
@@ -65,7 +65,8 @@ const Home = () => {
           setSubSubMenuJewelries,
           setSubSubMenuHomeAppliances,
           setSubSubMenuShoesBags,
-          setSubSubMenuLights
+          setSubSubMenuLights,
+          recentlyViewed, setRecentlyViewed,
    } = useContext(MegaMenuStateContext);
   const { userInfo, setUserInfo, setAuthTokens, authTokens } = useContext(UserContext);
 
@@ -260,6 +261,13 @@ const Home = () => {
     }
   };
 
+  // useEffect(() => {
+  //   const storedRecentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed'));
+  //   if (storedRecentlyViewed) {
+  //     setRecentlyViewed(storedRecentlyViewed);
+  //   }
+  // }, []);
+
   useEffect(() => {
     fetchCategories();
     fetchAllSubCategories()
@@ -271,6 +279,8 @@ const Home = () => {
     fetchLatestProducts();
     // fetchDailyProducts2();
   }, []);
+
+  // console.log("Recently viewed: ",recentlyViewed);
 
   return (
     <div className="HomePage">
@@ -477,7 +487,7 @@ const Home = () => {
                   <Tab value="three" label="Item Three" />
                 </Tabs>
               </TrendingItemsHead>
-              <Container maxWidth="lg">
+              {/* <Container maxWidth="lg"> */}
                 <MainRowThree>
                   {trendingProducts?.map((trendingitems) => (
                     <TrendingItems
@@ -487,7 +497,7 @@ const Home = () => {
                   ))}
                   {/* <TrendingItems />*/}
                 </MainRowThree>
-              </Container>
+              {/* </Container> */}
               <MainRowFour>
                 <LeftAd>
                   <img src="/Images/ad2.png" alt="Ad" />
@@ -569,12 +579,16 @@ const Home = () => {
             </div>
           </TrendingItemsHead>
           <RowNine>
+          {/* {recentlyViewed?.map((item) => (
+              <RecentlyViewed key={item.name} items={item} />
+          ))} */}
+          
+            {/* <RecentlyViewed />
             <RecentlyViewed />
             <RecentlyViewed />
             <RecentlyViewed />
             <RecentlyViewed />
-            <RecentlyViewed />
-            <RecentlyViewed />
+            <RecentlyViewed /> */}
           </RowNine>
         </PageBottom>
       </PageWrapper>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
@@ -27,23 +27,71 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import MegaMenuStateContext from '../ContextAPI/MegaMenuContext';
 
 import {CusterPolicyItems, PolicyOne, PolicyTwo} from './Home'
+import axios from 'axios';
 
 
 const ProductDetailPage = () => {
 
     const [{basket}, dispatch] = useStateValue();
 
+    const { recentlyViewed, setRecentlyViewed, } = useContext(MegaMenuStateContext);
+
     const linkId = localStorage.getItem("Specific product id")
 
-    const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchSpecificProduct/${linkId}`);
-    console.log("This is detailed data: ",data)
-    console.log("Try",linkId)
+    const [itemDetails, setItemDetails] = useState()
+
+
+    const fetchDetailedProduct = async () => {
+        try {
+          //   const items = await axios.get(BASE_URL + "/v1/fetchProducts/1/");
+          const detaileditemdata = await axios.get(
+            `${BASE_URL}/products/v1/fetchSpecificProduct/${linkId}`
+          );
+          setItemDetails(detaileditemdata.data);
+          console.log("Random Products ", detaileditemdata.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+    // const {data, isPending, error} = useFetch(`${BASE_URL}/products/v1/fetchSpecificProduct/${linkId}`);
+    // console.log("This is detailed data: ",data)
+    // // setItemDetails(data)
+    // console.log("Try",linkId)
+    
+  
     
 
-    const [material, setMaterial] = React.useState('');
+    const [material, setMaterial] = useState('');
     const [itemNum, setItemNum] = useState(1);
+    // const [recentlyViewed, setRecentlyViewed] = useState([]);
+
+    const handleViewProduct = (product) => {
+        setRecentlyViewed([...recentlyViewed, product]);
+    }
+
+    useEffect(() => {
+        fetchDetailedProduct();
+    }, [])
+
+
+    // useEffect(() => {
+    //     // if(itemDetails){
+    //         handleViewProduct(itemDetails)
+    //     // }
+    // }, [])
+
+      
+    // useEffect(() => {
+    //     localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+    // }, [recentlyViewed]);
+
+    // localStorage.removeItem('recentlyViewed')
+      
+      
 
     const addItem = () => {
         setItemNum(itemNum + 1);
@@ -56,11 +104,6 @@ const ProductDetailPage = () => {
           }
       }
 
-
-
-    const handleChange = (event) => {
-        setMaterial(event.target.value);
-    };
 
     const addToBasket = (myData) => { 
         // add item to basket
@@ -83,7 +126,7 @@ const ProductDetailPage = () => {
     <>
         <Navbar />
         <PageWrapper>
-            {data?.map(details => (<MainContent key={details.id}>
+            {itemDetails?.map(details => (<MainContent key={details.id}>
                 <ImageSection>
                     {/* <ProductGallery key={details.id}/> */}
                     <ProductGallery2 />

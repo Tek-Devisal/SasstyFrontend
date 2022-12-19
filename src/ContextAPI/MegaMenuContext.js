@@ -13,7 +13,7 @@ export function MegaMenuProvider ({children}) {
     const [catIdforMegaMenu, setCatIdforMegaMenu] = useState()
     const [subcategoryinfo, setSubcategoryinfo] = useState()
     const [subsubcatURL, setSubsubcatURL] = useState()
-
+    const [recentlyViewed, setRecentlyViewed] = useState();
 
     const [subSubMenuForMen, setSubSubMenuForMen] = useState()
     const [subSubMenuPhonesAccessories, setSubSubMenuPhonesAccessories] = useState()
@@ -47,6 +47,8 @@ export function MegaMenuProvider ({children}) {
                 catIdforMegaMenu, 
                 setCatIdforMegaMenu,
                 allcategory, setAllcategory,
+
+                recentlyViewed, setRecentlyViewed,
 
                 subSubMenuForMen, setSubSubMenuForMen,
                 subSubMenuPhonesAccessories, setSubSubMenuPhonesAccessories,
