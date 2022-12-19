@@ -81,6 +81,7 @@ const ProductDetails = styled.div`
         color: #757E7E;
         font-weight: 500;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
     }
 
     > p >span {

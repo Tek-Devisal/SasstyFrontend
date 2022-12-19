@@ -909,7 +909,7 @@ const MainRowOne = styled.div`
   @media only screen and (max-width: 600px) {
     /* display: none; */
     width: 100%;
-    height: 400px;
+    /* height: auto; */
     flex-wrap: wrap;
   }
 `;

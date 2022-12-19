@@ -21,7 +21,7 @@ const ProductsRowTwo = ({items}) => {
             
             
             <ProductDetails>
-                <Typography sx={{fontSize: {lg: 14,md: 12,sm: 10,xs: 10}}}>{items.name}</Typography>
+                <Typography sx={{fontSize: {lg: 13,md: 12,sm: 10,xs: 10}}}>{items.name}</Typography>
                 <p style={{fontSize: "14px", fontWeight: "bold"}}>GH¢{items.prize}</p>
             </ProductDetails>
             </Link>

@@ -129,7 +129,8 @@ const ProductDetailPage = () => {
             {itemDetails?.map(details => (<MainContent key={details.id}>
                 <ImageSection>
                     {/* <ProductGallery key={details.id}/> */}
-                    <ProductGallery2 />
+                    <ProductGallery2 image1={details?.img_1} image2={details?.img_2} image3={details?.img_3} image4={details?.img_4} image5={details?.img_5} />
+                    
                 </ImageSection>
                 <ProductSection>
                     <p>{details.description}</p>

@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import { BASE_URL } from '../pages/Home'
 
-const ProductGallery2 = () => {
+const ProductGallery2 = ({image1, image2, image3, image4, image5}) => {
 
-    const [activeImage, setActiveImage] = useState("Images/sl1.jpg")
+    const [activeImage, setActiveImage] = useState(`${BASE_URL}${image1}`)
+    console.log("THis is the image ",activeImage);
 
   return (
     <ComponentWrapper>
@@ -11,11 +13,11 @@ const ProductGallery2 = () => {
             <img src={activeImage} alt='Selected' />
         </MainImage>
         <Sub>
-            <SubImage onMouseEnter={()=>setActiveImage("Images/sl2.jpg")}><img src="Images/sl2.jpg"/></SubImage>
-            <SubImage onMouseEnter={()=>setActiveImage("Images/sl3.jpg")}><img src="Images/sl3.jpg"/></SubImage>
-            <SubImage onMouseEnter={()=>setActiveImage("Images/sl4.jpg")}><img src="Images/sl4.jpg"/></SubImage>
-            <SubImage onMouseEnter={()=>setActiveImage("Images/sl5.jpg")}><img src="Images/sl5.jpg"/></SubImage>
-            <SubImage onMouseEnter={()=>setActiveImage("Images/sl6.jpg")}><img src="Images/sl6.jpg"/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage(`${BASE_URL}${image1}`)}><img src={`${BASE_URL}${image1}`}/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage(`${BASE_URL}${image2}`)}><img src={`${BASE_URL}${image2}`}/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage(`${BASE_URL}${image3}`)}><img src={`${BASE_URL}${image3}`}/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage(`${BASE_URL}${image4}`)}><img src={`${BASE_URL}${image4}`}/></SubImage>
+            <SubImage onMouseEnter={()=>setActiveImage(`${BASE_URL}${image5}`)}><img src={`${BASE_URL}${image5}`}/></SubImage>
         </Sub>
     </ComponentWrapper>
   )
