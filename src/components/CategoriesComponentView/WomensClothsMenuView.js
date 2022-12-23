@@ -10,6 +10,7 @@ const WomensClothsMenuView = () => {
     const accordionData = [
         {title: "Watches", data: [{id: 2, name: 'Rolex'}, {id: 3, name: 'Casio'}]}, //content: ["Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer", "Rolex", "Casio", "Titan", "Fossil", "Omega", "Citizen", "Tissot", "Breitling", "Seiko", "Tag Heuer"]},
         {title: "Books", data: [{id: 4, name: 'Bugatti'}, {id: 5, name: 'Hey'}]},
+        {cat: "Books", subcat: {subname: 'hey', data: [{id: 4, name: 'Bugatti'}, {id: 5, name: 'Hey'}]}},
       ]
 
 
@@ -20,9 +21,10 @@ const WomensClothsMenuView = () => {
       
 
       // accordionData.map((item)=>(
-      //   console.log(item.title),
-      //   item.data.map((hey)=>{
+      //   console.log(item.cat),
+      //   item.subcat.map((hey)=>{
       //     console.log(hey.name)
+      //     console.log(hey.data.name)
       //   })
       // ))
 

@@ -81,7 +81,7 @@ const Cart = () => {
         <PageWrapper>
             <MainContent>
                 <ImageSection>
-                    <Typography variant="h3" mb={2}>Shopping Cart</Typography>
+                    <Typography variant="h3" mb={2} sx={{fontSize: {lg: 35,md: 18,sm: 18,xs: 18}}}>Shopping Cart</Typography>
                     <Divider variant="middle" component="div" role="presentation"/>
                     {basket?.map(iteminfo=>(<CartItem item={iteminfo}/>))}
 
@@ -133,7 +133,7 @@ const Cart = () => {
                 </div>
             </DailyDeals>
             <RelatedContentTwo>
-            <DailyDealsItemsTwo />
+                <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
                 <DailyDealsItemsTwo />
@@ -168,6 +168,11 @@ const MainContent = styled.div`
     padding-right: 50px;
     margin-bottom: 150px;
     /* border: 1px solid red; */
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        width: 100%;
+        padding-right: 5px;
+    }
 
 `
 
@@ -179,11 +184,19 @@ const RelatedContentTwo = styled.div`
     margin-top: 20px;
     margin-bottom: 50px;
     width: 98%;
-    /* border: 1px solid red; */
+    /* border: 2px solid green; */
     /* padding-bottom: 20px; */
     /* justify-content: center; */
     /* transform: skew(20deg); */
     background-color: #fff;
+
+    @media only screen and (max-width: 600px) {
+        /* display: none; */
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+        /* contain: content; */
+    }
 `
 
 
@@ -248,6 +261,12 @@ const DivTwo = styled.div`
     /* margin-right: 40px; */
     /* border: 1px solid blue; */
     background-color: #F93C0033;
+
+    @media only screen and (max-width: 600px) {
+        /* flex-direction: column; */
+        width: 100%;
+        padding-left: 15px;
+    }
 `
 const DivImages = styled.div`
     display: flex;

@@ -34,6 +34,7 @@ const ComponentWrapper = styled.div`
     height: 200px;
     box-sizing: border-box;
     background-color: #c4bdbd;
+    margin-top: auto;
     /* border-radius: 10px; */
     @media only screen and (max-width: 600px) {
         min-width: fit-content;

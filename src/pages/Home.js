@@ -128,6 +128,7 @@ const Home = () => {
       const data12 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${19}`);
       const data13 = await axios.get(`${BASE_URL}/products/v1/fetchForMenu/${20}`);
 
+      console.log("The mens data is: ", data3.data);
       setSubcategoryinfo(data.data);
       setSubSubMenuForMen(data1.data);
       setSubSubMenuPhonesAccessories(data2.data);
